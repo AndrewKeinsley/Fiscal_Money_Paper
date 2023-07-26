@@ -1,0 +1,57 @@
+Literature Notes
+
+Diewert (1976):
+"The paper shows that a certain family of index number formulae is exact for the `flexible' quadratic mean of order r aggregator function {see equation} [...]. For r equals 2, the resulting quantity index is Irving Fisher's ideal index.
+    - "exact" refers to the fact that the index number is equivalent to the true aggregator function, without the need to estimate the parameter values
+    - quantity index is "superlative" if it is exact for an aggregator function f(.) which can provide a second-order approximation to a linear homogeneous function.
+
+
+Jorgenson and Lau show that the homogenous translog function can provide a second-order approximation to an arbitrary twice-continuously-differentiable linear homogenous function.
+    - Boisvert (1982)
+        - translog function is more flexible/general than Cobb-Douglas or CES, allowing the partial elasticities of substitution between inputs to vary
+        - "Although the CES production function, for example, accommodates elasticities of substitution different from zero or unity, they remain constant at all levels of input."
+        - "The general applicability of the CES function has been restricted because of the nonlinear estimation problems and the necessity to choose amoung several alternative CES forms on the basis of functional separability."
+        - "This algebraic formulation [logarithm of the original exponential form], can be viewed in three ways:
+            1. As an exact production function
+                - reduces to a Cobb-Doublas function in the case where all the cross elasticities are 0
+                - estimation is used as a test of the appropriateness of using Cobb-Douglas 
+            2. As a second-order Taylor series approximation to a general, but unknown production function 
+                - second-order Taylor expansion of a generic function h(.) is the translog so long as you interpret h(.) as the logarithm of the underlying production function.
+                - must specify a point of approximation: if using steady state, then the deviation component is zero and the entire approximation reduces to translog
+            3. As a second order approximation to a CES production function 
+                - CES functions are non-linear in their parameters, even in logarithmic form, so using the translog is empirically easier
+                - Options: Taylor approximations often diverge an the gradient methods converge slowly
+                - Real interesting walk-through of how to estimate the equaiton around the substitution parameter equaling zero, and is generalizable to n items in the aggregator function
+                    - These all reduce down to translog forms, allowing us to estimate the paramters of a CES function
+                    - The approximation is better as the elasticity of substitution is closer to unity since the subsitution paramters is centered around zero
+                    - Seem to be many difficulties in estimating the CES paramters and a lot of hoops to jump through
+                    - "Thus, the translog form is of limited use in estimating the parameters of the CES production function, except in the two input case."
+
+
+MD_RefereeReport_01 Notes
+Comment 1:
+    - "This implies that when you use the Fisher index to construct monetary or fiscal assets, you are 
+        implicitly assuming that the underlying aggregator function takes a second-order
+        quadratic mean functional form. This is important to note because, in equation (8),
+        a constant elasticity of substitution function is assumed for the fiscal assets, which
+        obviously contradicts with this implicit assumption."
+    - If I were trying to estimate the parameters of the CES function (n=2), then yes, a translog formulation would be needed
+    - Diewert (1976, pg 130): quadratic mean of order r aggregator function 
+        - f_r(x) = [sum_i sum_j a_ij(x_i)^r/2(x_j)^r/2]^1/r
+        - if r = 2, this simplifies to f_r(x) = [sum_i sum_j a_ij(x_i)(x_j)]^1/2 and we can then use the Fisher Index 
+        - as r -> 0, this simplifies to a translog functional form 
+            (?) Does this mean that translog won't work since r /= 2?
+            <<< NO! See Diewert (1976, Section 2) >>>
+            (regarding the Fisher index) "The above argument shows that this quantity index is exact for a homogeneous translog
+                aggregator function, and in view of the second-order approximation property
+                of the homogeneous translog function, we see that the right-hand side of (2.12)
+                is a superlative quantity index."
+        - if all the cross elasticities are zero (a_ij), then this reduces to a CES functional form at r=1
+            - so the issue is that Fisher Index implies the true aggregator is r=2, but CES is r=1 with the added assumption that the cross elasticities are zero
+            (?) So just switching (8) in the paper to a generic translog form should satisfy this issue?
+                - Consider it a second order approximation to the unknown aggregator function around steady state in the model, allowing me to use the Fisher Index
+                - See above excerpt from Diewert (1976) for proof.
+        
+*** Switch out CES function (8) with translog function with n = 2 ***
+    - should still be able to derive the same user cost 
+    - should also be able to derive the fisher index specifically
