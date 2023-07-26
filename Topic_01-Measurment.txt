@@ -1,0 +1,25 @@
+(*) This paper will focus solely on the measurement of USTs and the resulting metrics
+
+(>) Important aspects
+    A. Motivation of non-simple sum aggregator
+        - Empirically showing that these assets are inherently different in terms of liquidity, safety, etc.
+        - Need a good lit review proving the perferred habitat theory as well as other differences - Amahud and Mendelson (1991) for instance 
+        - Deep dive into the literature regarding what simple-sum aggegators implicitly
+        - Why market value aggregates don't quite capture these differences 
+    B. Motivation of Fisher Ideal Index
+        - DSGE model with bonds in the utilty function
+        - Translog monetary-services approximation
+        - Derive user cost and the Fisher Ideal index (if applicable)
+    C. Data and assumptions
+    D. Calculation and Presentation
+    E. Implications
+        - This one is particularly troublesome because it will lead to debt levels seeming larger than the simple sum
+        - May need to incorporate the fiscal capacity derivation here
+
+(>) Items for later papers
+    A. What is being measured: liquidity vs safety vs collateral
+        - requires three additional mechanisms for each
+        - hopefully these mechanisms will show up in the user cost and I can measure them
+    B. What fiscally-provided monetary services do to inflation
+        - this would include the fiscal space derivations as well
+    C. Monetary-Fiscal Interaction with Fiscal Monetary Services

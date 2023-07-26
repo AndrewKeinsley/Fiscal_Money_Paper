@@ -55,3 +55,10 @@ Comment 1:
 *** Switch out CES function (8) with translog function with n = 2 ***
     - should still be able to derive the same user cost 
     - should also be able to derive the fisher index specifically
+    (!) This would fly in the face of R2's recommendation to add more components to the model to derive testable hypotheses
+        - cash-in-advance constraint for liquidity
+        - corporate default for safety
+        (?) that might help derive the liquidity and safety of USTs generally, but it wouldn't suffice in differentiating the assets
+        - could add increasing transaction costs to short- and long-term bonds to model liquidity
+        - matching models for buying and selling? -> doesn't really give me anything testable there except maybe to match the bid-ask spread
+        
