@@ -23,3 +23,10 @@
     B. What fiscally-provided monetary services do to inflation
         - this would include the fiscal space derivations as well
     C. Monetary-Fiscal Interaction with Fiscal Monetary Services
+
+(>) Potential Issues with this paper
+    A. WHO CARES? -> Explaining why this is useful is going to be a problem.
+        - Monetary aggregation literature doesn't get a lot of publicity, so why would this?
+        - The other topics are going to be the crux of why this is important, but they won't be in this paper
+        - Will really need to sell the problems with the metrics we currently use
+    
