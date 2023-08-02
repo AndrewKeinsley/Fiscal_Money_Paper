@@ -1,18 +1,35 @@
 (*) This paper will focus solely on the measurement of USTs and the resulting metrics
 
 (>) Important aspects
-    A. Motivation of non-simple sum aggregator
+    A. An Overview of Aggregating Financial Assets
+        - When we aggregate the entirety of the US economy, we take each item and convert
+            it into a market value. We do this because we understand that no two goods/services
+            are identical, and therefore we cannot simply sum up the quantity of items. 
+        - Money-and financial assets more generally-can be viewed in the same light. Some assets
+            are held for their liquidity properties, while others are valued for their safety,
+            use as collateral, or mitigators of risk. 
+        - A simple sum aggregator, like the standard M1 and M2 metrics, ignores these differences.
+            That is, these measures are correct under the strong assumption that these various financial vehicles
+            are perfect substitutes for one another. The fact that their yields vary accross assets and time
+            is sufficient to conclude that this cannot be the case. 
+        - Barnett and Chauvet (2009) provide an excellent, chronological history of the advances in
+            monetary aggregation.
+        - Barnett and Serletis (2000) surveys the literature. 
+    B. Motivation of non-simple sum aggregator
+        - Primarily going to be a literature review
+            - Amahud and Mendelson (1991) regarding Bills and Notes
+            (!) Replicate and expand with Notes and Bonds
         - Empirically showing that these assets are inherently different in terms of liquidity, safety, etc.
         - Need a good lit review proving the perferred habitat theory as well as other differences - Amahud and Mendelson (1991) for instance 
-        - Deep dive into the literature regarding what simple-sum aggegators implicitly
+        - Deep dive into the literature regarding what simple-sum aggegators imply
         - Why market value aggregates don't quite capture these differences 
-    B. Motivation of Fisher Ideal Index
+    C. Motivation of Fisher Ideal Index
         - DSGE model with bonds in the utilty function
         - Translog monetary-services approximation
         - Derive user cost and the Fisher Ideal index (if applicable)
-    C. Data and assumptions
-    D. Calculation and Presentation
-    E. Implications
+    D. Data and assumptions
+    E. Calculation and Presentation
+    F. Implications
         - This one is particularly troublesome because it will lead to debt levels seeming larger than the simple sum
         - May need to incorporate the fiscal capacity derivation here
 

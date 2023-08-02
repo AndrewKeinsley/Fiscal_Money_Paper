@@ -1,0 +1,46 @@
+This is BibTeX, Version 0.99d (TeX Live 2015)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: Fiscal_Fisher_Index.aux
+The style file: apecon.bst
+Database file #1: MonetaryServices_Debt.bib
+You've used 15 entries,
+            2744 wiz_defined-function locations,
+            689 strings with 6859 characters,
+and the built_in function-call counts, 7578 in all, are:
+= -- 595
+> -- 263
+< -- 15
++ -- 102
+- -- 87
+* -- 599
+:= -- 1215
+add.period$ -- 15
+call.type$ -- 15
+change.case$ -- 105
+chr.to.int$ -- 15
+cite$ -- 15
+duplicate$ -- 581
+empty$ -- 602
+format.name$ -- 130
+if$ -- 1470
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 117
+newline$ -- 49
+num.names$ -- 61
+pop$ -- 211
+preamble$ -- 1
+purify$ -- 89
+quote$ -- 0
+skip$ -- 188
+stack$ -- 0
+substring$ -- 375
+swap$ -- 303
+text.length$ -- 4
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 132
+warning$ -- 0
+while$ -- 55
+width$ -- 0
+write$ -- 167
