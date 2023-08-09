@@ -218,6 +218,39 @@ Figure \ref{fig:BidAsk_Ratios} presents a comparison of the bid-ask ratios, sugg
 These snapshots show that, even when identical on paper, the UST market is quite segmented, and the assets therein cannot be perfect substitutes.\footnote{
 	This also lends credence to the use of ``preferred habitat" assumptions in structural models to motivate the the term structure of the interest rates.}
 
+\begin{table}[h]
+	\centering
+	\setlength{\tabcolsep}{15pt}
+    \renewcommand{\arraystretch}{1.5}
+	\caption{Relative Liquidity and Yield to Maturity$^a$} \vspace{1em}
+	\begin{threeparttable}
+		\begin{tabular}{l d{2.4} d{2.4} } \toprule
+										& \multicolumn{1}{c}{Notes--Bills$^{b}$}  & \multicolumn{1}{c}{Bonds--Notes} 	\\ \midrule
+			Relative Bid-Ask Spread 	& -160.3350^{***}					& -165.6829^{***}					\\ [-0.5em]
+										& (25.546)							& (8.065)							\\
+			Days-to-Maturity Difference & 0.0156^{***}						& 0.0000^{***}						\\ [-0.5em]
+										& (0.005)							& (0.000)							\\
+			Coupon Rate Spread 			& 0.0236^{***}						& 0.0472^{***}						\\ [-0.5em]
+										& (0.002)							& (0.004)							\\
+			Months to Maturity 			& -0.0220^{***} 					& 									\\ [-0.5em]
+										& (0.003)							&									\\
+			Years to Maturity 			& 									& -0.0172^{***}						\\ [-0.5em]
+										& 									& (0.002)							\\
+			Year Dummy 					& 0.0027^{***}						& -0.0079^{***}						\\ [-0.5em]
+										& (0.001) 							& (0.001)							\\ 
+			Constant					& -5.2439^{***} 					& 15.6621^{***}						\\ [-0.5em]
+										& (1.081)							& (1.056) 							\\\midrule
+			Observations				& \multicolumn{1}{c}{3966}			& \multicolumn{1}{c}{7430}			\\
+			R-Squared					& 0.096								& 0.505								\\
+			F-statistic 				& 39.14								& 207.2								\\ \bottomrule 
+		\end{tabular}
+		\begin{tablenotes}
+			\item[a] \footnotesize{The dependent variable is the yield-to-maturity spread between securities matched by thier respective days to maturity. Standard errors are heteroskedasticity robust (HC1)}
+			\item[b] \footnotesize{The notes--bills analysis is limited to those securities with six months to maturity or less. This ensures that both securities have no other payments remaining until the maturity date.}
+		\end{tablenotes}
+	\end{threeparttable}
+\end{table}
+
 %: Median YTM over the Sample Period
 % \begin{figure}[p]
 % \centering

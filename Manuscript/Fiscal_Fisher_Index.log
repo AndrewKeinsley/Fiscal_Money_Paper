@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  2 AUG 2023 08:33
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  9 AUG 2023 10:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1035,57 +1035,116 @@ LaTeX Warning: Reference `fig:YTM_SpreadTS' on page 6 undefined on input line 21
 
 LaTeX Warning: Reference `fig:BidAsk_Ratios' on page 6 undefined on input line 217.
 
-[6] [7]
-LaTeX Font Info:    Calculating math sizes for size <7.66495> on input line 278.
+
+Overfull \hbox (13.25018pt too wide) detected at line 229
+$\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 3350[]$ 
+ []
+
+
+Overfull \hbox (13.25018pt too wide) detected at line 229
+$\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 6829[]$ 
+ []
+
+
+Overfull \hbox (13.25018pt too wide) detected at line 231
+$\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 0156[]$ 
+ []
+
+
+Overfull \hbox (13.25018pt too wide) detected at line 231
+$\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 0000[]$ 
+ []
+
+
+Overfull \hbox (13.25018pt too wide) detected at line 233
+$\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 0236[]$ 
+ []
+
+
+Overfull \hbox (13.25018pt too wide) detected at line 233
+$\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 0472[]$ 
+ []
+
+
+Overfull \hbox (13.25018pt too wide) detected at line 235
+$\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 0220[]$ 
+ []
+
+
+Overfull \hbox (13.25018pt too wide) detected at line 237
+$\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 0172[]$ 
+ []
+
+
+Overfull \hbox (13.25018pt too wide) detected at line 239
+$\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 0027[]$ 
+ []
+
+
+Overfull \hbox (13.25018pt too wide) detected at line 239
+$\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 0079[]$ 
+ []
+
+
+Overfull \hbox (13.25018pt too wide) detected at line 241
+$\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 2439[]$ 
+ []
+
+
+Overfull \hbox (13.25018pt too wide) detected at line 241
+$\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 6621[]$ 
+ []
+
+[6] [7] [8]
+LaTeX Font Info:    Calculating math sizes for size <7.66495> on input line 311.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <3.83247> not available
-(Font)              size <5> substituted on input line 278.
+(Font)              size <5> substituted on input line 311.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <3.83247> not available
-(Font)              size <5> substituted on input line 278.
+(Font)              size <5> substituted on input line 311.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <3.83247> not available
-(Font)              size <5> substituted on input line 278.
+(Font)              size <5> substituted on input line 311.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <3.83247> not available
-(Font)              size <5> substituted on input line 278.
+(Font)              size <5> substituted on input line 311.
 
-[8] [9] [10]
+[9] [10] [11]
 
-LaTeX Warning: Reference `app:HH_Solution' on page 11 undefined on input line 348.
+LaTeX Warning: Reference `app:HH_Solution' on page 12 undefined on input line 381.
 
-[11]
 
-LaTeX Warning: Reference `app:usercost_derivation' on page 12 undefined on input line 372.
+LaTeX Warning: Reference `app:usercost_derivation' on page 12 undefined on input line 405.
 
 [12] [13] [14]
 
-LaTeX Warning: Reference `fig:YTM_Spread' on page 15 undefined on input line 451.
+LaTeX Warning: Reference `fig:YTM_Spread' on page 15 undefined on input line 484.
 
 
-LaTeX Warning: Reference `fig:BidAsk_Ratios' on page 15 undefined on input line 451.
+LaTeX Warning: Reference `fig:BidAsk_Ratios' on page 15 undefined on input line 484.
 
 [15] [16]
 
-LaTeX Warning: Reference `fig:Growth_Spread' on page 17 undefined on input line 494.
+LaTeX Warning: Reference `fig:Growth_Spread' on page 17 undefined on input line 527.
 
 [17]
 
-LaTeX Warning: Reference `fig:Growth_Spread' on page 18 undefined on input line 507.
+LaTeX Warning: Reference `fig:Growth_Spread' on page 18 undefined on input line 540.
 
 
-LaTeX Warning: Reference `fig:MS_Index' on page 18 undefined on input line 519.
+LaTeX Warning: Reference `fig:MS_Index' on page 18 undefined on input line 552.
 
-[18] (/Users/andrewkeinsley/Documents/Fiscal_Money_Paper/Manuscript/Fiscal_Fisher_Index.bbl [19]) [20]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 531.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 531.
+[18] [19] (/Users/andrewkeinsley/Documents/Fiscal_Money_Paper/Manuscript/Fiscal_Fisher_Index.bbl [20]) [21]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 564.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 564.
  (/Users/andrewkeinsley/Documents/Fiscal_Money_Paper/Manuscript/Fiscal_Fisher_Index.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 531.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 531.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 564.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 564.
 Package rerunfilecheck Info: File `Fiscal_Fisher_Index.out' has not changed.
 (rerunfilecheck)             Checksum: C6705E5B84BF71B81619E24D7DC020BB;872.
 
@@ -1096,21 +1155,21 @@ LaTeX Font Warning: Size substitutions with differences
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 531.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 564.
  ) 
 Here is how much of TeX's memory you used:
- 37059 strings out of 493089
- 817342 string characters out of 6134842
- 928606 words of memory out of 5000000
- 39917 multiletter control sequences out of 15000+600000
+ 37068 strings out of 493089
+ 817442 string characters out of 6134842
+ 929609 words of memory out of 5000000
+ 39924 multiletter control sequences out of 15000+600000
  24099 words of font info for 94 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,12n,77p,10513b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,13n,77p,10513b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/cm-super/sfrm0600.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb>
-Output written on /Users/andrewkeinsley/Documents/Fiscal_Money_Paper/Manuscript/Fiscal_Fisher_Index.pdf (21 pages, 292273 bytes).
+Output written on /Users/andrewkeinsley/Documents/Fiscal_Money_Paper/Manuscript/Fiscal_Fisher_Index.pdf (22 pages, 295051 bytes).
 PDF statistics:
- 385 PDF objects out of 1000 (max. 8388607)
- 334 compressed objects within 4 object streams
- 82 named destinations out of 1000 (max. 500000)
+ 390 PDF objects out of 1000 (max. 8388607)
+ 338 compressed objects within 4 object streams
+ 84 named destinations out of 1000 (max. 500000)
  109 words of extra memory for PDF output out of 10000 (max. 10000000)
 
