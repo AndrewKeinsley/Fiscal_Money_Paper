@@ -199,35 +199,68 @@ Thus, it is important to note that an increase in an assets user cost does not n
 
 \subsection{Market Segmentation as Application Motivation}
 \label{subsec:MktSeg}
-The general reasoning behind the use of theoretically-true aggregates is that the simple-sum derivation implies that the underlying assets are perfect substitutes. 
-An easy way to assess the substitutability is to check for a yield-to-maturity (YTM) spread between Treasury notes and Treasury bonds of the same remaining time to maturity.
-That is, comparing the YTM of a Treasury note that matures in $t$ periods with a Treasury bond that also matures in $t$ periods.
+Simple-sum aggregates come with an assumption that the underlying assets are perfect substitutes. 
+Signs of {\em imperfect} substitutability would include a yield-to-maturity (YTM) spread between assets that are identical in everything but name.
+Figure \ref{fig:YTM_Spread} shows the median yields to maturity of Treasury notes and Treasury bonds with roughly the same time to maturity, for the 1970--2020 period.
+That is, the time series compare the YTM of a Treasury note that matures within $t$ periods with a Treasury bond that also matures with $t$ periods.
 Technically speaking, the only difference between these securities on the secondary market is the label attached to their initial maturity.
 So we should expect that a note and bond would be perfect substitutes and thus carry the same YTM.
-Figure \ref{fig:YTM_Spread} effectively presents their median yield curves from 1970-2020.
-This shows that, while not constant, there is a persistent spread between the yields on these two instruments.\footnote{
-	The yields are calculated by first grouping securities into those denoted as {\em Notes} and {\em Bonds}, then by the number of quarters remaining to maturity.
-	That is, a security set to mature within three months is considered a security that will mature within one quarter, etc.
-	These groupings are done for every month between January 1970, and December 2020. 
-	The yields shown are the median values of each across the time period.
-	More information about this categorization method can be found later.}
-Perhaps more surprising is that bonds sell at a premium relative to notes of the same time to maturity. 
-But even this is not constant, as the median overall spread has fluctuated over time as shown in Figure \ref{fig:YTM_SpreadTS}.
-A likely explanation of this situation is a simple extension of the work of \citet{Amihud-Mendelson:1991}: relative liquidity.
-Figure \ref{fig:BidAsk_Ratios} presents a comparison of the bid-ask ratios, suggesting that the Treasury bond market is more liquid than that of the Treasury note beyond the two-year mark.
+
+\citet{Amihud-Mendelson:1991} find that the YTM spread between notes and bills is driven by relative liquidity.
+Figure \ref{fig:BidAsk_Ratios} presents a comparison of the bid-ask ratios of notes and bonds, suggesting that bonds are more liquid than notes market.
 These snapshots show that, even when identical on paper, the UST market is quite segmented, and the assets therein cannot be perfect substitutes.\footnote{
 	This also lends credence to the use of ``preferred habitat" assumptions in structural models to motivate the the term structure of the interest rates.}
+
+%: Median YTM over the Sample Period
+\begin{figure}[p]
+\centering
+\includegraphics[width=0.7\textwidth]{../Figures/BondNote_Spread.eps}
+\caption{Median Treasury Bond and Note Yields with Same Time to Maturity}{(1970-2020)}
+\label{fig:YTM_Spread}
+\end{figure}
+%: Median YTM Time Series
+% \begin{figure}[p]
+% \centering
+% \includegraphics[width=0.7\textwidth]{../Figures/BondNote_TimeSeries.eps}
+% \caption{Median Treasury Note--Bond Yield Spread with Same Time to Maturity}{(1970-2020)}
+% \label{fig:YTM_SpreadTS}
+% \end{figure}
+%: Median Bid-Ask Spread over the Sample Period 
+\begin{figure}[p]
+\centering
+\includegraphics[width=0.7\textwidth]{../Figures/BidAsk_Ratios.eps}
+\caption{Median Treasury Bond and Note Bid-Ask Ratios with Same Time to Maturity}{(1970-2020)}
+\label{fig:BidAsk_Ratios}
+\end{figure}
+
+Using monthly data on Treasury securities identified at the CUSIP level, I extend the work of \citet{Amihud-Mendelson:1991} to empirically test this claim.
+The data are first separated by their type label: bills, notes, and bonds.
+For every month in the 1950--2020 sample period, each ``senior'' security (bond/note) is matched to a ``junior'' security (note/bill) that matures within one day of the respective note, allowing for exact matches.
+Securities without a match are removed from the analysis.
+The securities' YTM spreads are then regressed against the spreads in their relative bid-ask ratios, which are calculated as 
+$$ \text{relative bid-ask ratio} = \frac{\text{ask price }-\text{ bid price}}{\text{ask price }+\text{ accrued interset}}\times 100.$$
+An increase in the bid--ask spread implies a relative decrease in the liquidity of the ``senior'' security.
+I also control for the spread in their respective coupon rates, a general time to maturity (months/years), the difference in their days to maturity, and a calendar year dummy.\footnote{
+	Note that the coupon rate for bills is zero.
+	Since the matching threshold is one day, the ``Days-to-Maturity Difference'' variable only takes values of -1, 0, and 1. 
+	Standard errors are heteroskedasitcally robust (HC1).
+}
+
+Table \ref{tab:Relative_Liquidity} presents the results for both the notes--bills and bonds--notes, analyses.
+
+In each case, I find that a one percentage point increase in the spread between the assets' bid-ask ratios 
 
 \begin{table}[h]
 	\centering
 	\setlength{\tabcolsep}{15pt}
     \renewcommand{\arraystretch}{1.5}
 	\caption{Relative Liquidity and Yield to Maturity$^a$} \vspace{1em}
+	\label{tab:Relative_Liquidity}
 	\begin{threeparttable}
 		\begin{tabular}{l d{2.4} d{2.4} } \toprule
 										& \multicolumn{1}{c}{Notes--Bills$^{b}$}  & \multicolumn{1}{c}{Bonds--Notes} 	\\ \midrule
-			Relative Bid-Ask Spread 	& -160.3350^{***}					& -165.6829^{***}					\\ [-0.5em]
-										& (25.546)							& (8.065)							\\
+			Relative Bid-Ask Spread 	& -1.6034^{***}					& -1.6568^{***}					\\ [-0.5em]
+										& (0.255)							& (0.081)							\\
 			Days-to-Maturity Difference & 0.0156^{***}						& 0.0000^{***}						\\ [-0.5em]
 										& (0.005)							& (0.000)							\\
 			Coupon Rate Spread 			& 0.0236^{***}						& 0.0472^{***}						\\ [-0.5em]
@@ -251,27 +284,7 @@ These snapshots show that, even when identical on paper, the UST market is quite
 	\end{threeparttable}
 \end{table}
 
-%: Median YTM over the Sample Period
-% \begin{figure}[p]
-% \centering
-% \includegraphics[width=0.7\textwidth]{../Figures/BondNote_Spread.eps}
-% \caption{Median Treasury Bond and Note Yields with Same Time to Maturity}{(1970-2020)}
-% \label{fig:YTM_Spread}
-% \end{figure}
-%: Median YTM Time Series
-% \begin{figure}[p]
-% \centering
-% \includegraphics[width=0.7\textwidth]{../Figures/BondNote_TimeSeries.eps}
-% \caption{Median Treasury Note--Bond Yield Spread with Same Time to Maturity}{(1970-2020)}
-% \label{fig:YTM_SpreadTS}
-% \end{figure}
-%: Median Bid-Ask Spread over the Sample Period 
-% \begin{figure}[h]
-% \centering
-% \includegraphics[width=0.7\textwidth]{../Figures/BidAsk_Ratios.eps}
-% \caption{Median Treasury Bond and Note Bid-Ask Ratios with Same Time to Maturity}{(1970-2020)}
-% \label{fig:BidAsk_Ratios}
-% \end{figure}
+
 
 
 \subsection{Hurdles in the Application}
