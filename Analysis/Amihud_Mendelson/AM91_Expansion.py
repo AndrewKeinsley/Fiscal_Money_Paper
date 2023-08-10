@@ -3,9 +3,17 @@ import numpy as np
 import matplotlib.pyplot as plt
 import datetime
 import statsmodels.api as sm
+import pandas_datareader.data as web
 
+##### IMPORTING DATA #####
 
+# Treasury Data
 dataframe_raw = pd.read_excel('Treasury_Data.xlsx')
+
+# Additional Time Series Data
+start = datetime.datetime(1950,1,1)
+end = datetime.datetime.now()
+fred_data = web.DataReader(['T10Y2YM'], "fred", start, end)
 
 ##### CLEANING THE DATA #####
 
@@ -22,12 +30,17 @@ df = df_narrowed[['crspid','tcusip','mcaldt','tmatdt','tcouprt','itype','tmbid',
 # Dropping any observations with NaN values
 df = df.dropna()
 
-df = df[~(df['mcaldt']<'1990-01-01')]
+df = df[~(df['mcaldt']<'1998-01-01')]
 
 # Dropping negative values from the numeric columns
 numvals = df.select_dtypes(include=['float64'])
 posvals = (numvals[numvals.columns] >= 0).all(axis=1)
 df = df[posvals].reset_index(drop=True)
+
+# Merging Dataframes
+df = df.sort_values(['mcaldt'], ascending=[True])
+
+df = pd.merge_asof(df, fred_data, left_on='mcaldt', right_on='DATE', direction='nearest', allow_exact_matches=True)
 
 # Checking the data for anymore issues
 df.info()
@@ -86,7 +99,7 @@ notes_matched['year'] = notes_matched['mcaldt'].dt.year
 
 Y = notes_matched['tmyld_Spread']
 # X = notes_matched[['baspread_Note','tcouprt_Spread','m2mat_Note','year']]
-X = notes_matched[['baspread_Spread','tcouprt_Spread']]
+X = notes_matched[['baspread_Spread','tcouprt_Spread','T10Y2YM_Bill']]
 
 X = sm.add_constant(X,prepend=True)
 
@@ -114,7 +127,7 @@ bonds_matched['year'] = bonds_matched['mcaldt'].dt.year
 
 Y = bonds_matched['tmyld_Spread']
 # X = bonds_matched[['baspread_Bond','tcouprt_Spread','y2mat_Bond','year']]
-X = bonds_matched[['baspread_Spread','tcouprt_Spread']]
+X = bonds_matched[['baspread_Spread','tcouprt_Spread','T10Y2YM_Note']]
 
 X = sm.add_constant(X,prepend=True)
 
