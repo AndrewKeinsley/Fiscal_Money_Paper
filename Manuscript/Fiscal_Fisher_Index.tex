@@ -240,15 +240,27 @@ Securities without a match are removed from the analysis.
 The securities' YTM spreads are then regressed against the spreads in their relative bid-ask ratios, which are calculated as 
 $$ \text{relative bid-ask ratio} = \frac{\text{ask price }-\text{ bid price}}{\text{ask price }+\text{ accrued interset}}\times 100.$$
 An increase in the bid--ask spread implies a relative decrease in the liquidity of the ``senior'' security.
-I also control for the spread in their respective coupon rates, a general time to maturity (months/years), the difference in their days to maturity, and a calendar year dummy.\footnote{
+I also control for the spread in their respective coupon rates, a general time to maturity (months/years) for any term effects, and the expected state of the economy at the time through the 10yr--2yr yield curve spread.\footnote{
 	Note that the coupon rate for bills is zero.
-	Since the matching threshold is one day, the ``Days-to-Maturity Difference'' variable only takes values of -1, 0, and 1. 
+	The 10yr--2yr spread is used because it is a spread between two notes, attempting to get at the general expectations of the future economy without crossing the asset types in the process. 
 	Standard errors are heteroskedasitcally robust (HC1).
 }
+Table \ref{tab:Relative_Liquidity} presents the results for the notes--bills, bonds--notes, and bonds--bills analyses.
 
-Table \ref{tab:Relative_Liquidity} presents the results for both the notes--bills and bonds--notes, analyses.
+Matching the findings of \citet{Amihud-Mendelson:1991}, the differences in note and bill YTM can be explained by their relative liquidities.
+That is, bills benefit from a liquidity premium and cannot be considered as perfect substitutes for notes, and vice versa.
 
-In each case, I find that a one percentage point increase in the spread between the assets' bid-ask ratios 
+The relative liquidities of bonds and notes, on the other hand, do not have a statistically significant impact on their YTMs.
+The reasoning behind this result becomes more intuitive when the bonds--bills analysis is included.
+Here, an increase in bond liquidity relative to bills actually causes their YTM spread to widen; opposite of the note--bill result.
+Neither the bond's coupon rate nor the expected state of the economy has a statistically significant impact, either, counter to that of the note--bill results.
+These results become more intuitive if we think of Treasury bonds as a pure savings vehicle in international financial markets.
+In this situation, the yield--liquidity causation is reversed.
+An increase in demand for an asset that will be purchased and held rather than sold would drive down the YTM while simultaneously decreasing the liquidity in the market.
+Together, these results suggest that bills are primarily as a liquidity hedge, while bonds are primarily used as a savings vehicle.
+Notes, on the other hand, are somewhere in the middle, and none of these assets should be treated as perfect substitutes for the others.
+
+
 
 \begin{table}[h]
 	\centering
@@ -257,29 +269,29 @@ In each case, I find that a one percentage point increase in the spread between 
 	\caption{Relative Liquidity and Yield to Maturity$^a$} \vspace{1em}
 	\label{tab:Relative_Liquidity}
 	\begin{threeparttable}
-		\begin{tabular}{l d{2.4} d{2.4} } \toprule
-										& \multicolumn{1}{c}{Notes--Bills$^{b}$}  & \multicolumn{1}{c}{Bonds--Notes} 	\\ \midrule
-			Relative Bid-Ask Spread 	& -1.6034^{***}					& -1.6568^{***}					\\ [-0.5em]
-										& (0.255)							& (0.081)							\\
-			Days-to-Maturity Difference & 0.0156^{***}						& 0.0000^{***}						\\ [-0.5em]
-										& (0.005)							& (0.000)							\\
-			Coupon Rate Spread 			& 0.0236^{***}						& 0.0472^{***}						\\ [-0.5em]
-										& (0.002)							& (0.004)							\\
-			Months to Maturity 			& -0.0220^{***} 					& 									\\ [-0.5em]
-										& (0.003)							&									\\
-			Years to Maturity 			& 									& -0.0172^{***}						\\ [-0.5em]
-										& 									& (0.002)							\\
-			Year Dummy 					& 0.0027^{***}						& -0.0079^{***}						\\ [-0.5em]
-										& (0.001) 							& (0.001)							\\ 
-			Constant					& -5.2439^{***} 					& 15.6621^{***}						\\ [-0.5em]
-										& (1.081)							& (1.056) 							\\\midrule
-			Observations				& \multicolumn{1}{c}{3966}			& \multicolumn{1}{c}{7430}			\\
-			R-Squared					& 0.096								& 0.505								\\
-			F-statistic 				& 39.14								& 207.2								\\ \bottomrule 
+		\begin{tabular}{l d{2.4} d{2.4} d{2.4}} \toprule
+										& \multicolumn{1}{c}{Notes--Bills$^{b}$}  	& \multicolumn{1}{c}{Bonds--Notes} 	& \multicolumn{1}{c}{Bonds--Bills$^{b}$}	\\ \midrule
+			Relative Bid-Ask Spread 	& 0.4163^{**}								& 0.0981							& -0.1424^{**}		 					\\ [-0.5em]
+										& (0.173)									& (0.074)							& (0.074)	 						\\
+			Coupon Rate Spread 			& 0.0210^{***}								& 0.0170^{***}						& 0.0076 							\\ [-0.5em]
+										& (0.001)									& (0.005)							& (0.013)	 						\\
+			Months to Maturity 			& -0.0152^{***} 							& 									& -0.1028^{***}								 	\\ [-0.5em]
+										& (0.002)									&									& (0.018)									\\
+			Years to Maturity 			& 											& -0.0049^{***}						& 			 					\\ [-0.5em]
+										& 											& (0.001)							& 		 						\\
+			% Year Dummy 					& 0.0027^{***}								& -0.0079^{***}						& -0.0079 			\\ [-0.5em]
+			% 							& (0.001) 									& (0.001)							& (0.001)	 		\\ 
+			10y-2y Spread 				& 0.0234^{***}								& -0.0124^{***}						& -0.0484 					\\ [-0.5em]
+										& (0.003) 									& (0.002)							& (0.033)	 						\\ 
+			Constant					& 0.0076 									& -0.0554^{**}						& -0.3244^{**} 						\\ [-0.5em]
+										& (0.010)									& (0.030) 							& (0.154)  							\\\midrule
+			Observations				& \multicolumn{1}{c}{2250}					& \multicolumn{1}{c}{7430}			& \multicolumn{1}{c}{78} 			\\
+			R-Squared					& 0.207										& 0.505								& 0.399			 					\\
+			F-statistic 				& 99.48										& 207.2								& 20.19			 					\\ \bottomrule 
 		\end{tabular}
 		\begin{tablenotes}
-			\item[a] \footnotesize{The dependent variable is the yield-to-maturity spread between securities matched by thier respective days to maturity. Standard errors are heteroskedasticity robust (HC1)}
-			\item[b] \footnotesize{The notes--bills analysis is limited to those securities with six months to maturity or less. This ensures that both securities have no other payments remaining until the maturity date.}
+			\item[a] \footnotesize{The dependent variable is the yield-to-maturity spread between securities matched by thier respective days to maturity. Standard errors are heteroskedasticity robust (HC1). Designations $***$, $**$, and $*$ represent results that are statistivally significant at the one, five, and ten percent levels, respecitivly.}
+			\item[b] \footnotesize{Analyses considering Treasury bills are limited to those securities with six months to maturity or less. This ensures that both securities have no other payments remaining until the maturity date.}
 		\end{tablenotes}
 	\end{threeparttable}
 \end{table}
