@@ -366,7 +366,6 @@ INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmmib
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/cm/cmbsy10.tfm
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy8.tfm
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm
-INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/cm/cmbx5.tfm
 INPUT /Users/andrewkeinsley/Documents/Fiscal_Money_Paper/Manuscript/../Figures/BondNote_Spread.eps
 INPUT ../Figures/BondNote_Spread.eps
 INPUT ../Figures/BondNote_Spread.eps
@@ -376,15 +375,7 @@ INPUT ../Figures/BondNote_Spread.eps
 INPUT ../Figures/BondNote_Spread-eps-converted-to.pdf
 INPUT ../Figures/BondNote_Spread-eps-converted-to.pdf
 INPUT ../Figures/BondNote_Spread-eps-converted-to.pdf
-INPUT /Users/andrewkeinsley/Documents/Fiscal_Money_Paper/Manuscript/../Figures/BidAsk_Ratios.eps
-INPUT ../Figures/BidAsk_Ratios.eps
-INPUT ../Figures/BidAsk_Ratios.eps
-INPUT ../Figures/BidAsk_Ratios-eps-converted-to.pdf
-INPUT ../Figures/BidAsk_Ratios-eps-converted-to.pdf
-INPUT ../Figures/BidAsk_Ratios.eps
-INPUT ../Figures/BidAsk_Ratios-eps-converted-to.pdf
-INPUT ../Figures/BidAsk_Ratios-eps-converted-to.pdf
-INPUT ../Figures/BidAsk_Ratios-eps-converted-to.pdf
+INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/cm/cmbx5.tfm
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm

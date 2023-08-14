@@ -180,3 +180,12 @@ results = model.fit(cov_type='HC1')
 
 print('\n\n ****** BONDS - BILLS REGRESSION ****** \n\n')
 print(results.summary())
+
+##### DATA VISUALIZATIONS ####
+# -> Not particularly useful
+# print('\n\n DATA VISUALIZATIONS \n\n')
+
+# plt.scatter(bonds_matched['bidask_ratio_Spread'],bonds_matched['tmyld_Spread'])
+# plt.xlabel('Relative Bid-Ask Ratio Spread')
+# plt.ylabel('YTM Spread')
+# plt.show()

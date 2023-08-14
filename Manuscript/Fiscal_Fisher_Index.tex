@@ -206,10 +206,9 @@ That is, the time series compare the YTM of a Treasury note that matures within 
 Technically speaking, the only difference between these securities on the secondary market is the label attached to their initial maturity.
 So we should expect that a note and bond would be perfect substitutes and thus carry the same YTM.
 
-\citet{Amihud-Mendelson:1991} find that the YTM spread between notes and bills is driven by relative liquidity.
-Figure \ref{fig:BidAsk_Ratios} presents a comparison of the bid-ask ratios of notes and bonds, suggesting that bonds are more liquid than notes market.
-These snapshots show that, even when identical on paper, the UST market is quite segmented, and the assets therein cannot be perfect substitutes.\footnote{
-	This also lends credence to the use of ``preferred habitat" assumptions in structural models to motivate the the term structure of the interest rates.}
+% Figure \ref{fig:BidAsk_Ratios} presents a comparison of the bid-ask ratios of notes and bonds, suggesting that bonds are more liquid than notes market.
+% These snapshots show that, even when identical on paper, the UST market is quite segmented, and the assets therein cannot be perfect substitutes.\footnote{
+% 	This also lends credence to the use of ``preferred habitat" assumptions in structural models to motivate the the term structure of the interest rates.}
 
 %: Median YTM over the Sample Period
 \begin{figure}[p]
@@ -226,16 +225,25 @@ These snapshots show that, even when identical on paper, the UST market is quite
 % \label{fig:YTM_SpreadTS}
 % \end{figure}
 %: Median Bid-Ask Spread over the Sample Period 
-\begin{figure}[p]
-\centering
-\includegraphics[width=0.7\textwidth]{../Figures/BidAsk_Ratios.eps}
-\caption{Median Treasury Bond and Note Bid-Ask Ratios with Same Time to Maturity}{(1970-2020)}
-\label{fig:BidAsk_Ratios}
-\end{figure}
+% \begin{figure}[p]
+% \centering
+% \includegraphics[width=0.7\textwidth]{../Figures/BidAsk_Ratios.eps}
+% \caption{Median Treasury Bond and Note Bid-Ask Ratios with Same Time to Maturity}{(1970-2020)}
+% \label{fig:BidAsk_Ratios}
+% \end{figure}
 
-Using monthly data on Treasury securities identified at the CUSIP level, I extend the work of \citet{Amihud-Mendelson:1991} to empirically test this claim.
+\citet{Amihud-Mendelson:1991} find that the YTM spread between notes and bills is driven by relative liquidity.
+Using monthly data on Treasury securities identified at the CUSIP level, I extend their work to empirically test this claim across the three types of nominal securities.
 The data are first separated by their type label: bills, notes, and bonds.
-For every month in the 1950--2020 sample period, each ``senior'' security (bond/note) is matched to a ``junior'' security (note/bill) that matures within one day of the respective note, allowing for exact matches.
+For every month in the Oct 1996--Dec 2020 subsample period, each ``senior'' security (bond/note) is matched to a ``junior'' security (note/bill) that matures within one day of the respective note, allowing for exact matches.\footnote{
+	The October 1996 cutoff for this analysis comes from the source data in the CRSP database. 
+	Prior to October 16, 1996, CRSP data on bid and ask prices were sourced from the FRBNY, sourced from GovPX and its aquiring institutions since then.
+	According to the CRSP documentation: ``The FRBNY described its listed bid price as `...the most widely quoted price from the range of quotations received'. 
+	The ask price was determined by the FRBNY based on what they expect a typical bid-ask spread to be. 
+	The rule used to make this derivation was not public domain.
+	GovPX described its listed bid and ask prices as the `best price'. To determine their `best price' they observe the prices from the five inter-dealer brokers and report the bid and ask prices that produce the smallest bid-ask spread.''
+	Use of latter period data ensures that these irregularities in the data do not interfere with the analysis.
+}
 Securities without a match are removed from the analysis.
 The securities' YTM spreads are then regressed against the spreads in their relative bid-ask ratios, which are calculated as 
 $$ \text{relative bid-ask ratio} = \frac{\text{ask price }-\text{ bid price}}{\text{ask price }+\text{ accrued interset}}\times 100.$$
