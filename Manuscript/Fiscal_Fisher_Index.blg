@@ -3,52 +3,50 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: Fiscal_Fisher_Index.aux
 The style file: apecon.bst
 Database file #1: MonetaryServices_Debt.bib
-Warning--I didn't find a database entry for "Boisvert:1982"
-Name 2 in "Christensen, Laurits R and Jorgenson, Dale W, and Lau, Lawrence J" has a comma at the end for entry Christensen-Jorgenson-Lau:1971
-while executing---line 1371 of file apecon.bst
-Name 2 in "Christensen, Laurits R and Jorgenson, Dale W, and Lau, Lawrence J" has a comma at the end for entry Christensen-Jorgenson-Lau:1971
-while executing---line 1438 of file apecon.bst
-Name 2 in "Christensen, Laurits R and Jorgenson, Dale W, and Lau, Lawrence J" has a comma at the end for entry Christensen-Jorgenson-Lau:1971
-while executing---line 1438 of file apecon.bst
-You've used 18 entries,
+You're missing a field part---line 405 of file MonetaryServices_Debt.bib
+ :   month=
+ :         ,
+I'm skipping whatever remains of this entry
+Warning--missing institution in Boisvert:1982
+You've used 19 entries,
             2744 wiz_defined-function locations,
-            711 strings with 7316 characters,
-and the built_in function-call counts, 9099 in all, are:
-= -- 717
-> -- 309
-< -- 17
-+ -- 120
-- -- 102
-* -- 716
-:= -- 1458
-add.period$ -- 18
-call.type$ -- 18
-change.case$ -- 125
-chr.to.int$ -- 18
-cite$ -- 18
-duplicate$ -- 696
-empty$ -- 731
-format.name$ -- 150
-if$ -- 1771
+            714 strings with 7439 characters,
+and the built_in function-call counts, 9471 in all, are:
+= -- 746
+> -- 319
+< -- 18
++ -- 124
+- -- 105
+* -- 737
+:= -- 1523
+add.period$ -- 19
+call.type$ -- 19
+change.case$ -- 132
+chr.to.int$ -- 19
+cite$ -- 20
+duplicate$ -- 727
+empty$ -- 758
+format.name$ -- 154
+if$ -- 1839
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 140
-newline$ -- 58
-num.names$ -- 73
-pop$ -- 247
+missing$ -- 147
+newline$ -- 61
+num.names$ -- 77
+pop$ -- 264
 preamble$ -- 1
-purify$ -- 106
+purify$ -- 111
 quote$ -- 0
-skip$ -- 226
+skip$ -- 238
 stack$ -- 0
-substring$ -- 471
-swap$ -- 361
+substring$ -- 482
+swap$ -- 376
 text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 159
-warning$ -- 0
-while$ -- 67
+type$ -- 168
+warning$ -- 1
+while$ -- 70
 width$ -- 0
-write$ -- 200
-(There were 3 error messages)
+write$ -- 210
+(There was 1 error message)

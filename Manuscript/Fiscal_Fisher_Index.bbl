@@ -1,4 +1,4 @@
-\begin{thebibliography}{18}
+\begin{thebibliography}{19}
 \providecommand{\natexlab}[1]{#1}
 
 \bibitem[{Amihud and Mendelson(1991)}]{Amihud-Mendelson:1991}
@@ -19,6 +19,10 @@ Barnett, W.~A. (1980) {Economic monetary aggregates: an application of index
 Barnett, W.~A. and Serletis, A. (Eds.) (2000) \textit{{The Theory of Monetary
   Aggregation}}, vol. 245 of \textit{Contributions to Economic Analysis},
   Emerald Group Publishing.
+
+\bibitem[{Boisvert(1982)}]{Boisvert:1982}
+Boisvert, R.~N. (1982) {The Translog Production Function: Its Properties, Its
+  Several Interpretations and Estimation Problems}, Tech. rep.
 
 \bibitem[{Brunnermeier \textit{et~al.}(2020)Brunnermeier, Merkel and
   Sannikov}]{Brunnermeier-Merkel-Sannikov:2020}
