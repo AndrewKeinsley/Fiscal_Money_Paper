@@ -3,50 +3,47 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: Fiscal_Fisher_Index.aux
 The style file: apecon.bst
 Database file #1: MonetaryServices_Debt.bib
-You're missing a field part---line 405 of file MonetaryServices_Debt.bib
- :   month=
- :         ,
-I'm skipping whatever remains of this entry
-Warning--missing institution in Boisvert:1982
+Warning--string name "july" is undefined
+--line 405 of file MonetaryServices_Debt.bib
 You've used 19 entries,
             2744 wiz_defined-function locations,
-            714 strings with 7439 characters,
-and the built_in function-call counts, 9471 in all, are:
-= -- 746
+            717 strings with 7529 characters,
+and the built_in function-call counts, 9480 in all, are:
+= -- 747
 > -- 319
-< -- 18
+< -- 19
 + -- 124
 - -- 105
 * -- 737
-:= -- 1523
+:= -- 1524
 add.period$ -- 19
 call.type$ -- 19
-change.case$ -- 132
+change.case$ -- 131
 chr.to.int$ -- 19
-cite$ -- 20
-duplicate$ -- 727
-empty$ -- 758
+cite$ -- 19
+duplicate$ -- 730
+empty$ -- 760
 format.name$ -- 154
-if$ -- 1839
+if$ -- 1843
 int.to.chr$ -- 1
 int.to.str$ -- 1
 missing$ -- 147
 newline$ -- 61
 num.names$ -- 77
-pop$ -- 264
+pop$ -- 260
 preamble$ -- 1
 purify$ -- 111
 quote$ -- 0
-skip$ -- 238
+skip$ -- 239
 stack$ -- 0
 substring$ -- 482
-swap$ -- 376
-text.length$ -- 4
+swap$ -- 377
+text.length$ -- 5
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 168
-warning$ -- 1
+warning$ -- 0
 while$ -- 70
 width$ -- 0
-write$ -- 210
-(There was 1 error message)
+write$ -- 211
+(There was 1 warning)

@@ -171,7 +171,7 @@ Section \ref{sec:Empirical} then empirically tests the predictions of the theore
 Section \ref{sec:Conclusion} concludes.
 
 
-\section{An Overview of Aggregating Financial Assets}
+\section{Motivation}
 \label{sec:MonAgg}
 Measuring the monetary services of fiscal debt specifically is a novel concept, but the idea of considering the monetary services of financial assets in general is not new.
 In this section I briefly touch on the monetary aggregation literature, motivate the need for a new measure of fiscal debt, and consider the hurdles in applying the theory to this data specificially. 
@@ -197,10 +197,10 @@ In this section I briefly touch on the monetary aggregation literature, motivate
 % Second, the nominal values are also incorporated into the share value, so that even if a particular asset is very money-like, it still will not add much to the aggregate at smaller nominal amounts. 
 % Thus, it is important to note that an increase in an asset's user cost does not necessarily imply an increase in its share value.
 
-\subsection{Market Segmentation as Application Motivation}
+\subsection{Bonds Market Segmentation}
 \label{subsec:MktSeg}
 Fiscal debt is ubiquitously measured as the sum of outstanding principal values.
-Simple-sum aggregates come with an assumption that the underlying assets are perfect substitutes, such that they have equal weights. 
+Simple-sum aggregates come with an assumption that the underlying assets are perfect substitutes. 
 Signs of {\em imperfect} substitutability would include a yield-to-maturity (YTM) spread between assets that are identical in everything but name.
 Figure \ref{fig:YTM_Spread} shows the median yields to maturity of Treasury notes and Treasury bonds with roughly the same time to maturity for the 1970--2020 period.
 That is, the time series compare the YTM of a Treasury note that matures within $t$ periods with a Treasury bond that also matures with $t$ periods.
@@ -259,7 +259,7 @@ Table \ref{tab:Relative_Liquidity} presents the results for the notes--bills, bo
 Matching the findings of \citet{Amihud-Mendelson:1991}, the differences in note and bill YTM can be explained by their relative liquidities.
 That is, bills benefit from a liquidity premium and cannot be considered as perfect substitutes for notes, and vice versa.
 
-The results of the bonds--notes and bonds--bills analyses paint bonds as primarily a savings vehicle in financial markets. 
+The results of the bonds--notes and bonds--bills analyses paint bonds primarily as a savings vehicle in financial markets. 
 Neither the bond's coupon rate nor the expected state of the economy impact its YTM spread versus bills, suggesting that bonds are largely purchased to hold.
 Additionally, a decrease in the liquidity of bonds relative to bills causes the YTM spread to decrease, opposite of the notes result. 
 A plausible explanation for this is that the demand for bonds reduces the YTM relative to bills, but that these bonds are purchased for savings purposes and are more likely held to maturity, reducing the liquidity of the market overall.
@@ -338,26 +338,27 @@ These properties make the translog function the perfect starting point in derivi
 	\label{DI}
 \end{equation*}
 can be derived directly from a translog aggregator function.
-Here, $M^d_t$ is the level of the Divisia monetary aggregate, $m_{i,t}$ is the nominal value of asset $i$, and 
+Here, $M^d_t$ is the level of the Divisia monetary aggregate, $x^n_{t}$ is the nominal value of asset $n$, and 
 \begin{equation*}
-	s_{n,t}  = \frac{\eta_{n,t}x_{n,t}}{\boldsymbol \eta_t \mathbf{x'}_t}
+	s_{n,t}  = \frac{\eta^n_{t}x^n_{t}}{\boldsymbol \eta_t \mathbf{x'}_t}
 \end{equation*}
 corresponds to the weight on the marginal change in financial asset $n$.
 Here, $\mathbf{x}_t$ and $\boldsymbol \eta_t$ are $N \times 1$ vectors of nominal quantities and user costs, respectively.
 This type of quantity index is ubiquitous in the monetary aggregation literature.
 
-One drawback of the T\"{o}rnqvist-Theil Divisia index is that it does not handle assets coming into and out of the market ($x_{n,t} = 0$ for some $t$) very well.
-When calculating general monetary aggregates, this problem does not arise very often and is managed by imputing a reservation price and switching to a Fisher ideal index for those time periods.
+One drawback of the T\"{o}rnqvist-Theil Divisia index is that it does not handle assets coming into and out of the market ($x^n_{t} = 0$ for some $n,t$) very well.
 Given the frequent changes in Treasury policy and the potential categorizations I will use, zero values are likely to be commonplace in this analysis.
-
-A common solution to this problem is to either temporarily or completely move to a Fisher ideal index:
+When calculating general monetary aggregates, this problem does not arise often and is managed by imputing a reservation price and switching to a Fisher ideal index 
 \begin{equation}
-	M^f_t = M^f_{t-1}\left[\frac{(\boldsymbol \eta_t \mathbf{x'}_t) (\boldsymbol \eta_{t-1} \mathbf{x'}_t)}{(\boldsymbol \eta_t \mathbf{x'}_{t-1}) (\boldsymbol \eta_{t-1} \mathbf{x'}_{t-1})}\right]^{\frac{1}{2}}.
+	M^f_t = M^f_{t-1}\left[\frac{(\boldsymbol \eta_t \mathbf{x'}_t) (\boldsymbol \eta_{t-1} \mathbf{x'}_t)}{(\boldsymbol \eta_t \mathbf{x'}_{t-1}) (\boldsymbol \eta_{t-1} \mathbf{x'}_{t-1})}\right]^{\frac{1}{2}}
 	\label{eq:FisherIdeal}
 \end{equation}
+for those time periods.
 \citet{Diewert:1976} shows that this quantity index is also superlative, with \citet{Diewert:1978} and \citet{Dumagan:2002} showing that the two indexes will appriximate each other numerically and mathematically, respectively.
-Additionally, \citet{Diewert:1976} shows that the ideal index a derivation from a quadratic mean of order 2 quantity index, which corresponds to the assumed translog aggregator function and is even recommended as the preferred index to use \citep[][Section 5]{Diewert:1976}.
-Because of these useful properties and the nature of the data considered, an ideal index is used in the remaining analysis.
+Additionally, \citet{Diewert:1976} shows that the ideal index is derived from a quadratic mean of order 2 quantity index, which corresponds to the assumed translog aggregator function and is even recommended as the preferred index to use \citep[][Section 5]{Diewert:1976}.
+Therefore, a Fisher ideal index is used in the remaining analysis.
+
+
 
 \section{Theory}
 \label{sec:Theory}
