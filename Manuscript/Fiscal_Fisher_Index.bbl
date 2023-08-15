@@ -1,4 +1,4 @@
-\begin{thebibliography}{15}
+\begin{thebibliography}{18}
 \providecommand{\natexlab}[1]{#1}
 
 \bibitem[{Amihud and Mendelson(1991)}]{Amihud-Mendelson:1991}
@@ -37,9 +37,23 @@ Caballero, R.~J., Farhi, E. and Gourinchas, P.-O. (2017) {The Safe Assets
   Shortage Conundrum}, \textit{Journal of Economic Perspectives}, \textbf{31},
   29--46.
 
+\bibitem[{Christensen \textit{et~al.}(1971)Christensen, Jorgenson and
+  Lau}]{Christensen-Jorgenson-Lau:1971}
+Christensen, L.~R., Jorgenson, D.~W. and Lau, L.~J. (1971) {Conjugate Duality
+  and the Transcendental Logarithmic Function}, \textit{Econometrica},
+  \textbf{39}, 883--900.
+
 \bibitem[{Diewert(1976)}]{Diewert:1976}
 Diewert, W.~E. (1976) {Exact and superlative index numbers}, \textit{Journal of
   Econometrics}, \textbf{4}, 115--145.
+
+\bibitem[{Diewert(1978)}]{Diewert:1978}
+Diewert, W.~E. (1978) {Superlative Index Numbers and Consistency in
+  Aggregation}, \textit{Econometrica}, \textbf{46}, 883--900.
+
+\bibitem[{Dumagan(2002)}]{Dumagan:2002}
+Dumagan, J.~C. (2002) {Comparing the superlative Tornqvist and Fisher ideal
+  indexes}, \textit{Economics Letters}, \textbf{76}, 251--258.
 
 \bibitem[{Feenstra(1994)}]{Feenstra:1994}
 Feenstra, R.~C. (1994) {New Product Varieties and the Measurement of

@@ -3,44 +3,52 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: Fiscal_Fisher_Index.aux
 The style file: apecon.bst
 Database file #1: MonetaryServices_Debt.bib
-You've used 15 entries,
+Warning--I didn't find a database entry for "Boisvert:1982"
+Name 2 in "Christensen, Laurits R and Jorgenson, Dale W, and Lau, Lawrence J" has a comma at the end for entry Christensen-Jorgenson-Lau:1971
+while executing---line 1371 of file apecon.bst
+Name 2 in "Christensen, Laurits R and Jorgenson, Dale W, and Lau, Lawrence J" has a comma at the end for entry Christensen-Jorgenson-Lau:1971
+while executing---line 1438 of file apecon.bst
+Name 2 in "Christensen, Laurits R and Jorgenson, Dale W, and Lau, Lawrence J" has a comma at the end for entry Christensen-Jorgenson-Lau:1971
+while executing---line 1438 of file apecon.bst
+You've used 18 entries,
             2744 wiz_defined-function locations,
-            689 strings with 6859 characters,
-and the built_in function-call counts, 7578 in all, are:
-= -- 595
-> -- 263
-< -- 15
-+ -- 102
-- -- 87
-* -- 599
-:= -- 1215
-add.period$ -- 15
-call.type$ -- 15
-change.case$ -- 105
-chr.to.int$ -- 15
-cite$ -- 15
-duplicate$ -- 581
-empty$ -- 602
-format.name$ -- 130
-if$ -- 1470
+            711 strings with 7316 characters,
+and the built_in function-call counts, 9099 in all, are:
+= -- 717
+> -- 309
+< -- 17
++ -- 120
+- -- 102
+* -- 716
+:= -- 1458
+add.period$ -- 18
+call.type$ -- 18
+change.case$ -- 125
+chr.to.int$ -- 18
+cite$ -- 18
+duplicate$ -- 696
+empty$ -- 731
+format.name$ -- 150
+if$ -- 1771
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 117
-newline$ -- 49
-num.names$ -- 61
-pop$ -- 211
+missing$ -- 140
+newline$ -- 58
+num.names$ -- 73
+pop$ -- 247
 preamble$ -- 1
-purify$ -- 89
+purify$ -- 106
 quote$ -- 0
-skip$ -- 188
+skip$ -- 226
 stack$ -- 0
-substring$ -- 375
-swap$ -- 303
+substring$ -- 471
+swap$ -- 361
 text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 132
+type$ -- 159
 warning$ -- 0
-while$ -- 55
+while$ -- 67
 width$ -- 0
-write$ -- 167
+write$ -- 200
+(There were 3 error messages)

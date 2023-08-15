@@ -174,34 +174,35 @@ Section \ref{sec:Conclusion} concludes.
 \section{An Overview of Aggregating Financial Assets}
 \label{sec:MonAgg}
 Measuring the monetary services of fiscal debt specifically is a novel concept, but the idea of considering the monetary services of financial assets in general is not new.
-In this section I briefly touch on the monetary aggregation literature, motivate the need to track such an aggregate, and consider the hurdles in applying this established theory to a new literature. 
+In this section I briefly touch on the monetary aggregation literature, motivate the need for a new measure of fiscal debt, and consider the hurdles in applying the theory to this data specificially. 
 
-\subsection{Monetary Aggregation as a Guide}
-Fiscal debt is ubiquitously measured as the sum of outstanding principal values.
-To assess the monetary services, one needs to aggregate fiscal debt as it is done in the monetary aggregation literature. 
-There the preferred method is typically a T\"{o}rnqvist-Theil Divisia index
-	\begin{equation*}
-		\log{M^d_t} - \log{M^d_{t-1}} = \sum_{i=1}^{N}s^*_{i,t}\left(\log{m_{i,t}} - \log{m_{i,t-1}}\right),
-		\label{DI}
-	\end{equation*}
-where $M^d_t$ is the level of the Divisia monetary aggregate, $m_{i,t}$ is the nominal value of asset $i$, and $s^*_{i,t}$ is the average value share (or weight) on the marginal change in asset $i$ between $t-1$ and $t$.
-The key attribute of this measure lies within the value share itself, where
-	\begin{equation*}
-		s_{j,t}  = \frac{\eta_{j,t}m_{j,t}}{\boldsymbol \eta_t \mathbf{m'}_t} %{\sum_{i=1}^N \eta_{i,t}m_{i,t}}
-	\end{equation*}
-corresponds to the weight on the marginal change in financial asset $j$.
-Here, $\mathbf{m}_t$ and $\boldsymbol \eta_t$ are $N \times 1$ vectors of nominal quantities and user costs, respectively.
-Notice that there are two mechanisms at work here.
-First, a lower interest rate relative to the benchmark generates a higher user cost, which can put upward pressure on the weight.
-This reflects the money-ness of a financial asset and is a direct function of its demand.
-Second, the nominal values are also incorporated into the share value, so that even if a particular asset is very money-like, it still will not add much to the aggregate at smaller nominal amounts. 
-Thus, it is important to note that an increase in an assets user cost does not necessarily imply an increase in its share value.
+% \subsection{Monetary Aggregation as a Guide}
+% Fiscal debt is ubiquitously measured as the sum of outstanding principal values.
+% To assess the monetary services, one needs to aggregate fiscal debt as it is done in the monetary aggregation literature. 
+% There the preferred method is the T\"{o}rnqvist-Theil Divisia index
+% 	\begin{equation*}
+% 		\log{M^d_t} - \log{M^d_{t-1}} = \sum_{i=1}^{N}s^*_{i,t}\left(\log{m_{i,t}} - \log{m_{i,t-1}}\right),
+% 		\label{DI}
+% 	\end{equation*}
+% where $M^d_t$ is the level of the Divisia monetary aggregate, $m_{i,t}$ is the nominal value of asset $i$, and $s^*_{i,t}$ is the average value share (or weight) on the marginal change in asset $i$ between $t-1$ and $t$.
+% The key attribute of this measure lies within the value share itself, where
+% 	\begin{equation*}
+% 		s_{j,t}  = \frac{\eta_{j,t}m_{j,t}}{\boldsymbol \eta_t \mathbf{m'}_t} %{\sum_{i=1}^N \eta_{i,t}m_{i,t}}
+% 	\end{equation*}
+% corresponds to the weight on the marginal change in financial asset $j$.
+% Here, $\mathbf{m}_t$ and $\boldsymbol \eta_t$ are $N \times 1$ vectors of nominal quantities and user costs, respectively.
+% Notice that there are two mechanisms at work here.
+% First, a lower interest rate relative to the benchmark generates a higher user cost, which can put upward pressure on the weight.
+% This reflects the money-ness of a financial asset and is a direct function of its demand.
+% Second, the nominal values are also incorporated into the share value, so that even if a particular asset is very money-like, it still will not add much to the aggregate at smaller nominal amounts. 
+% Thus, it is important to note that an increase in an asset's user cost does not necessarily imply an increase in its share value.
 
 \subsection{Market Segmentation as Application Motivation}
 \label{subsec:MktSeg}
-Simple-sum aggregates come with an assumption that the underlying assets are perfect substitutes. 
+Fiscal debt is ubiquitously measured as the sum of outstanding principal values.
+Simple-sum aggregates come with an assumption that the underlying assets are perfect substitutes, such that they have equal weights. 
 Signs of {\em imperfect} substitutability would include a yield-to-maturity (YTM) spread between assets that are identical in everything but name.
-Figure \ref{fig:YTM_Spread} shows the median yields to maturity of Treasury notes and Treasury bonds with roughly the same time to maturity, for the 1970--2020 period.
+Figure \ref{fig:YTM_Spread} shows the median yields to maturity of Treasury notes and Treasury bonds with roughly the same time to maturity for the 1970--2020 period.
 That is, the time series compare the YTM of a Treasury note that matures within $t$ periods with a Treasury bond that also matures with $t$ periods.
 Technically speaking, the only difference between these securities on the secondary market is the label attached to their initial maturity.
 So we should expect that a note and bond would be perfect substitutes and thus carry the same YTM.
@@ -211,7 +212,7 @@ So we should expect that a note and bond would be perfect substitutes and thus c
 % 	This also lends credence to the use of ``preferred habitat" assumptions in structural models to motivate the the term structure of the interest rates.}
 
 %: Median YTM over the Sample Period
-\begin{figure}[p]
+\begin{figure}[h]
 \centering
 \includegraphics[width=0.7\textwidth]{../Figures/BondNote_Spread.eps}
 \caption{Median Treasury Bond and Note Yields with Same Time to Maturity}{(1970-2020)}
@@ -233,11 +234,11 @@ So we should expect that a note and bond would be perfect substitutes and thus c
 % \end{figure}
 
 \citet{Amihud-Mendelson:1991} find that the YTM spread between notes and bills is driven by relative liquidity.
-Using monthly data on Treasury securities identified at the CUSIP level, I extend their work to empirically test this claim across the three types of nominal securities.
+Using monthly data on Treasury securities identified at the CUSIP level, I extend their work to empirically test this claim across the three common types of nominal securities.
 The data are first separated by their type label: bills, notes, and bonds.
-For every month in the Oct 1996--Dec 2020 subsample period, each ``senior'' security (bond/note) is matched to a ``junior'' security (note/bill) that matures within one day of the respective note, allowing for exact matches.\footnote{
+Then, for every month in the Oct 1996--Dec 2020 subsample period, each ``senior'' security (bond/note) is matched to a ``junior'' security (note/bill) that matures within one day of the respective note, allowing for exact matches.\footnote{
 	The October 1996 cutoff for this analysis comes from the source data in the CRSP database. 
-	Prior to October 16, 1996, CRSP data on bid and ask prices were sourced from the FRBNY, sourced from GovPX and its aquiring institutions since then.
+	Prior to October 16, 1996, CRSP data on bid and ask prices were sourced from the FRBNY; while sourced from GovPX and its aquiring institutions since then.
 	According to the CRSP documentation: ``The FRBNY described its listed bid price as `...the most widely quoted price from the range of quotations received'. 
 	The ask price was determined by the FRBNY based on what they expect a typical bid-ask spread to be. 
 	The rule used to make this derivation was not public domain.
@@ -260,7 +261,7 @@ That is, bills benefit from a liquidity premium and cannot be considered as perf
 
 The results of the bonds--notes and bonds--bills analyses paint bonds as primarily a savings vehicle in financial markets. 
 Neither the bond's coupon rate nor the expected state of the economy impact its YTM spread versus bills, suggesting that bonds are largely purchased to hold.
-Additionally, a decrease in the liquidity of bonds relative to bills causes the YTM spread to decrease, opposite of that of notes. 
+Additionally, a decrease in the liquidity of bonds relative to bills causes the YTM spread to decrease, opposite of the notes result. 
 A plausible explanation for this is that the demand for bonds reduces the YTM relative to bills, but that these bonds are purchased for savings purposes and are more likely held to maturity, reducing the liquidity of the market overall.
 The positive, yet not statistically significant bonds-notes liquidity result also suggests that bonds occupy a part of the market that is less concerned with the liquidity of the investment and more about the safety and return.
 
@@ -320,21 +321,43 @@ These results also confirm that, when aggregating, none of these assets should b
 
 
 
-\subsection{Hurdles in the Application}
+\subsection{Finding the Proper Quantity Index}
 \label{subsec:Hurdles}
-One drawback of the T\"{o}rnqvist-Theil Divisia index is that it does not handle assets coming into and out of the market ($x_{j,t} = 0$ for some $t$) very well.
-When calculating general monetary aggregates, this problem does not arise very often and is managed by imputing a reservation price and switching to a Fisher ideal index for those time periods.
-Given the frequent changes in Treasury policy and the categorization I use, zero values are commonplace in this analysis.
+Given that these Treasury securities are not perfect substitutes, the next step is selecting the best quantity index for proper aggregation.
+\citet{Christensen-Jorgenson-Lau:1971} show that the homogenous tanslog function 
+$$ \ln f(x_t) = \alpha_0 + \sum_{n=1}^N \alpha_n \ln x^n_t + \frac{1}{2}\sum_{j,k=1}^N \gamma_{j,k} \ln x^j_t \ln x^k_t, $$
+can provide a second-order approximation to an unknown, arbitrary twice-continuously-differentiable linear homogenous aggregator.
+Here, $\sum_{n=1}^{N} \alpha_n = 1$, $\gamma_{j,k} = \gamma_{k,j}$, and $\sum_{k=1}^{N} \gamma_{j,k} = 0$ for $j \in [1,N]$.
+\citet{Boisvert:1982} explains that the translog function is is more flexible than the Cobb-Douglas or constant elasticity of substitution (CES) functional forms by allowing the partial elastiticies of substituion between the assets to vary.
+He also goes on to explain that this functional form can be viewed as a) an exact aggregator function, b) a second-order Taylor approximation to a general, but unknown aggregator function, or c) a second-order approximation to a CES function.
+These properties make the translog function the perfect starting point in deriving the best quantity index.
 
-To better account for zero values, I utilize the Fisher ideal index for the full sample.
-This index still utilizes the user cost approach discussed above and is shown to be a Diewert-superlative index number like the Divisia index \citep{Diewert:1976}; but happens to be more applicable to the constraints of this particular dataset.
-The Fisher ideal index (in levels) is expressed as
-	\begin{equation}
-		M^f_t = M^f_{t-1}\left[\frac{(\boldsymbol \eta_t \mathbf{m'}_t) (\boldsymbol \eta_{t-1} \mathbf{m'}_t)}{(\boldsymbol \eta_t \mathbf{m'}_{t-1}) (\boldsymbol \eta_{t-1} \mathbf{m'}_{t-1})}\right]^{\frac{1}{2}},
-		\label{eq:FisherIdeal}
-	\end{equation}
-where $M^f_t$ denotes the new aggregate and the rest of the notation is defined above.
-Since there is no initial value of this index $M^f_0$, the aggregate is first calculated in growth rates and then converted to a quantity index. 
+\citet[][Section 2]{Diewert:1976} shows that the T\"{o}rnqvist-Theil Divisia quantity index 
+\begin{equation*}
+	\ln{M^d_t} = \ln{M^d_{t-1}} + \sum_{n=1}^{N}\frac{1}{2}(s_{n,t}+s_{n,t-1})\left(\ln{x^n_{t}} - \ln{x^n_{t-1}}\right),
+	\label{DI}
+\end{equation*}
+can be derived directly from a translog aggregator function.
+Here, $M^d_t$ is the level of the Divisia monetary aggregate, $m_{i,t}$ is the nominal value of asset $i$, and 
+\begin{equation*}
+	s_{n,t}  = \frac{\eta_{n,t}x_{n,t}}{\boldsymbol \eta_t \mathbf{x'}_t}
+\end{equation*}
+corresponds to the weight on the marginal change in financial asset $n$.
+Here, $\mathbf{x}_t$ and $\boldsymbol \eta_t$ are $N \times 1$ vectors of nominal quantities and user costs, respectively.
+This type of quantity index is ubiquitous in the monetary aggregation literature.
+
+One drawback of the T\"{o}rnqvist-Theil Divisia index is that it does not handle assets coming into and out of the market ($x_{n,t} = 0$ for some $t$) very well.
+When calculating general monetary aggregates, this problem does not arise very often and is managed by imputing a reservation price and switching to a Fisher ideal index for those time periods.
+Given the frequent changes in Treasury policy and the potential categorizations I will use, zero values are likely to be commonplace in this analysis.
+
+A common solution to this problem is to either temporarily or completely move to a Fisher ideal index:
+\begin{equation}
+	M^f_t = M^f_{t-1}\left[\frac{(\boldsymbol \eta_t \mathbf{x'}_t) (\boldsymbol \eta_{t-1} \mathbf{x'}_t)}{(\boldsymbol \eta_t \mathbf{x'}_{t-1}) (\boldsymbol \eta_{t-1} \mathbf{x'}_{t-1})}\right]^{\frac{1}{2}}.
+	\label{eq:FisherIdeal}
+\end{equation}
+\citet{Diewert:1976} shows that this quantity index is also superlative, with \citet{Diewert:1978} and \citet{Dumagan:2002} showing that the two indexes will appriximate each other numerically and mathematically, respectively.
+Additionally, \citet{Diewert:1976} shows that the ideal index a derivation from a quadratic mean of order 2 quantity index, which corresponds to the assumed translog aggregator function and is even recommended as the preferred index to use \citep[][Section 5]{Diewert:1976}.
+Because of these useful properties and the nature of the data considered, an ideal index is used in the remaining analysis.
 
 \section{Theory}
 \label{sec:Theory}
