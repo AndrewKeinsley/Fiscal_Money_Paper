@@ -360,7 +360,7 @@ Therefore, a Fisher ideal index is used in the remaining analysis.
 
 
 
-\section{Theory}
+\section{The User Cost of Treasury Securities}
 \label{sec:Theory}
 As \citet{Barnett:1980} outlines, aggregation theory relies on known, exact functional forms with estimable parameters.
 The functions of interest are typically utility and production functions, which are often impossible to know.
@@ -371,7 +371,7 @@ A complete guide to index number theory and its application to monetary aggregat
 
 A proper quantity index requires a price that is derived from an optimizing agent.
 Thus, motivating the measurement of marketable government debt requires a partial equilibrium model that derives both the period-by-period user cost of holding government debt as well as the budgetary constraints the fiscal authority encounters.
-This model incorporates both short- and long-term debt issued by the government, as well as an alternative long-term asset that will act as the benchmark asset. 
+This model incorporates both short- and long-term debt issued by the government, as well as an alternative long-term asset that acts as a pure savings vehicle and can be used as the benchmark asset. 
 In this model, I refer to the alternative asset as ``capital,'' though it could also be motivated in some other fashion. 
 
 \subsection{Long-Term Asset Dynamics}
@@ -406,39 +406,46 @@ The average interest rate paid on the capital stock outstanding $R_t$ is derived
 where $R^n_t$ is the interest rate on newly-issued capital.
 
 \subsection{Representative Household}
-The representative household in this model works $l_t$ hours each period for nominal wage $W_t$, less an income tax rate $\tau_t$.
+The representative household in this model works $l_t$ hours each period for nominal wage $W_t$.
 It also earns income through it's previous investments in capital $(\delta + R_{t-1})K_{t-1}$, short-term (one-period) bonds $(1+r_t)B_{t-1}$, long-term bonds $(\alpha + r^L_{t-1})B^L_{t-1}$, and profits from a continuum of intermediate goods-producing firms $\int^1_0 \Pi_t(s) \mathrm{d}s$.\footnote{
 	The $\delta$ considered here can deviate from that in (\ref{eq:LoM_CapLevel}) if depreciation is considered.
 	In this present study, however, we assume zero deprecation and treat ``capital'' as an alternative long-term security similar to the long-term government bond.
 	Additionally, the inclusion/exclusion of the corporate profit term does not alter the results of this partial equilibrium setup, but would be needed in a full, general equilibrium presentation.}
-This income is spread between a real consumption good $c_t$ at price $p_t$ as well as new investments in nominal short-term bonds $B_t$, long-term bonds $B^{L,n}_t$, and capital $I_t$.
+This income is spread between a real consumption good $c_t$ at price $p_t$ as well as new investments in nominal short-term bonds $B_t$, long-term bonds $B^{L,n}_t$, capital $I_t$, and a nominal lump sum tax $P_t\tau_t$.
 Combined, the household's period-by-period budget constraint can be expressed as
 \begin{multline}
-	B_t + B^{L,n}_t + p_tc_t + I_t = (\delta + R_{t-1})K_{t-1} + (1+r_{t-1})B_{t-1} + \\ (\alpha + r^L_{t-1})B^L_{t-1} + (1-\tau_t)W_tl_t + \int^1_0\Pi_t(s)\text{d}s.
+	B_t + B^{L,n}_t + p_tc_t + I_t = (\delta + R_{t-1})K_{t-1} + (1+r_{t-1})B_{t-1} + \\ (\alpha + r^L_{t-1})B^L_{t-1} + W_tl_t + \int^1_0\Pi_t(s)\text{d}s - P_t\tau_t.
 	\label{eq:HH_Budget}
 \end{multline}
 
 The household objective is to maximize utility over the real consumption good, the real monetary services provided by its portfolio of government bonds, and leisure
 \begin{equation}
-	\max\mathbb{E}_t\! \sum^\infty_{t=0} \beta^t\left\{u(c_t) + v\left(\frac{M_t}{P_t}\right) + x(1-l_t)\right\},
+	\max\mathbb{E}_t\! \sum^\infty_{t=0} \beta^t\left\{u(c_t) + v\left(m_t\right) + x(1-l_t)\right\},
 	\label{eq:HH_Utility}
 \end{equation}
-where $u(\cdot)$, $v(\cdot)$, and $x(\cdot)$ are increasing, concave functions. 
-The monetary services provided by the portfolio are captured by a constant elasticity of substitution function 
+where $u(\cdot)$, $v(\cdot)$, and $x(\cdot)$ are increasing, concave functions.\footnote{
+	The assumption of additive separability in $c_t$ and $m_t$ is stronger than the needed weakly separable assumption for this analysis.
+	This is for better tractability and does not change the result in the end.}
+Real monetary services are approximated using a second-order translog function
+% The monetary services provided by the portfolio are captured by a constant elasticity of substitution function 
+% \begin{equation}
+% 	M_t = \left[\lambda^{\frac{1}{\sigma}}B_t^{\frac{\sigma-1}{\sigma}} + (1-\lambda)^{\frac{1}{\sigma}}{B^L_t}^{\frac{\sigma-1}{\sigma}}\right]^{\frac{\sigma}{\sigma-1}},
+% 	\label{eq:HH_MonServices}
+% \end{equation}
+% where $\lambda \in [0,1]$ dictates the weight of each government debt security and $\sigma$ dictates the elasticity of substitution between the two assets.
 \begin{equation}
-	M_t = \left[\lambda^{\frac{1}{\sigma}}B_t^{\frac{\sigma-1}{\sigma}} + (1-\lambda)^{\frac{1}{\sigma}}{B^L_t}^{\frac{\sigma-1}{\sigma}}\right]^{\frac{\sigma}{\sigma-1}},
+	\ln m_t = \theta_0 + \theta_s \ln b_t + \theta_L \ln b^L_t + \frac{1}{2}\omega_{s,s} \left(\ln b_t\right)^2 + \frac{1}{2}\omega_{L,L} \left(\ln b^L_t\right)^2 + \omega_{s,L}\ln b_t \ln b^L_t.
 	\label{eq:HH_MonServices}
 \end{equation}
-where $\lambda \in [0,1]$ dictates the weight of each government debt security and $\sigma$ dictates the elasticity of substitution between the two assets.
 
 Solving the household's problem results in the following dynamic conditions:
 \begin{equation}
-	1 - \gamma_{2,t}\left(\frac{\lambda M_t}{B_t}\right)^\frac{1}{\sigma} = \beta \mathbb{E}_t\!\left[\frac{\mu_{1,t+1}}{\mu_{1,t}}\frac{1+r_t}{\pi_{t+1}}\right],
+	1 + \frac{\gamma_{2,t}}{b_t}\left(\theta_s + \omega_{s,s}\ln b_t + \omega_{s,L}\ln b^L_t\right) = \beta \mathbb{E}_t\!\left[\frac{\mu_{1,t+1}}{\mu_{1,t}}\frac{1+r_t}{\pi_{t+1}}\right],
 	\label{eq:HH_manOC_B}
 \end{equation}
 %
 \begin{multline}
-	1 - \gamma_{2,t}\left(\frac{(1-\lambda)M_t}{B^L_t}\right)^\frac{1}{\sigma} + \gamma_{4,t}\left(r^L_t-r^{L,n}_t\right) \\
+	1 + \frac{\gamma_{2,t}}{b^L_t}\left(\theta_L + \omega_{L,L}\ln b^L_t + \omega_{s,L}\ln b_t\right) + \gamma_{4,t}\left(r^L_t-r^{L,n}_t\right) \\
 	= \beta \mathbb{E}_t\!\left[\frac{\mu_{1,t+1}}{\mu_{1,t}}\frac{1}{\pi_{t+1}} \left\{ 1+r^L_t + (1-\alpha)\gamma_{4,t+1} \left(r^L_t-r^{L,n}_{t+1}\right)\right\}\right],
 	\label{eq:HH_manOC_BL}
 \end{multline}
@@ -449,7 +456,7 @@ and
 	\label{eq:HH_manOC_K}
 \end{equation}
 The solution technique to the household's problem can be found in Appendix \ref{app:HH_Solution}.
-Here, $\mu_{1,t} = u'(c_t)$, $\gamma_{2,t} = \sfrac{v'(\cdot)}{u'(\cdot)}$, and $\gamma_{3,t}$ and $\gamma_{4,t}$ are the prices of the long-term assets $B^L_t$ and $K_t$, respectively.
+Here, $\mu_{1,t} = u'(c_t)$, $\gamma_{2,t} = \sfrac{v'(\cdot)}{u'(\cdot)}$, and $\gamma_{3,t}$ and $\gamma_{4,t}$ are the relative prices of the long-term assets $B^L_t$ and $K_t$, respectively.
 These prices evolve according to
 \begin{equation}
 	\gamma_{3,t} = \beta\mathbb{E}_t\!\left[\frac{\mu_{1,t+1}}{\mu_{1,t}}\frac{1}{\pi_{t+1}} \left\{1 + (1-\delta)\gamma_{3,{t+1}}\right\}\right],
@@ -474,56 +481,56 @@ and
 respectively.
 The derivations of these user costs can be found in Appendix \ref{app:usercost_derivation}.
 
-\subsection{Fiscal Capacity Considerations}
-\label{subsec:Theory_Capacity}
-\citet*{Brunnermeier-Merkel-Sannikov:2022} have shown that government debt constraints need to be augmented for the service flows (transaction/monetary services) that the securities provide.
-Here I expand upon this idea with the specifics of the model above, providing a deeper look at how we can ascertain those services flows in particular.\footnote{
-	This is identical to the exercise conducted by \citet{Brunnermeier-Merkel-Sannikov:2020}, though I abstract from the bubble term to focus solely on the monetary services component.}
-Consider the simple budget constraint of the government in this model
-\begin{equation}
-	(1+r_{t-1})\frac{B_{t-1}}{p_t} + (\alpha + r^L_{t-1})\frac{B^L_{t-1}}{p_t} = \frac{B_t}{p_t} + \frac{B^{L,n}_t}{p_t} + s_t,
-\end{equation}
-where $s_t$ is denotes the real primary surplus. 
-Now incorporate (\ref{eq:LoM_DebtLevel}) into the above equation to get
-\begin{equation}
-	(1+r_{t-1})\frac{B_{t-1}}{p_t} + (1 + r^L_{t-1})\frac{B^L_{t-1}}{p_t} = \frac{B_t}{p_t} + \frac{B^{L}_t}{p_t} + s_t.
-\end{equation}
-Since (\ref{eq:HH_manOC_B}) and (\ref{eq:HH_manOC_BL}) must hold,
-\begin{multline}
-	\frac{B_{t-1} + B^L_{t-1}}{p_t}(1+r_{t-1})= s_t  - (r_{t-1}^L - r_{t-1})\frac{B^L_{t-1}}{p_t} + \beta\mathbb{E}_t\left[\frac{\mu_{1,t+1}}{\mu_{1,t}} \frac{B_{t} +B^L_{t}}{p_{t+1}}(1+r_{t})\right] \\ 
-		- \beta\mathbb{E}_t\left[\frac{\mu_{1,t+1}}{\mu_{1,t}} \frac{B^L_{t}}{p_{t+1}}(1+r_{t})\right] + \beta\mathbb{E}_t\left[\frac{\mu_{1,t+1}}{\mu_{1,t}} \frac{B^L_{t}}{p_{t+1}}(1+r^L_{t})\right] \\
-		+  \gamma_{2,t}\left(\frac{\lambda M_t}{B_t}\right)^\frac{1}{\sigma}\frac{B_t}{p_t} +\gamma_{2,t}\left(\frac{(1-\lambda) M_t}{B^L_t}\right)^\frac{1}{\sigma}\frac{B^L_t}{p_t} \\
-		+\beta\mathbb{E}_t\left[\frac{\mu_{1,t+1}}{\mu_{1,t}} \frac{B^L_t}{p_{t+1}}\left\{1+  (1-\alpha)\gamma_{4,t+1}\left(r^L_t - r^{L,n}_{t+1}\right)\right\}\right] - \gamma_{4,t}\left(r^L_t - r^{L,n}_t\right)\frac{B^L_t}{p_t}
-\end{multline}
-Including (\ref{eq:HH_manOC_rL}) and some rearranging, we can simplify the above equation to
-\begin{multline}
-	\frac{B_{t-1} + B^L_{t-1}}{p_t}(1+r_{t-1})= s_t - (r_{t-1}^L - r_{t-1})\frac{B^L_{t-1}}{p_t} + \beta\mathbb{E}_t\left[\frac{\mu_{1,t+1}}{\mu_{1,t}} \frac{B_{t} +B^L_{t}}{p_{t+1}}(1+r_{t})\right] \\ 
-		+ \beta\mathbb{E}_t\left[\frac{\mu_{1,t+1}}{\mu_{1,t}} \frac{B^L_{t}}{p_{t+1}}(1+r^L_{t} - (1-\alpha)\gamma_{4,t+1}\Delta r^{L,n}_{t+1} - r_t)\right]  \\
-		+  \gamma_{2,t}\left(\frac{\lambda M_t}{B_t}\right)^\frac{1}{\sigma}\frac{B_t}{p_t} +\gamma_{2,t}\left(\frac{(1-\lambda) M_t}{B^L_t}\right)^\frac{1}{\sigma}\frac{B^L_t}{p_t}.
-\end{multline}
+% \subsection{Fiscal Capacity Considerations}
+% \label{subsec:Theory_Capacity}
+% \citet*{Brunnermeier-Merkel-Sannikov:2022} have shown that government debt constraints need to be augmented for the service flows (transaction/monetary services) that the securities provide.
+% Here I expand upon this idea with the specifics of the model above, providing a deeper look at how we can ascertain those services flows in particular.\footnote{
+% 	This is identical to the exercise conducted by \citet{Brunnermeier-Merkel-Sannikov:2020}, though I abstract from the bubble term to focus solely on the monetary services component.}
+% Consider the simple budget constraint of the government in this model
+% \begin{equation}
+% 	(1+r_{t-1})\frac{B_{t-1}}{p_t} + (\alpha + r^L_{t-1})\frac{B^L_{t-1}}{p_t} = \frac{B_t}{p_t} + \frac{B^{L,n}_t}{p_t} + s_t,
+% \end{equation}
+% where $s_t$ is denotes the real primary surplus. 
+% Now incorporate (\ref{eq:LoM_DebtLevel}) into the above equation to get
+% \begin{equation}
+% 	(1+r_{t-1})\frac{B_{t-1}}{p_t} + (1 + r^L_{t-1})\frac{B^L_{t-1}}{p_t} = \frac{B_t}{p_t} + \frac{B^{L}_t}{p_t} + s_t.
+% \end{equation}
+% Since (\ref{eq:HH_manOC_B}) and (\ref{eq:HH_manOC_BL}) must hold,
+% \begin{multline}
+% 	\frac{B_{t-1} + B^L_{t-1}}{p_t}(1+r_{t-1})= s_t  - (r_{t-1}^L - r_{t-1})\frac{B^L_{t-1}}{p_t} + \beta\mathbb{E}_t\left[\frac{\mu_{1,t+1}}{\mu_{1,t}} \frac{B_{t} +B^L_{t}}{p_{t+1}}(1+r_{t})\right] \\ 
+% 		- \beta\mathbb{E}_t\left[\frac{\mu_{1,t+1}}{\mu_{1,t}} \frac{B^L_{t}}{p_{t+1}}(1+r_{t})\right] + \beta\mathbb{E}_t\left[\frac{\mu_{1,t+1}}{\mu_{1,t}} \frac{B^L_{t}}{p_{t+1}}(1+r^L_{t})\right] \\
+% 		+  \gamma_{2,t}\left(\frac{\lambda M_t}{B_t}\right)^\frac{1}{\sigma}\frac{B_t}{p_t} +\gamma_{2,t}\left(\frac{(1-\lambda) M_t}{B^L_t}\right)^\frac{1}{\sigma}\frac{B^L_t}{p_t} \\
+% 		+\beta\mathbb{E}_t\left[\frac{\mu_{1,t+1}}{\mu_{1,t}} \frac{B^L_t}{p_{t+1}}\left\{1+  (1-\alpha)\gamma_{4,t+1}\left(r^L_t - r^{L,n}_{t+1}\right)\right\}\right] - \gamma_{4,t}\left(r^L_t - r^{L,n}_t\right)\frac{B^L_t}{p_t}
+% \end{multline}
+% Including (\ref{eq:HH_manOC_rL}) and some rearranging, we can simplify the above equation to
+% \begin{multline}
+% 	\frac{B_{t-1} + B^L_{t-1}}{p_t}(1+r_{t-1})= s_t - (r_{t-1}^L - r_{t-1})\frac{B^L_{t-1}}{p_t} + \beta\mathbb{E}_t\left[\frac{\mu_{1,t+1}}{\mu_{1,t}} \frac{B_{t} +B^L_{t}}{p_{t+1}}(1+r_{t})\right] \\ 
+% 		+ \beta\mathbb{E}_t\left[\frac{\mu_{1,t+1}}{\mu_{1,t}} \frac{B^L_{t}}{p_{t+1}}(1+r^L_{t} - (1-\alpha)\gamma_{4,t+1}\Delta r^{L,n}_{t+1} - r_t)\right]  \\
+% 		+  \gamma_{2,t}\left(\frac{\lambda M_t}{B_t}\right)^\frac{1}{\sigma}\frac{B_t}{p_t} +\gamma_{2,t}\left(\frac{(1-\lambda) M_t}{B^L_t}\right)^\frac{1}{\sigma}\frac{B^L_t}{p_t}.
+% \end{multline}
 
-The last two terms are of particular importance here.
-Incorporating the definition of the monetary services aggregate reduces the above expression to 
-\begin{multline}
-	\frac{B_{t-1} + B^L_{t-1}}{p_t}(1+r_{t-1})= s_t  - (r_{t-1}^L - r_{t-1})\frac{B^L_{t-1}}{p_t} + \beta\mathbb{E}_t\left[\frac{\mu_{1,t+1}}{\mu_{1,t}} \frac{B_{t} +B^L_{t}}{p_{t+1}}(1+r_{t})\right] \\ 
-		+ \beta\mathbb{E}_t\left[\frac{\mu_{1,t+1}}{\mu_{1,t}} \frac{B^L_{t}}{p_{t+1}}(1+r^L_{t} - (1-\alpha)\gamma_{4,t+1}\Delta r^{L,n}_{t+1} - r_t)\right] 
-		+  \gamma_{2,t}\frac{M_t}{p_t},
-	\label{eq:fiscalcapacity}
-\end{multline}
-where it can be shown that
-\begin{equation}
-	\gamma_{2,t} = \left[\lambda \eta_t^{\sigma-1} + (1-\lambda)\left(\eta^L_t\right)^{\sigma-1}\right]^\frac{1}{\sigma-1}
-	\label{eq:price_dual}
-\end{equation}
-is the price dual for the monetary services aggregate. 
+% The last two terms are of particular importance here.
+% Incorporating the definition of the monetary services aggregate reduces the above expression to 
+% \begin{multline}
+% 	\frac{B_{t-1} + B^L_{t-1}}{p_t}(1+r_{t-1})= s_t  - (r_{t-1}^L - r_{t-1})\frac{B^L_{t-1}}{p_t} + \beta\mathbb{E}_t\left[\frac{\mu_{1,t+1}}{\mu_{1,t}} \frac{B_{t} +B^L_{t}}{p_{t+1}}(1+r_{t})\right] \\ 
+% 		+ \beta\mathbb{E}_t\left[\frac{\mu_{1,t+1}}{\mu_{1,t}} \frac{B^L_{t}}{p_{t+1}}(1+r^L_{t} - (1-\alpha)\gamma_{4,t+1}\Delta r^{L,n}_{t+1} - r_t)\right] 
+% 		+  \gamma_{2,t}\frac{M_t}{p_t},
+% 	\label{eq:fiscalcapacity}
+% \end{multline}
+% where it can be shown that
+% \begin{equation}
+% 	\gamma_{2,t} = \left[\lambda \eta_t^{\sigma-1} + (1-\lambda)\left(\eta^L_t\right)^{\sigma-1}\right]^\frac{1}{\sigma-1}
+% 	\label{eq:price_dual}
+% \end{equation}
+% is the price dual for the monetary services aggregate. 
 
-There are a couple of items to point out with regards to the above expression.
-First, fiscal capacity intuitively diminishes as long-term rates rise relative to short-term rates.
-This term is reflecting the convenience yields that the government enjoys on its short-term debt.
-Second, the fourth term on the right side suggests long-term debt can improve fiscal capacity via its longer maturity and a higher expected one-period return over the short-term debt. 
-That is, while capacity shrinks with higher long-term interest rates, demand for the debt increases with higher expected holding-period returns. 
-Lastly, fiscal capacity increases with the value of the monetary/transaction services the debt provides.
-Thus, the monetary services provided by government debt issuances is directly captured in the government's budget constraint in a similar fashion to that shown in \citet{Brunnermeier-Merkel-Sannikov:2022}.
+% There are a couple of items to point out with regards to the above expression.
+% First, fiscal capacity intuitively diminishes as long-term rates rise relative to short-term rates.
+% This term is reflecting the convenience yields that the government enjoys on its short-term debt.
+% Second, the fourth term on the right side suggests long-term debt can improve fiscal capacity via its longer maturity and a higher expected one-period return over the short-term debt. 
+% That is, while capacity shrinks with higher long-term interest rates, demand for the debt increases with higher expected holding-period returns. 
+% Lastly, fiscal capacity increases with the value of the monetary/transaction services the debt provides.
+% Thus, the monetary services provided by government debt issuances is directly captured in the government's budget constraint in a similar fashion to that shown in \citet{Brunnermeier-Merkel-Sannikov:2022}.
 
 
 \section{Data and Methodology}
@@ -629,6 +636,293 @@ When the yield curve is flat, the differences in the user costs are minimal, sug
 
 \bibliographystyle{apecon}
 \bibliography{MonetaryServices_Debt}
+
+\newpage
+\appendix
+\numberwithin{equation}{section}
+\section{Representative Household Solution}
+\label{app:HH_Solution}
+
+Combining (\ref{eq:LoM_DebtLevel}) and (\ref{eq:LoM_DebtReturn})
+\begin{equation}
+	\left(r^L_t-r^{L,n}_t\right)B^L_t = (1-\alpha)\left(r^L_{t-1}-r^{L,n}_t\right)B^L_{t-1},
+	\label{eq:CombEq_1}
+\end{equation}
+(\ref{eq:LoM_CapLevel}) and (\ref{eq:LoM_CapReturn})
+\begin{equation}
+	\left(R_t-R^{n}_t\right)K_t = (1-\delta)\left(R_{t-1}-R^{n}_t\right)K_{t-1},
+	\label{eq:CombEq_2}
+\end{equation}
+and (\ref{eq:HH_Budget}), (\ref{eq:LoM_DebtLevel}), and (\ref{eq:LoM_CapLevel})
+\begin{multline}
+	B_t + B^{L}_t - (1-\alpha)B^L_{t-1} + p_tc_t + K_t - (1-\delta)K_{t-1} = (\delta + R_{t-1})K_{t-1} \\+ (1+r_{t-1})B_{t-1} + (\alpha + r^L_{t-1})B^L_{t-1} + W_tl_t + \int^1_0\Pi_t(s)\text{d}s - P_t\tau_t.
+	\label{eq:CombEq_3}
+\end{multline}
+
+\subsection{Household's Problem}
+(\ref{eq:HH_Utility}) subject to (\ref{eq:HH_MonServices}), (\ref{eq:CombEq_1}), (\ref{eq:CombEq_2}), and (\ref{eq:CombEq_3}). Choosing 
+$\left\{B_t, B^L_t, c_t, K_t, R_t, r^L_t, l_t, M_t\right\}$
+
+\subsection{Bellman Equation}
+
+\begin{multline}
+	\mathbb{V}\!\left(B_{t-1}, B^L_{t-1}, K_{t-1}, R_{t-1}, r^L_{t-1}\right) \\= \max \Bigg\{u(c_t) + v\left(\frac{M_t}{P_t}\right) + x(l_t)  + \beta\mathbb{E}_t\!\left[\mathbb{V}\!\left(B_{t}, B^L_{t}, K_{t}, R_{t}, r^L_{t}\right)\right] \\
+	+ \frac{\mu_{1,t}}{p_t} \Big[(\delta + R_{t-1})K_{t-1} + (1+r_{t-1})B_{t-1} + (\alpha + r^L_{t-1})B^L_{t-1} + W_tl_t \\+ \int^1_0\Pi_t(s)\text{d}s -P_t\tau_t -B_t - B^{L}_t + (1-\alpha)B^L_{t-1} - p_tc_t - K_t + (1-\delta)K_{t-1}\Big] \\
+	+ \frac{\mu_{2,t}}{p_t}\Bigg[\theta_0 + \theta_s \ln b_t + \theta_L \ln b^L_t + \frac{1}{2}\omega_{s,s} \left(\ln b_t\right)^2 + \frac{1}{2}\omega_{L,L} \left(\ln b^L_t\right)^2 + \omega_{s,L}\ln b_t \ln b^L_t-\ln m_t\Bigg] \\
+	+ \frac{\mu_{3,t}}{p_t}\Big[(1-\delta)\left(R_{t-1}-R^{n}_t\right)K_{t-1} - \left(R_t-R^{n}_t\right)K_t \Big] \\
+	+ \frac{\mu_{4,t}}{p_t} \Big[(1-\alpha)\left(r^L_{t-1}-r^{L,n}_t\right)B^L_{t-1} - \left(r^L_t-r^{L,n}_t\right)B^L_t\Big]\Bigg\}
+	\label{eq:Bellman}
+\end{multline}
+
+\subsection{First Order Conditions}
+
+\begin{equation}
+	u'(c_t) = \mu_{1,t}
+	\label{eq:HH_FOC_c}
+\end{equation}
+%
+\begin{equation}
+	v'\left(m_t\right) = \mu_{2,t}
+	\label{eq:HH_FOC_M}
+\end{equation}
+%
+\begin{equation}
+	x'(1-l_t) = -\mu_{1,t}w_t
+	\label{eq:HH_FOC_l}
+\end{equation}
+%
+\begin{equation}
+	\beta\mathbb{E}_t\!\left[\mathbb{V}\!_1\left(B_{t}, B^L_{t}, K_{t}, R_{t}, r^L_{t}\right)\right] = \frac{\mu_{1,t}}{p_t} + \mu_{2,t}\left[\theta_s\frac{1}{B_t} + \omega_{s,s}\ln b_t \frac{1}{B_t} + \omega_{s,L}\ln b^L_t \frac{1}{B_t}\right]
+	\label{eq:HH_FOC_B}
+\end{equation}
+%
+\begin{equation}
+	\beta\mathbb{E}_t\!\left[\mathbb{V}\!_2\left(B_{t}, B^L_{t}, K_{t}, R_{t}, r^L_{t}\right)\right] = \frac{\mu_{1,t}}{p_t} + \mu_{2,t}\left[\theta_L\frac{1}{B^L_t} + \omega_{L,L}\ln b^L_t \frac{1}{B^L_t} + \omega_{s,L}\ln b_t \frac{1}{B^L_t}\right]
+	\label{eq:HH_FOC_BL}
+\end{equation}
+%
+\begin{equation}
+	\beta\mathbb{E}_t\!\left[\mathbb{V}\!_3\left(B_{t}, B^L_{t}, K_{t}, R_{t}, r^L_{t}\right)\right] = \frac{\mu_{1,t}}{p_t} + \frac{\mu_{3,t}}{p_t}\left(R_t - R^{n}_t\right)
+	\label{eq:HH_FOC_K}
+\end{equation}
+%
+\begin{equation}
+	\beta\mathbb{E}_t\!\left[\mathbb{V}\!_4\left(B_{t}, B^L_{t}, K_{t}, R_{t}, r^L_{t}\right)\right] = \frac{\mu_{3,t}}{p_t}K_t
+	\label{eq:HH_FOC_R}
+\end{equation}
+%
+\begin{equation}
+	\beta\mathbb{E}_t\!\left[\mathbb{V}\!_5\left(B_{t}, B^L_{t}, K_{t}, R_{t}, r^L_{t}\right)\right] = \frac{\mu_{4,t}}{p_t}B^L_t
+	\label{eq:HH_FOC_rL}
+\end{equation}
+
+\subsection{Bienveniste-Scheinkman Conditions}
+
+\begin{equation}
+	\mathbb{V}\!_1\left(B_{t-1}, B^L_{t-1}, K_{t-1}, R_{t-1}, r^L_{t-1}\right) = \frac{\mu_{1,t}}{p_t}(1+r_{t-1})
+	\label{eq:HH_BS_B}
+\end{equation}
+%
+\begin{equation}
+	\mathbb{V}\!_2\left(B_{t-1}, B^L_{t-1}, K_{t-1}, R_{t-1}, r^L_{t-1}\right) = \frac{\mu_{1,t}}{p_t}(1+r^L_{t-1}) + \frac{\mu_{4,t}}{p_t}(1-\alpha)\left(r^L_{t-1} - r^{L,n}_t\right)
+	\label{eq:HH_BS_BL}
+\end{equation}
+%
+\begin{equation}
+	\mathbb{V}\!_3\left(B_{t-1}, B^L_{t-1}, K_{t-1}, R_{t-1}, r^L_{t-1}\right) = \frac{\mu_{1,t}}{p_t}(1 + R_{t-1}) + \frac{\mu_{3,t}}{p_t}(1-\delta)\left(R_{t-1} - R^{n}_t\right)
+	\label{eq:HH_BS_K}
+\end{equation}
+%
+\begin{equation}
+	\mathbb{V}\!_4\left(B_{t-1}, B^L_{t-1}, K_{t-1}, R_{t-1}, r^L_{t-1}\right) = \left(\frac{\mu_{1,t}}{p_t} + (1-\delta)\frac{\mu_{3,t}}{p_t}\right)K_{t-1}
+	\label{eq:HH_BS_R}
+\end{equation}
+%
+\begin{equation}
+	\mathbb{V}\!_5\left(B_{t-1}, B^L_{t-1}, K_{t-1}, R_{t-1}, r^L_{t-1}\right) = \left(\frac{\mu_{1,t}}{p_t} + (1-\alpha)\frac{\mu_{4,t}}{p_t}\right)B^L_{t-1}
+	\label{eq:HH_BS_rL}
+\end{equation}
+
+\subsection{Optimality Conditions}
+
+\begin{equation}
+	u'(c_t) = \mu_{1,t}
+	\label{eq:HH_OC_c}
+\end{equation}
+%
+\begin{equation}
+	v'\left(\frac{M_t}{p_t}\right) = \mu_{2,t}
+	\label{eq:HH_OC_M}
+\end{equation}
+%
+\begin{equation}
+	x'(1-l_t) = -\mu_{1,t}w_t
+	\label{eq:HH_OC_l}
+\end{equation}
+%
+\begin{equation}
+	1 + \frac{\gamma_{2,t}}{b_t}\left(\theta_s + \omega_{s,s}\ln b_t + \omega_{s,L}\ln b^L_t\right) = \beta \mathbb{E}_t\!\left[\frac{\mu_{1,t+1}}{\mu_{1,t}}\frac{1+r_t}{\pi_{t+1}}\right],
+	\label{eq:HH_OC_B}
+\end{equation}
+%
+\begin{multline}
+	1 + \frac{\gamma_{2,t}}{b^L_t}\left(\theta_L + \omega_{L,L}\ln b^L_t + \omega_{s,L}\ln b_t\right) + \gamma_{4,t}\left(r^L_t-r^{L,n}_t\right) \\ = \beta\mathbb{E}_t\!\left[\frac{\mu_{1,t+1}}{p_{t+1}}(1+r^L_{t}) + \frac{\mu_{4,{t+1}}}{p_{t+1}}(1-\alpha)\left(r^L_{t} - r^{L,n}_{t+1}\right)\right] 
+	\label{eq:HH_OC_BL}
+\end{multline}
+%
+\begin{equation}
+	\frac{\mu_{1,t}}{p_t} + \frac{\mu_{3,t}}{p_t}\left(R_t - R^{n}_t\right) = \beta\mathbb{E}_t\!\left[\frac{\mu_{1,t+1}}{p_{t+1}}(1 + R_{t}) + \frac{\mu_{3,{t+1}}}{p_{t+1}}(1-\delta)\left(R_{t} - R^{n}_{t+1}\right)\right]
+	\label{eq:HH_OC_K}
+\end{equation}
+%
+\begin{equation}
+	\frac{\mu_{3,t}}{p_t}K_t = \beta\mathbb{E}_t\!\left[\frac{\mu_{1,t+1}}{p_{t+1}} + (1-\delta)\frac{\mu_{3,{t+1}}}{p_{t+1}}\right]K_t
+	\label{eq:HH_OC_R}
+\end{equation}
+%
+\begin{equation}
+	\frac{\mu_{4,t}}{p_t}B^L_t = \beta\mathbb{E}_t\!\left[\frac{\mu_{1,t+1}}{p_{t+1}} + (1-\alpha)\frac{\mu_{4,{t+1}}}{p_{t+1}}\right]B^L_t
+	\label{eq:HH_OC_rL}
+\end{equation}
+
+\newpage
+\section{Derivation of the User Costs}
+\label{app:usercost_derivation}
+
+Combining (\ref{eq:HH_manOC_K}) and (\ref{eq:HH_manOC_R}) yields:
+\begin{equation}
+	1 = \beta\mathbb{E}_t \Bigg[ \frac{\mu_{t+1}}{\mu_{t}}\frac{1}{\pi_{t+1}} \Big\{ 1 + R^n_t - (1-\delta)\gamma_{3,t+1}\Delta R^n_{t+1}\Big\}\Bigg]
+	\label{eq:HH_manOC_K+R}
+\end{equation}
+%\begin{multline}
+%	1 - \beta\mathbb{E}_t\left[\frac{\mu_{1,t+1}}{\mu_{1,t}} \frac{1}{\pi_{t+1}}\right]R^n_t = \beta\mathbb{E}_t\left[\frac{\mu_{1,t+1}}{\mu_{1,t}} \frac{1}{\pi_{t+1}}\right](\delta^*-\delta) \\ 
+%	+ \beta\mathbb{E}_t\left[\frac{\mu_{1,t+1}}{\mu_{1,t}} \frac{1}{\pi_{t+1}}\right] - \beta\mathbb{E}_t\left[\frac{\mu_{1,t+1}}{\mu_{1,t}} \frac{1}{\pi_{t+1}}(1-\delta)\gamma_{3,t+1}\Delta R^n_{t+1}\right]
+%\end{multline}
+Substituting this for the 1 in (\ref{eq:HH_manOC_B}) and rearranging yields the marginal benefit/marginal cost equilibrium:
+\begin{equation}
+	\frac{\gamma_{2,t}}{b^L_t}\left(\theta_L + \omega_{L,L}\ln b^L_t + \omega_{s,L}\ln b_t\right) = \beta\mathbb{E}_t \Bigg[ \frac{\mu_{t+1}}{\mu_{t}}\frac{1}{\pi_{t+1}} \Big\{ R^n_t - (1-\delta)\gamma_{3,t+1}\Delta R^n_{t+1} - r_t \Big\}\Bigg]
+\end{equation}
+%\begin{multline}
+%	\gamma_{2,t}\left(\frac{\lambda M_t}{B_t}\right)^\frac{1}{\sigma} = \beta\mathbb{E}_t\left[\frac{\mu_{1,t+1}}{\mu_{1,t}} \frac{1}{\pi_{t+1}}\right](R^n_t - r_t) \\ 
+%	- \beta\mathbb{E}_t\left[\frac{\mu_{1,t+1}}{\mu_{1,t}} \frac{1}{\pi_{t+1}}(1-\delta) \gamma_{3,t+1}\Delta R^n_{t+1}\right] + \beta\mathbb{E}_t\left[\frac{\mu_{1,t+1}}{\mu_{1,t}} \frac{1}{\pi_{t+1}}\right](\delta^*-\delta)
+%\end{multline}
+Now dividing both sides by (\ref{eq:HH_manOC_K+R}) converts the right side to the standard user cost form
+\begin{equation}
+	\frac{\gamma_{2,t}}{b^L_t}\left(\theta_L + \omega_{L,L}\ln b^L_t + \omega_{s,L}\ln b_t\right) = \frac{\mathbb{E}_t \Big[ \frac{\mu_{t+1}}{\mu_{t}}\frac{1}{\pi_{t+1}} \Big\{ R^n_t - (1-\delta)\gamma_{3,t+1}\Delta R^n_{t+1} - r_t \Big\}\Big]}{\mathbb{E}_t \Big[ \frac{\mu_{t+1}}{\mu_{t}}\frac{1}{\pi_{t+1}} \Big\{ 1+ R^n_t + \delta^* - \delta - (1-\delta)\gamma_{3,t+1}\Delta R^n_{t+1}\Big\}\Big]}
+	\label{eq:HH_manOC_usercost}
+\end{equation}
+Decoupling $\gamma_{2,t}$ shows that the right hand side is the marginal cost of holding the short-term asset, expressed in terms of utility.
+\begin{multline}
+	v'(m_t)\frac{\left(\theta_L + \omega_{L,L}\ln b^L_t + \omega_{s,L}\ln b_t\right)}{b^L_t} \\= u'(c_t)\frac{\mathbb{E}_t \Big[ \frac{\mu_{t+1}}{\mu_{t}}\frac{1}{\pi_{t+1}} \Big\{ R^n_t - (1-\delta)\gamma_{3,t+1}\Delta R^n_{t+1} - r_t \Big\}\Big]}{\mathbb{E}_t \Big[ \frac{\mu_{t+1}}{\mu_{t}}\frac{1}{\pi_{t+1}} \Big\{ 1+ R^n_t - (1-\delta)\gamma_{3,t+1}\Delta R^n_{t+1}\Big\}\Big]}
+\end{multline}
+%Now incorporating (\ref{eq:HH_OC_c}) and (\ref{eq:HH_OC_M}):
+%\begin{multline}
+%	v'\!\left(\frac{M_t}{p_t}\right)\left(\frac{\lambda M_t}{B_t}\right)^\frac{1}{\sigma} = u'(c_t)\Bigg\{\beta\mathbb{E}_t\left[\frac{\mu_{1,t+1}}{\mu_{1,t}} \frac{1}{\pi_{t+1}}\right](R^n_t - r_t) \\ 
+%	- \beta\mathbb{E}_t\left[\frac{\mu_{1,t+1}}{\mu_{1,t}} \frac{1}{\pi_{t+1}}(1-\delta) \gamma_{3,t+1}\Delta R^n_{t+1}\right] + \beta\mathbb{E}_t\left[\frac{\mu_{1,t+1}}{\mu_{1,t}} \frac{1}{\pi_{t+1}}\right](\delta^*-\delta)\Bigg\}
+%\end{multline}
+
+An assumption of risk neutrality or perfect certainty effectively implies that that that $\frac{\mu_{1,t+1}}{\mu_{1,t}} \frac{1}{\pi_{t+1}}$ is independent of the one-period returns in brackets, simplifying this expression to 
+\begin{equation}
+	\eta_t = \frac{R^n_t  - (1-\delta)\mathbb{E}_t[\gamma_{3,t+1}\Delta R^n_{t+1}] - r_t }{ 1+ R^n_t - (1-\delta)\mathbb{E}_t[\gamma_{3,t+1}\Delta R^n_{t+1}]},
+	\label{eq:usercost_ST}
+\end{equation}
+where $\eta_t$ equals the left-hand side of (\ref{eq:HH_manOC_usercost}) and represents the user cost of holding the short term-asset for one period.
+See \citet*{Barnett-Liu-Jensen:1997} for an in-depth exploration of monetary index number theory under risk.
+%\begin{equation}
+%v'\!\left(\frac{M_t}{p_t}\right)\left(\frac{\lambda M_t}{B_t}\right)^\frac{1}{\sigma} = u'(c_t)\Bigg\{\frac{R^n_t - (1-\delta)\mathbb{E}_t\left[\gamma_{3,t+1}\Delta R^n_{t+1}\right] + (\delta^*-\delta) - r_t}{1+ R^n_t - (1-\delta)\mathbb{E}_t\left[\gamma_{3,t+1}\Delta R^n_{t+1}\right] + (\delta^*-\delta)}\Bigg\},
+%\label{eq:usercost_ST}
+%\end{equation}
+
+Beginning the same procedure from (\ref{eq:HH_manOC_BL}) will provide the analogous user cost for a long-term security
+\begin{equation}
+\eta^L_t = \frac{\mathbb{E}_t \Big[ \frac{\mu_{t+1}}{\mu_{t}}\frac{1}{\pi_{t+1}} \Big\{ R^n_t - (1-\delta)\gamma_{3,t+1}\Delta R^n_{t+1} - r^{L,n}_t + (1-\alpha)\gamma_{4,t+1}\Delta r^{L,n}_{t+1}\Big\}\Big]}{\mathbb{E}_t \Big[ \frac{\mu_{t+1}}{\mu_{t}}\frac{1}{\pi_{t+1}} \Big\{ 1+ R^n_t - (1-\delta)\gamma_{3,t+1}\Delta R^n_{t+1}\Big\}\Big]},
+%\label{eq:usercost_LT}
+\end{equation}
+and again assuming independence as above yields
+\begin{equation}
+\eta^L_t = \frac{R^n_t - (1-\delta)\mathbb{E}_t[\gamma_{3,t+1}\Delta R^n_{t+1}] - r^{L,n}_t + (1-\alpha)\mathbb{E}_t[\gamma_{4,t+1}\Delta r^{L,n}_{t+1}]}{1+ R^n_t - (1-\delta)\mathbb{E}_t[\gamma_{3,t+1}\Delta R^n_{t+1}]}.
+\label{eq:usercost_LT}
+\end{equation}
+Since we're dealing with long-term assets here, the period-by-period user cost incorporates both the expected one-period payouts as well as the expected capital gains/loses.
+The capital gains are incorporated via the expected change in the one-period payouts, scaled by the expected future price of the asset.
+
+\newpage
+\section{The Full Model}
+\label{app:Model}
+
+The contributions of the model are primarily derived from the household's problem.
+Here, however, I outline the remainder of the model for further analysis.
+
+\subsection{The Representative Household}
+The initial setup allowed the various utility functions to remain flexible.
+Here I assign a logarithmic functional form to consumption $u(c_t) = \ln{c_t}$ and constant relative risk aversion (CRRA) functions to real monetary services $v(m_t) = \frac{m_t^{1-\nu} -1}{1-\nu}$ and leisure hours $x(1-l_t) = \chi \frac{(1-l_t)^{1+\psi}-1}{1+\psi}$. 
+
+\subsection{Final Goods-Producing Firm}
+A final goods-producing firm acts as a retailer, aggregating the intermediate goods $i\in[0,1]$ into a consumable bundle with production CES production function
+\begin{equation}
+\label{eq:FinalGoods_Production}
+	y_t = \left[\int^1_0 y_t(i)^{\frac{\theta-1}{\theta}}\mathrm{d}i\right]^\frac{\theta}{\theta-1}.
+\end{equation}
+This firm operates in a perfectly competitive market, choosing the quantity of each intermediate good $y_t(i)\; \forall i$ that maximizes profits
+\begin{equation}
+\label{eq:FinalGoods_Profit}
+	\Pi_t^f = p_ty_t - \int_0^1p_t(i)y_t(i)\mathrm{d}i.
+\end{equation}
+Doing so leads to the standard demand function for the intermediate goods
+\begin{equation}
+\label{eq:FinalGoods_FOC}
+	y_t(i) = \left(\frac{p_t(i)}{p_t}\right)^{-\frac{1}{\theta}}y_t \; \forall i.
+\end{equation}
+
+\subsection{Intermediate Goods Producing Firms}
+The intermediate goods-producing firms operate in a monopolistically-competitive environment, hiring labor $l_t(i)$ and utilizing a linear production technology $y_t(i) = z_tl_t(i)$, where $z_t$ is a common technology that follows the stationary auto-regressive process
+\begin{equation}
+\label{eq:Technology}
+	\ln z_t = (1-\rho_z)\ln z + \rho_z \ln z_{t-1} + \varepsilon^z_t,
+\end{equation}
+where $\rho_z \in (0,1)$ and $\varepsilon^z_t \sim \mathcal{N}(0,\sigma^2_z)$.
+In maximizing their profits, the intermediate firms face a Rotemburg quadratic cost of price adjustment $\phi\left(\frac{p_t(i)}{\pi_t p_{t-1}(i)} - 1\right)^2y_t$, measured in term of the final output.
+Choosing the price of its respective intermediate good to maximize profits subject to the demand of the final-goods firm and assuming a symmetric equilibrium yields the a linearized Phillips curve relationship
+\begin{equation}
+\label{eq:NKPC}
+	\tilde{\pi}_t = \beta\mathbb{E}_t\tilde{\pi}_{t+1} + \frac{\theta}{\phi}(\tilde{w}_t - \tilde{z}_t),
+\end{equation}
+where the tilde denotes the variable's percent deviation from its steady state value.
+
+\subsection{Fiscal and Monetary Policy}
+
+The government's budget constraint is straight-forward in that the fiscal authority takes in revenue via a lump sum tax $\tau_t$ and borrowing at both short $B_t$ and long $B^{L,n}_t$ maturities. 
+Real spending $g_t$ is considered to be exogenous
+\begin{equation}
+\label{eq:GovSpending}
+	\ln g_t = (1-\rho_g)\ln g + \rho_g\ln g_{t-1} + \varepsilon^g_t,
+\end{equation}
+where $\rho_g \in (0,1)$, $g$ is the steady state value of real government spending, and $\varepsilon^g_t \sim \mathcal{N}(0,\sigma_g^2)$. 
+Together with the law of motion for long-term debt (\ref{eq:LoM_DebtLevel}), the real fiscal budget constraint is
+\begin{equation}
+\label{eq:FiscalBudget}
+	g_t + \frac{F_t}{p_t} + (1+r_{t-1})\frac{B_{t-1}}{p_t} + (1+r^L_{t-1})\frac{B^L_{t-1}}{p_t} = \tau_t + \frac{F_{t-1}}{p_t}+\frac{B_t}{p_t} + \frac{B^L_t}{p_t}
+\end{equation}
+
+\subsection{Equilibrium Conditions and Calibration}
+
+In equilibrium, $k_t = 0$ and $f_t = f$ for all $t$ and $\pi_t = \frac{p_t}{p_{t-1}}$ is the gross inflation rate.
+
+Calibration of this model starts with a standardized steady state aggregate output $y = 1$ and debt-GDP ratio of one-hundred percent ($b + b^L = y$). 
+The steady state value of currency is derived from the ratio of total public federal debt to the monetary base, which is 8.13 during the 1982--2022 period, suggesting $f = 0.12$.
+The weight on currency in the monetary aggregate $\lambda_1 = 0.74$ is calculated from the relative user costs on the monetary assets. 
+The average 10-year treasury constant maturity rate during this same period is about 5.73 percent, which is considered as the steady state value of $r^L_t$. 
+The weights on short-term and long-term debt are calibrated such that a 1.25 percentage point spread exists between the short-term and long-term rates, which is roughly in line with the average 10yr--3m yield curve spread during the 1982--2022 period. 
+This yields values of $\lambda_2 = 0.1089$ and $\lambda_3 = 0.1511$. 
+The parameter governing the elasticity of substitution $\sigma$, is set at 0.40. 
+\citet{Belongia-Ireland:2014} uses 0.50 for the elasticity across currency and deposits. 
+Assuming currency and deposits are closer to perfect substitutes than long- and short-term debt this would be the upper bound on the analogous parameter in this model.
+The assumption of 10-year bonds above implies $\alpha = \delta = 0.025$.
+
+The discount factor $\beta = 0.9624$ matches a two percent inflation target $\pi = 1.02$ and the spread on the benchmark rate $R - r^L = 0.0025$ as assumed in the derivation of the monetary aggregate in Section \ref{sec:DataMethodology}.
+I also follow \citet{Belongia-Ireland:2014} in setting $\theta = 6$ and $\phi=50$, which imply a 20 percent markup over the intermediate goods and full price adjustment over a period of 3.75 quarters.
+For the baseline analysis, I assume no smoothing to the policy rates $\rho_\tau = \rho_r = 0$, and policy values of $\rho_\pi = 1.5,\, \rho_y = 0$, and $\rho_b = 0.5$ to ensure determinacy when evaluating impulse responses.
+
 
 
 \end{document}

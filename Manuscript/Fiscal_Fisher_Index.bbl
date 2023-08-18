@@ -1,4 +1,4 @@
-\begin{thebibliography}{19}
+\begin{thebibliography}{21}
 \providecommand{\natexlab}[1]{#1}
 
 \bibitem[{Amihud and Mendelson(1991)}]{Amihud-Mendelson:1991}
@@ -15,10 +15,21 @@ Barnett, W.~A. (1980) {Economic monetary aggregates: an application of index
   number and aggregation theory}, \textit{Journal of Econometrics},
   \textbf{14}, 11--48.
 
+\bibitem[{Barnett \textit{et~al.}(1997)Barnett, Liu and
+  Jensen}]{Barnett-Liu-Jensen:1997}
+Barnett, W.~A., Liu, Y. and Jensen, M. (1997) {Capm Risk Adjustment For Exact
+  Aggregation Over Financial Assets}, \textit{Macroeconomic Dynamics},
+  \textbf{1}, 485--512.
+
 \bibitem[{Barnett and Serletis(2000)}]{Barnett-Serletis:2000}
 Barnett, W.~A. and Serletis, A. (Eds.) (2000) \textit{{The Theory of Monetary
   Aggregation}}, vol. 245 of \textit{Contributions to Economic Analysis},
   Emerald Group Publishing.
+
+\bibitem[{Belongia and Ireland(2014)}]{Belongia-Ireland:2014}
+Belongia, M.~T. and Ireland, P.~N. (2014) {The Barnett critique after three
+  decades: A New Keynesian analysis}, \textit{Journal of Econometrics},
+  \textbf{183}, 5--21.
 
 \bibitem[{Boisvert(1982)}]{Boisvert:1982}
 Boisvert, R.~N. (1982) {The Translog Production Function: Its Properties, Its

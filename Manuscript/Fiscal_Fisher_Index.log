@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  15 AUG 2023 09:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  18 AUG 2023 09:06
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -902,7 +902,11 @@ Package: paralist 2013/06/09 v2.4 Extended list environments
 LaTeX Warning: Unused global option(s):
     [margin=1.5in].
 
-(/Users/andrewkeinsley/Documents/Fiscal_Money_Paper/Manuscript/Fiscal_Fisher_Index.aux)
+(/Users/andrewkeinsley/Documents/Fiscal_Money_Paper/Manuscript/Fiscal_Fisher_Index.aux
+
+LaTeX Warning: Label `eq:usercost_LT' multiply defined.
+
+)
 \openout1 = `Fiscal_Fisher_Index.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 66.
@@ -1038,7 +1042,7 @@ Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: pdflatex (file ../Figures/BondNote_Spread-eps-converted-to.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<../Figures/BondNote_Spread-eps-converted-to.pdf, id=130, 492.84125pt x 396.48125pt>
+<../Figures/BondNote_Spread-eps-converted-to.pdf, id=178, 492.84125pt x 396.48125pt>
 File: ../Figures/BondNote_Spread-eps-converted-to.pdf Graphic file (type pdf)
  <use ../Figures/BondNote_Spread-eps-converted-to.pdf>
 Package pdftex.def Info: ../Figures/BondNote_Spread-eps-converted-to.pdf used on input line 217.
@@ -1130,36 +1134,36 @@ LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <3.83247> not available
 (Font)              size <5> substituted on input line 381.
 
 [11] [12]
+Overfull \vbox (0.39006pt too high) has occurred while \output is active []
 
-LaTeX Warning: Reference `app:HH_Solution' on page 13 undefined on input line 451.
+ [13] [14]
 
-[13]
+LaTeX Warning: Reference `fig:BidAsk_Ratios' on page 15 undefined on input line 561.
 
-LaTeX Warning: Reference `app:usercost_derivation' on page 14 undefined on input line 475.
+[15] [16]
 
-[14] [15] [16]
+LaTeX Warning: Reference `fig:Growth_Spread' on page 17 undefined on input line 604.
 
-LaTeX Warning: Reference `fig:BidAsk_Ratios' on page 17 undefined on input line 554.
+[17]
 
-[17] [18]
-
-LaTeX Warning: Reference `fig:Growth_Spread' on page 19 undefined on input line 597.
-
-[19]
-
-LaTeX Warning: Reference `fig:Growth_Spread' on page 20 undefined on input line 610.
+LaTeX Warning: Reference `fig:Growth_Spread' on page 18 undefined on input line 617.
 
 
-LaTeX Warning: Reference `fig:MS_Index' on page 20 undefined on input line 622.
+LaTeX Warning: Reference `fig:MS_Index' on page 18 undefined on input line 629.
 
-[20] [21] (/Users/andrewkeinsley/Documents/Fiscal_Money_Paper/Manuscript/Fiscal_Fisher_Index.bbl [22]) [23]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 634.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 634.
+[18] (/Users/andrewkeinsley/Documents/Fiscal_Money_Paper/Manuscript/Fiscal_Fisher_Index.bbl [19]) [20] [21] [22] [23] [24]
+Overfull \hbox (7.96846pt too wide) detected at line 813
+[][] [] \OT1/cmr/m/n/10.95 = []
+ []
+
+[25] [26] [27] [28] [29] [30]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 928.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 928.
  (/Users/andrewkeinsley/Documents/Fiscal_Money_Paper/Manuscript/Fiscal_Fisher_Index.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 634.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 634.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 928.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 928.
 Package rerunfilecheck Info: File `Fiscal_Fisher_Index.out' has not changed.
-(rerunfilecheck)             Checksum: 1DF92F7A9E43739C70A1E77FA5125610;715.
+(rerunfilecheck)             Checksum: 7512D34C3D9D4268D35E6AE10A34AD85;1714.
 
 
 LaTeX Font Warning: Size substitutions with differences
@@ -1168,21 +1172,24 @@ LaTeX Font Warning: Size substitutions with differences
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 634.
+
+LaTeX Warning: There were multiply-defined labels.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 928.
  ) 
 Here is how much of TeX's memory you used:
- 37093 strings out of 493089
- 818071 string characters out of 6134842
- 928878 words of memory out of 5000000
- 39940 multiletter control sequences out of 15000+600000
+ 37198 strings out of 493089
+ 819545 string characters out of 6134842
+ 930982 words of memory out of 5000000
+ 39991 multiletter control sequences out of 15000+600000
  24099 words of font info for 94 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,13n,77p,10513b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/cm-super/sfrm0600.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb>
-Output written on /Users/andrewkeinsley/Documents/Fiscal_Money_Paper/Manuscript/Fiscal_Fisher_Index.pdf (24 pages, 312487 bytes).
+Output written on /Users/andrewkeinsley/Documents/Fiscal_Money_Paper/Manuscript/Fiscal_Fisher_Index.pdf (31 pages, 339961 bytes).
 PDF statistics:
- 429 PDF objects out of 1000 (max. 8388607)
- 372 compressed objects within 4 object streams
- 90 named destinations out of 1000 (max. 500000)
- 106 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 571 PDF objects out of 1000 (max. 8388607)
+ 505 compressed objects within 6 object streams
+ 144 named destinations out of 1000 (max. 500000)
+ 202 words of extra memory for PDF output out of 10000 (max. 10000000)
 
