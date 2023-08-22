@@ -83,10 +83,12 @@
 
 % Introduce the Topic and its Imporance
 The fiscal response to the COVID crisis in the US and the ensuing rise of inflation and interest rates has brought the concept of ``fiscal capacity" back into the spotlight. 
-Despite growing debt levels, borrowing costs trended downward from the 1980s until the US financial crisis in the late 2000s.
+% Despite growing debt levels, borrowing costs trended downward from the 1980s until the US financial crisis in the late 2000s.
+The standard metric of fiscal capacity---the debt-to-GDP ratio---has seen periods of rise and fall since the 1980s, all the while interest rates have steadily declined.
 %Forecasters, despite accelerating debt levels, suggest that short-term interest rates will peak somewhere around two percent in the post-COVID cycle. 
-All of this suggests that there must be more to the fiscal-capacity discussion than just the stock of outstanding principal values.
-If that additional component could be discovered, could it also shed light on the connection between debt and the macroeconomy, like the fiscal theory of the price level (FTPL)?
+This suggests that there must be more to the fiscal-capacity discussion than just the stock of outstanding principal value and its relationship to the size of the economy.
+% If that additional component could be discovered, could it also shed light on the connection between debt and the macroeconomy, like the fiscal theory of the price level (FTPL)?
+Or maybe our perception of fiscal debt, especially in the United States, is flawed.
 
 % Brief Literature Review
 \citet{Krishnamurthy-VissingJorgensen:2012}, \citet{Krishnamurthy-VissingJorgensen:2013}, and \citet{Nagel:2016}---to name just a few---have established that the value of fiscal debt in the US is much more than the sum of its outstanding stock of principal. 
@@ -97,23 +99,29 @@ They show that the demand side of this debt market raises the borrowing limits o
 Theoretically, they show that the inclusion of these monetary services disrupt the traditional FTPL channel \citep[see][as a seminal example]{Leeper:1991} and, along with the empirical results of \citet{Jiang-etal:2019}, suggest that this channel is important in the valuation of Treasury debt. 
 %, but introduce the possibility of other channels.\footnote{
 %	\citet{Cui-Soren:2019} find that the bubble term in their model with low interest rates is primarily composed of liquidity services as well.}
-This paper explores this monetary service channel in more depth, aiding in our understanding of debt dynamics and their impact on the economy as a whole. 
+% This paper explores this monetary service channel in more depth, aiding in our understanding of debt dynamics and their impact on the economy as a whole. 
+This paper introduces index number theory to the fiscal debt discussion in an attempt to go beyond the simple accounting and measure its full economic value.
 
 % Purpose of this paper...
-The purpose and contribution of this paper is two-fold.
+The contribution of this paper is three-fold.
+% The purpose and contribution of this paper is two-fold.
 %to measure the monetary services of marketable fiscal debt in the US and to estimate their impact on inflation.
 % Contribution to the literature
 %The contribution of this paper is two-fold.
-First, I measure the monetary services established as theoretically important in the literature.
-This measure provides additional insight not only into how debt and its dynamics impact the greater economy, but also how global events impact the monetary services of outstanding fiscal debt.
-If fiscal monetary services do provide additional fiscal capacity and influence inflation dynamics as \citet{Brunnermeier-Merkel-Sannikov:2022} theorize, then understanding the extent of the impact is vital to policy makers. 
-Second, I provide both theoretical and empirical evidence of a fiscal inflation channel through the rate premiums (liquidity and/or safety) created by those monetary services.
-That is, while the inflation is derived from an externality of fiscal policy, it is not though the standard channels predicted by the FTPL. 
-%via these monetary services, though I also show that this result is through the liquidity premiums in the model, not the standard channels predicted by the FTPL.
-%monetary services channel to the fiscal theory of the price level.
-%The debate between the monetarist view of inflation and those behind the FTPL has been long and arduous.
-Showing that fiscal debt influences inflation through its monetary properties suggests that these two theories may not be as different as suspected and provides a potential bridge between the two.
-Together, the results within this paper provide a contribution to the monetary aggregation, fiscal capacity, and inflation literatures.
+First, I show empirically that these securities should not be treated as perfect substitutes and therefore cannot be aggregated in the standard, simple-sum manner. 
+Next, I motivate the use of index number theory to account for this imperfect subsitutability; deriving the user cost for fiscal debt securities and creating a Fisher ideal quantity index.
+% Lastly, I reveal that a failure to account for the monetary services provided by fiscal debt ultimately leads to a misunderstanding of a nation's fiscal capacity.
+Lastly, I show that the value of these monetary services explicitly shows up in the derivation of a government's fiscal capacity.
+% First, I measure the monetary services established as theoretically important in the literature.
+% This measure provides additional insight not only into how debt and its dynamics impact the greater economy, but also how global events impact the monetary services of outstanding fiscal debt.
+% If fiscal monetary services do provide additional fiscal capacity and influence inflation dynamics as \citet{Brunnermeier-Merkel-Sannikov:2022} theorize, then understanding the extent of the impact is vital to policy makers. 
+% Second, I provide both theoretical and empirical evidence of a fiscal inflation channel through the rate premiums (liquidity and/or safety) created by those monetary services.
+% That is, while the inflation is derived from an externality of fiscal policy, it is not though the standard channels predicted by the FTPL. 
+% %via these monetary services, though I also show that this result is through the liquidity premiums in the model, not the standard channels predicted by the FTPL.
+% %monetary services channel to the fiscal theory of the price level.
+% %The debate between the monetarist view of inflation and those behind the FTPL has been long and arduous.
+% Showing that fiscal debt influences inflation through its monetary properties suggests that these two theories may not be as different as suspected and provides a potential bridge between the two.
+Together, these results reveal that our standard view of fiscal debt is flawed, which means policy surrounding debt is also flawed.
 
 % Results 1
 The first result of this paper is the derivation of the underlying theory for the quantity index of interest.
@@ -247,7 +255,7 @@ Then, for every month in the Oct 1996--Dec 2020 subsample period, each ``senior'
 }
 Securities without a match are removed from the analysis.
 The securities' YTM spreads are then regressed against the spreads in their relative bid-ask ratios, which are calculated as 
-$$ \text{relative bid-ask ratio} = \frac{\text{ask price }-\text{ bid price}}{\text{ask price }+\text{ accrued interset}}\times 100.$$
+$$ \text{relative bid-ask ratio} = \frac{\text{ask price }-\text{ bid price}}{\text{ask price }+\text{ accrued interest}}\times 100.$$
 An increase in the bid--ask spread implies a relative decrease in the liquidity of the ``senior'' security.
 I also control for the spread in their respective coupon rates, a general time to maturity (months/years) for any term effects, and the expected state of the economy at the time through the 10yr--2yr yield curve spread.\footnote{
 	Note that the coupon rate for bills is zero.
