@@ -1,4 +1,4 @@
-\begin{thebibliography}{21}
+\begin{thebibliography}{22}
 \providecommand{\natexlab}[1]{#1}
 
 \bibitem[{Amihud and Mendelson(1991)}]{Amihud-Mendelson:1991}
@@ -101,6 +101,11 @@ Leeper, E.~M. (1991) {Equilibria under 'active' and 'passive' monetary and
 \bibitem[{Nagel(2016)}]{Nagel:2016}
 Nagel, S. (2016) {The Liquidity Premium of Near-Money Assets}, \textit{The
   Quarterly Journal of Economics}, \textbf{131}, 1927--1971.
+
+\bibitem[{Stock and Watson(2003)}]{Stock-Watson:2002}
+Stock, J.~H. and Watson, M.~W. (2003) {Has the Business Cycle Changed and
+  Why?}, in \textit{{NBER Macroeconomics Annual 2002, Volume 17}}, National
+  Bureau of Economic Research, Inc, NBER Chapters, pp. 159--230.
 
 \bibitem[{Vissing-Jorgensen and
   Krishnamurthy(2013)}]{Krishnamurthy-VissingJorgensen:2013}

@@ -312,7 +312,7 @@ These results also confirm that, when aggregating, none of these assets should b
 			F-statistic 				& 99.48										& 207.2								& 20.19			 					\\ \bottomrule 
 		\end{tabular}
 		\begin{tablenotes}
-			\item[a] \footnotesize{The dependent variable is the yield-to-maturity spread between securities matched by thier respective days to maturity. Standard errors are heteroskedasticity robust (HC1). Designations $***$, $**$, and $*$ represent results that are statistivally significant at the one, five, and ten percent levels, respecitivly.}
+			\item[a] \footnotesize{The dependent variable is the yield-to-maturity spread between securities matched by thier respective days to maturity. Standard errors are heteroskedasticity robust (HC1). Designations ***, **, and * represent results that are statistivally significant at the one, five, and ten percent levels, respecitivly.}
 			\item[b] \footnotesize{Analyses considering Treasury bills are limited to those securities with six months to maturity or less. This ensures that both securities have no other payments remaining until the maturity date.}
 		\end{tablenotes}
 	\end{threeparttable}
@@ -558,7 +558,7 @@ With how distortionary this bias can be, some adjustments and/or assumptions are
 
 To reduce the magnitude of this issue, I cluster the assets into groups that are most likely to be perfect substitutes in any given month.
 While there may be discrepancies in on-the-run/off-the-run securities, they should average out within the clusters. 
-Based on the work of \citet{Amihud-Mendelson:1991} as well as the descriptive statistics in Figures \ref{fig:YTM_Spread} and \ref{fig:BidAsk_Ratios}, the securities need to be separated across their designation of {\em bills}, {\em notes}, and {\em bonds}.
+Based on the work of \citet{Amihud-Mendelson:1991} as well as the results in Table \ref{tab:Relative_Liquidity}, the securities need to be separated across their designation of {\em bills}, {\em notes}, and {\em bonds}.
 Since 1997, the Treasury has issued Treasury Inflation-Protected Securities (TIPS), which yield a real rate of interest instead of the traditional nominal yield.
 These have been shown to be less liquid than their nominal counterparts, so I create two additional categories of {\em TIPS notes} and {\em TIPS bonds}. 
 Lastly, as these securities mature, their yields tend to fall with the trend of the constant maturity yield curve, reflecting the changing monetary services they provide.
@@ -598,40 +598,156 @@ This is similar to the strategy used by the Federal Reserve in their calculation
 \subsection{The Measure}
 \label{subsec:Results_Measure}
 
-The month-over-month growth rates of both the true aggregate and its simple sum counterpart are constructed from the data.
-This indirect approach to the aggregates' levels is necessary as there is no initial value from which to begin the calculation of (\ref{eq:FisherIdeal}).
-Simply taking the logarithm of (\ref{eq:FisherIdeal}) yields the growth-rate variation used.
-The general levels of the growth rates are similar, so I present their spread in Figure \ref{fig:Growth_Spread}.
-To aid in the visual analysis, the 12-month moving average (centered on the seventh month) spread of these growth rates is superimposed.
-As can be seen, the true aggregate tends to grow faster than the simple sum aggregate, but there are also periods of relatively slow growth.
-%: Differences in the Aggregates' Growth Rates
-% \begin{figure}[h]
-% \centering
-% \includegraphics[width=0.85\textwidth]{../Figures/GrowthDiff_v2.eps}
-% \caption{Month-over-month Growth Rate Spread}
-% \label{fig:Growth_Spread}
-% \end{figure}
-
-Since the true aggregate incorporates both the quantities of the underlying assets and the monetary services they provide, the spread intuitively reveals the growth of these monetary services alone.
-That is, I am essentially factoring-out the growth that comes purely from the issued principal values.
-The spread in Figure \ref{fig:Growth_Spread}, therefore, represents the growth of fiscally-provided monetary services.
-This figure shows us that the Treasury generally adds to the stock of monetary services over time, with notable exceptions in the late-1990s when the government was running a fiscal surplus.
-In that instance, the growth rates suggest that the monetary services provided were shrinking along with the principal values. 
-
-
-%: Index Values of the Monetary Services
-% \begin{figure}[h]
-% \centering
-% \includegraphics[width=0.85\textwidth]{../Figures/MonetaryServices_Index.eps}
-% \caption{Monetary Services Level}
-% \label{fig:MS_Index}
-% \end{figure}
-Using these growth rate spreads, I derive an index that tracks the stock of monetary services, shown in Figure \ref{fig:MS_Index}.
+The Fisher ideal quantity index of US fiscal debt---and its corresponding simple-sum aggregate---is presented in Figure \ref{fig:MS_Index}.
+This value is constructed from the month-over-month growth rates calculated via the logarithm of (\ref{eq:FisherIdeal}).\footnote{
+	This indirect approach to the aggregates' levels is necessary as there is no initial value from which to begin the calculation of (\ref{eq:FisherIdeal}).
+	These month-over-month growth rates can be found in Appendix \ref{app:Additional_Results}.
+}
 Multiple theories have claimed that Treasury securities provide services above and beyond their principal value, but this is the first attempt to measure such services. 
 The base month considered here is August 1989 due to the relative flatness of the yield curve at that time.
-When the yield curve is flat, the differences in the user costs are minimal, suggesting that the underlying assets are perceived as near-perfect substitutes and collapsing the Fisher ideal index into a simple sum aggregate.
+When the yield curve is flat, the differences in the user costs are minimal, suggesting that the underlying assets are perceived as near-perfect substitutes and collapsing the Fisher ideal index into a simple sum aggregate. 
+%: Simple sum versus Fisher index
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.85\textwidth]{../Figures/FisherIndex_v2.eps}
+	\caption{Monetary Services Level}
+	\label{fig:MS_Index}
+\end{figure}
+%: Differences in the Aggregates' Growth Rates
+% \begin{figure}[h]
+% 	\centering
+% 	\includegraphics[width=0.85\textwidth]{../Figures/GrowthDiff_v2.eps}
+% 	\caption{Month-over-month Growth Rate Spread}
+% 	\label{fig:Growth_Spread}
+% \end{figure}
+Using the respective growth rates of both measures, I estimate the growth rate of the fiscally-supplied monetary services.
+Since the true aggregate incorporates both the quantities of the underlying assets and the monetary services they provide, the difference in their growth rates reveals the growth of the monetary services alone.
+That is, I am essentially factoring-out the growth that comes purely from the issued principal values.
+This series is then used to constuct a quantity index for the monetary services (Figure \ref{fig:MS_Index}), separated from the quantity of the underlying principal value.
+%: Index Values of the Monetary Services
+\begin{figure}[p!]
+	\centering
+	\includegraphics[width=0.85\textwidth]{../Figures/MonetaryServices_Index.eps}
+	\caption{Derived Monetary Services Quantity Index}
+	\label{fig:MS_Index}
+\end{figure}
+As can be seen, these monetary services have generally grown as principal levels have risen, though it is not uncommon for the monetary services of fiscal debt to decrease even in the face of deficit spending.
+The year-over-year growth rate of these monetary services is easier to analyze and shown in Figure \ref{fig:YoY_Growth}.
+\begin{figure}[p!]
+	\centering
+	\includegraphics[width=0.85\textwidth]{../Figures/YoYGrowth_MonServices.eps}
+	\caption{Year-over-year Growth of Fiscally-Supplied Monetary Services}
+	\label{fig:YoY_Growth}
+\end{figure}
 
 
+% The spread in Figure \ref{fig:Growth_Spread}, therefore, represents the growth of fiscally-provided monetary services.
+% This figure shows us that the Treasury generally adds to the stock of monetary services over time, with notable exceptions in the late-1990s when the government was running a fiscal surplus.
+% In that instance, the growth rates suggest that the monetary services provided were shrinking along with the principal values. 
+
+
+
+% Using these growth rate spreads, I derive an index that tracks the stock of monetary services, shown in Figure \ref{fig:MS_Index}.
+
+
+\section{Fiscal Capacity: Accounting vs.\ Economic Meaning}
+Discussions of fiscal debt often turn into discussions of fiscal capacity.
+Focusing on the simple-sum value of the underlying principal, however, considers only the purely accounting aspects of fiscal capacity.
+In this section I consider the differences between the accounting (simple-sum) approach and an approach that considers the economic value of the debt (index-number).
+
+\subsection{Fiscal Capacity Considerations}
+\label{subsec:Theory_Capacity}
+\citet*{Brunnermeier-Merkel-Sannikov:2022} have shown that government debt constraints need to be augmented for the service flows (transaction/monetary services) that the securities provide.
+Here I expand upon this idea with the specifics of the model above, providing a deeper look at how we can ascertain those services flows in particular.\footnote{
+	This is identical to the exercise conducted by \citet{Brunnermeier-Merkel-Sannikov:2020}, though I abstract from the bubble term to focus solely on the monetary services component.}
+
+	Consider the simple budget constraint of a government that corresponds to the household side of the model above
+\begin{equation*}
+	(1+r_{t-1})\frac{B_{t-1}}{p_t} + (\alpha + r^L_{t-1})\frac{B^L_{t-1}}{p_t} = \frac{B_t}{p_t} + \frac{B^{L,n}_t}{p_t} + s_t,
+\end{equation*}
+where $s_t$ is denotes the real primary surplus. 
+Now incorporate (\ref{eq:LoM_DebtLevel}) into the above equation to get
+\begin{equation}
+	(1+r_{t-1})\frac{B_{t-1}}{p_t} + (1 + r^L_{t-1})\frac{B^L_{t-1}}{p_t} = \frac{B_t}{p_t} + \frac{B^{L}_t}{p_t} + s_t.
+	\label{eq:Gov_PeriodBudget}
+\end{equation}
+
+For simplicity and without loss of generality, I assume that the true monetary services aggregate is a constant elastisticy of subsitution function
+\begin{equation}
+	M_t = \left[\lambda^{\frac{1}{\sigma}}B_t^{\frac{\sigma-1}{\sigma}} + (1-\lambda)^{\frac{1}{\sigma}}{B^L_t}^{\frac{\sigma-1}{\sigma}}\right]^{\frac{\sigma}{\sigma-1}},
+	\label{eq:MS_CES}
+\end{equation}
+where $\lambda \in [0,1]$ dictates the weight of each government debt security and $\sigma$ dictates the elasticity of substitution between the two assets.
+
+
+The equilibrium conditions analogous to (\ref{eq:HH_manOC_B}) and (\ref{eq:HH_manOC_BL})
+\begin{equation*}
+	1 - \gamma_{2,t}\left(\frac{\lambda M_t}{B_t}\right)^\frac{1}{\sigma} = \beta \mathbb{E}_t\!\left[\frac{\mu_{1,t+1}}{\mu_{1,t}}\frac{1+r_t}{\pi_{t+1}}\right],
+	\label{eq:HH_manOC_B_Alt}
+\end{equation*}
+and 
+\begin{multline*}
+	1 - \gamma_{2,t}\left(\frac{(1-\lambda)M_t}{B^L_t}\right)^\frac{1}{\sigma} + \gamma_{4,t}\left(r^L_t-r^{L,n}_t\right) \\
+	= \beta \mathbb{E}_t\!\left[\frac{\mu_{1,t+1}}{\mu_{1,t}}\frac{1}{\pi_{t+1}} \left\{ 1+r^L_t + (1-\alpha)\gamma_{4,t+1} \left(r^L_t-r^{L,n}_{t+1}\right)\right\}\right],
+	\label{eq:HH_manOC_BL_Alt}
+\end{multline*}
+must therefore hold.
+Incorporating these into (\ref{eq:Gov_PeriodBudget}) yields
+\begin{multline}
+	\frac{B_{t-1} + B^L_{t-1}}{p_t}(1+r_{t-1})= s_t  - (r_{t-1}^L - r_{t-1})\frac{B^L_{t-1}}{p_t} + \beta\mathbb{E}_t\left[\frac{\mu_{1,t+1}}{\mu_{1,t}} \frac{B_{t} +B^L_{t}}{p_{t+1}}(1+r_{t})\right] \\ 
+		- \beta\mathbb{E}_t\left[\frac{\mu_{1,t+1}}{\mu_{1,t}} \frac{B^L_{t}}{p_{t+1}}(1+r_{t})\right] + \beta\mathbb{E}_t\left[\frac{\mu_{1,t+1}}{\mu_{1,t}} \frac{B^L_{t}}{p_{t+1}}(1+r^L_{t})\right] \\
+		+  \gamma_{2,t}\left(\frac{\lambda M_t}{B_t}\right)^\frac{1}{\sigma}\frac{B_t}{p_t} +\gamma_{2,t}\left(\frac{(1-\lambda) M_t}{B^L_t}\right)^\frac{1}{\sigma}\frac{B^L_t}{p_t} \\
+		+\beta\mathbb{E}_t\left[\frac{\mu_{1,t+1}}{\mu_{1,t}} \frac{B^L_t}{p_{t+1}}\left\{1+  (1-\alpha)\gamma_{4,t+1}\left(r^L_t - r^{L,n}_{t+1}\right)\right\}\right] - \gamma_{4,t}\left(r^L_t - r^{L,n}_t\right)\frac{B^L_t}{p_t}
+\end{multline}
+Subsituting (\ref{eq:HH_manOC_rL}) into this---and some rearranging---we can simplify the above equation to
+\begin{multline}
+	\frac{B_{t-1} + B^L_{t-1}}{p_t}(1+r_{t-1})= s_t - (r_{t-1}^L - r_{t-1})\frac{B^L_{t-1}}{p_t} + \beta\mathbb{E}_t\left[\frac{\mu_{1,t+1}}{\mu_{1,t}} \frac{B_{t} +B^L_{t}}{p_{t+1}}(1+r_{t})\right] \\ 
+		+ \beta\mathbb{E}_t\left[\frac{\mu_{1,t+1}}{\mu_{1,t}} \frac{B^L_{t}}{p_{t+1}}(1+r^L_{t} - (1-\alpha)\gamma_{4,t+1}\Delta r^{L,n}_{t+1} - r_t)\right]  \\
+		+  \gamma_{2,t}\left(\frac{\lambda M_t}{B_t}\right)^\frac{1}{\sigma}\frac{B_t}{p_t} +\gamma_{2,t}\left(\frac{(1-\lambda) M_t}{B^L_t}\right)^\frac{1}{\sigma}\frac{B^L_t}{p_t}.
+\end{multline}
+
+The last two terms are of particular importance here.
+The assumed-true monetary services aggregate (\ref{eq:MS_CES}) reduces the above expression to 
+\begin{multline}
+	\frac{B_{t-1} + B^L_{t-1}}{p_t}(1+r_{t-1})= s_t  - (r_{t-1}^L - r_{t-1})\frac{B^L_{t-1}}{p_t} + \beta\mathbb{E}_t\left[\frac{\mu_{1,t+1}}{\mu_{1,t}} \frac{B_{t} +B^L_{t}}{p_{t+1}}(1+r_{t})\right] \\ 
+		+ \beta\mathbb{E}_t\left[\frac{\mu_{1,t+1}}{\mu_{1,t}} \frac{B^L_{t}}{p_{t+1}}(1+r^L_{t} - (1-\alpha)\gamma_{4,t+1}\Delta r^{L,n}_{t+1} - r_t)\right] 
+		+  \gamma_{2,t}\frac{M_t}{p_t},
+	\label{eq:fiscalcapacity}
+\end{multline}
+where it can be shown that
+\begin{equation}
+	\gamma_{2,t} = \left[\lambda \eta_t^{\sigma-1} + (1-\lambda)\left(\eta^L_t\right)^{\sigma-1}\right]^\frac{1}{\sigma-1}
+	\label{eq:price_dual}
+\end{equation}
+is the price dual for the monetary services aggregate. 
+
+There are a couple of items to point out with regards to the above expression.
+First, fiscal capacity intuitively diminishes as long-term rates rise relative to short-term rates.
+This term is reflecting the convenience yields that the government enjoys on its short-term debt.
+Second, the fourth term on the right side suggests long-term debt can improve fiscal capacity via its longer maturity and a higher expected one-period return over the short-term debt. 
+That is, while capacity shrinks with higher long-term interest rates, demand for the debt increases with higher expected holding-period returns. 
+Lastly, fiscal capacity increases with the value of the monetary/transaction services the debt provides.
+Thus, the monetary services provided by government debt issuances is directly captured in the government's budget constraint in a similar fashion to that shown in \citet{Brunnermeier-Merkel-Sannikov:2022}.
+Fiscal capacity analysis that focuses only on the accounting view of fiscal debt and omits the economic value of the underlying securities will inevitably lead to a biased view of the fiscal situation.
+
+Fisher's factor reversal can be used to calculate the non-parametric version of the price dual (\ref{eq:price_dual}) and is shown in Figure \ref{fig:FiscalServices_Value}.
+The data does not go back far enough to know whether the higher values in the late 1970s are a one-off spike or a sustained trend. 
+The sudden decrease in this index in the 1989--1990 period comes from a sudden decrease in the price of obtaining these monetary services.
+While the reasoning for this dramatic shift is beyond the scope of this paper, this does generally align with some later estimates of the Great Moderation as well as the surge in the information technology realm.\footnote{
+	While most of the work on the Great Moderation centers around 1984:Q4 as the break point, \citet{Stock-Watson:2002} find a relatively wide 95\% confidence interval that expands all the way to 1989:Q4.
+	The first web browser was also introduced in 1990, providing information in an easy-to-use format to the masses.}
+One could imagine that the decrease in general market volatility, coupled with an increase in the available information about other financial assets, decimated the Treasury's comparative advantage in safety in the financial world.
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.85\textwidth]{../Figures/FiscalCapacity_Index.eps}
+\caption{Value of Fiscal Monetary Services}
+\label{fig:FiscalServices_Value}
+\end{figure}
+
+The value of the monetary services aggregate was relatively stable until the financial crisis of 2007-2009, when that value increased approximately 378 percent from January 2007 to January 2014. 
+This increase in the fiscal capacity would help explain the lack of inflationary pressure during that period of expansion despite increases in federal spending and monetary stimulus over that time.
+The stimulus passed during the 2020 pandemic, however, did not provide the same increase in total value, as the private sector moved towards pure liquidity (``dash for cash'') in the face of lockdowns.
+In that type of environment, even Treasury securities do not provided the needed liquidity and safety features.
 \newpage
 
 \bibliographystyle{apecon}
