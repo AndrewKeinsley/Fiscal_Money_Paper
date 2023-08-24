@@ -83,29 +83,25 @@
 
 % Introduce the Topic and its Imporance
 The fiscal response to the COVID crisis in the US and the ensuing rise of inflation and interest rates have brought the concept of ``fiscal capacity" back into the spotlight. 
-The standard metric of fiscal capacity---the debt-to-GDP ratio---has seen periods of rise and fall since the 1980s, all the while interest rates have steadily declined.
-This suggests that there must be more to the fiscal-capacity discussion than just the stock of outstanding principal value and its relationship to the size of the economy.
-Or maybe our perception of fiscal debt, especially in the United States, is incomplete.
-
-% Brief Literature Review
-\citet{Krishnamurthy-VissingJorgensen:2012}, \citet{Krishnamurthy-VissingJorgensen:2013}, and \citet{Nagel:2016}---to name just a few---have established that the value of fiscal debt in the US is much more than the sum of its outstanding stock of principal. 
-\citet*{Caballero-Farhi-Gourinchas:2017} build on this idea to explain historically low borrowing costs in the face of historically high debt levels.
+The standard metric considered in this debate---the debt-to-GDP ratio---often omits the well-documented fact that the value of fiscal debt in the US is much more than the sum of its outstanding stock of principal \citep[][to name just a few]{Krishnamurthy-VissingJorgensen:2012,Krishnamurthy-VissingJorgensen:2013,Nagel:2016}.\footnote{
+	\citet*{Caballero-Farhi-Gourinchas:2017} build on this idea to explain historically low borrowing costs in the face of historically high debt levels.
+}
 More recently, \citet*{Brunnermeier-Merkel-Sannikov:2022} applied these concepts to the fiscal capacity literature. 
 They show that demand increases the borrowing limits of the fiscal authority because the underlying securities provide safety or transaction services, which I will refer to more generally as monetary services.\footnote{
 	These monetary services generally include the aforementioned transactions services as well as other attributes such as liquidity, safety, use as collateral, etc.}\footnote{
 		Further, they show that the inclusion of these monetary services disrupt the traditional FTPL channel \citep[see][as a seminal example]{Leeper:1991} and, along with the empirical results of \citet{Jiang-etal:2019}, suggest that this channel is important in the valuation of Treasury debt. 
 	}
-This paper introduces index number theory to the fiscal debt discussion in an attempt to go beyond the simple accounting of fiscal debt and measure its full economic value.
+This paper introduces index number theory to the fiscal debt discussion, continuing the move from simple accounting to a measure the full economic value of fiscal debt.
 
 % Purpose of this paper...
 The contribution of this paper is three-fold.
-First, I show empirically that these securities should not be treated as perfect substitutes and therefore cannot be aggregated in the standard, simple-sum manner. 
-Next, I motivate the use of index number theory to account for this imperfect subsitutability; deriving the user cost for fiscal debt securities and creating a Fisher ideal quantity index.
-Lastly, I show that the value of these monetary services explicitly shows up in the derivation of a government's fiscal capacity.
+First, I show empirically that the underlying securities that constitute the debt should not be treated as perfect substitutes and therefore cannot be aggregated in the standard, simple-sum manner. 
+Next, I motivate the use of index number theory to account for this imperfect subsitutability; deriving the user cost for fiscal debt securities and creating a Fisher ideal quantity index that tracks the true debt aggregator.
+Lastly, I show that the value of these monetary services explicitly increases the government's fiscal capacity.
 Together, these results reveal that our standard view of fiscal debt is flawed, which means policy surrounding debt is also flawed.
 
 % Results 1
-I first extend the work of \citet{Amihud-Mendelson:1991} to show that the differing types of nominal Tresury securities (bills, notes, and bonds) are not perfect subsitutes, as is assumed in a simple-sum framework. 
+I first extend the work of \citet{Amihud-Mendelson:1991} to show that the differing types of nominal Treasury securities (bills, notes, and bonds) are not perfect subsitutes, an assumption implicit in the simple-sum framework. 
 % I do this by matching the securities within each month by their days to maturity; exploring how changes in relative liquidity impact their relative yields to maturity (YTM).
 % After accounting for the time to maturity, relative coupon rates, and other potental explanatory variables, I find that the relative liquidities of bills and are a statisticsally significant part of their relative yields. 
 For instance, bills benefit from a liquidity premium even realtive to defacto zero-coupon notes with the same time to maturity.\footnote{
@@ -142,24 +138,23 @@ Having this measure of fiscal monetary services provides a new data point in eva
 % Results 3
 Lastly, I follow the argument of \citet{Brunnermeier-Merkel-Sannikov:2022} to show that the full value of these fiscally-supplied monetary services increases fiscal capacity.
 This is important because the economic value of US fiscal debt has historically outpaced the simple accounting view of the outstanding principal.
-At first glance, this could lead many to suggest that this new metric means there is {\em less} fiscal capacity, but the monetary services add to the demand for the debt and therefore reduce the strain.
+At first glance, this could lead many to think that this new metric means there is {\em less} fiscal capacity, but the monetary services add to the demand for the debt, increasing the government's ability to borrow.
 
 %% Limitations
 %There are several limitations to this study that will hopefully be addressed in future research.
 
 % Roadmap
 The remainder of this paper is organized as follows.
-Section \ref{sec:MonAgg} presents the underlying index number theory and considers some of the hurdles with applying it to the available data.
-Section \ref{sec:Theory} develops the theory to motivate a proper statistical index number.
-Section \ref{sec:DataMethodology} derives the Fisher ideal index that tracks the true aggregate of marketable fiscal debt.
+Section \ref{sec:Motivation} motivates---both empirically and theoretically---the use of index numbers in the fiscal debt realm.
+Section \ref{sec:Theory} derives the needed user costs of longer-term Treasury securities.
+Section \ref{sec:DataMethodology} considers the data and methodology for constructing the index number.
 Section \ref{sec:Results} presents the Fisher ideal index and compares it to the ubiquitous simple sum aggregate.
-Section \ref{sec:MonetaryFiscal} constructs a small-scale New Keynesian model to explore the interaction between monetary and fiscal policy when both short- and long-term government debt provide monetary services.
-Section \ref{sec:Empirical} then empirically tests the predictions of the theoretical model and the ability of this metric to forecast inflationary dynamics.
+Section \ref{sec:FiscalCapacity} explores the relationship between fiscally-provided monetary services and fiscal capacity.
 Section \ref{sec:Conclusion} concludes.
 
 
 \section{Motivation}
-\label{sec:MonAgg}
+\label{sec:Motivation}
 Measuring the monetary services of fiscal debt specifically is a novel concept, but the idea of considering the monetary services of financial assets in general is not new.
 In this section I briefly touch on the monetary aggregation literature, motivate the need for a new measure of fiscal debt, and consider the hurdles in applying the theory to this data specificially. 
 
@@ -184,7 +179,7 @@ In this section I briefly touch on the monetary aggregation literature, motivate
 % Second, the nominal values are also incorporated into the share value, so that even if a particular asset is very money-like, it still will not add much to the aggregate at smaller nominal amounts. 
 % Thus, it is important to note that an increase in an asset's user cost does not necessarily imply an increase in its share value.
 
-\subsection{Bonds Market Segmentation}
+\subsection{Bond Market Segmentation}
 \label{subsec:MktSeg}
 Fiscal debt is ubiquitously measured as the sum of outstanding principal values.
 Simple-sum aggregates come with an assumption that the underlying assets are perfect substitutes. 
@@ -638,6 +633,7 @@ The year-over-year growth rate of these monetary services is easier to analyze a
 
 
 \section{Fiscal Capacity: Accounting vs.\ Economic Value}
+\label{sec:FiscalCapacity}
 Discussions of fiscal debt often turn into discussions of fiscal capacity.
 Focusing on the simple-sum value of the underlying principal, however, considers only the purely accounting aspects of fiscal capacity.
 In this section I consider the differences between the accounting (simple-sum) approach and an approach that considers the economic value of the debt (index-number).
@@ -737,6 +733,7 @@ The stimulus passed during the 2020 pandemic, however, did not provide the same 
 In that type of environment, even Treasury securities do not provided the needed liquidity and safety features.
 
 \section{Concluding Remarks}
+\label{sec:Conclusion}
 The three primary contributions of this paper center around how we view fiscal debt.
 First, I show empirically and theoretically that these securities should not be treated as perfect substitutes and therefore cannot be aggregated in a simple-sum manner. 
 Next, I motivate the use of index number theory to account for this imperfect subsitutability; deriving the user cost for fiscal debt securities and creating a Fisher ideal quantity index.
