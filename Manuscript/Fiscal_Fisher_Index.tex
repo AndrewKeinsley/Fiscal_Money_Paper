@@ -218,7 +218,7 @@ So we should expect that a note and bond would be perfect substitutes and thus c
 \citet{Amihud-Mendelson:1991} find that the YTM spread between notes and bills is driven by relative liquidity.
 Using monthly data on Treasury securities identified at the CUSIP level, I extend their work to empirically test this claim across the three common types of nominal securities.
 The data are first separated by their type label: bills, notes, and bonds.
-Then, for every month in the Oct 1996--Dec 2020 subsample period, each ``senior'' security (bond/note) is matched to a ``junior'' security (note/bill) that matures within one day of the respective note, allowing for exact matches.\footnote{
+Then, for every month in the Oct 1996--Dec 2020 subsample period, each ``senior'' security (bond/note) is matched to a ``junior'' security (note/bill) that matures within one day of said ``senior'' security, allowing for exact matches if they exist.\footnote{
 	The October 1996 cutoff for this analysis comes from the source data in the CRSP database. 
 	Prior to October 16, 1996, CRSP data on bid and ask prices were sourced from the FRBNY; while sourced from GovPX and its aquiring institutions since then.
 	According to the CRSP documentation: ``The FRBNY described its listed bid price as `...the most widely quoted price from the range of quotations received'. 
@@ -245,7 +245,7 @@ The results of the bonds--notes and bonds--bills analyses paint bonds primarily 
 Neither the bond's coupon rate nor the expected state of the economy impact its YTM spread versus bills, suggesting that bonds are largely purchased to hold.
 Additionally, a decrease in the liquidity of bonds relative to bills causes the YTM spread to decrease, opposite of the notes result. 
 A plausible explanation for this is that the demand for bonds reduces the YTM relative to bills, but that these bonds are purchased for savings purposes and are more likely held to maturity, reducing the liquidity of the market overall.
-The positive, yet not statistically significant bonds-notes liquidity result also suggests that bonds occupy a part of the market that is less concerned with the liquidity of the investment and more about the safety and return.
+The positive, yet not statistically significant bonds--notes liquidity result also suggests that bonds occupy a part of the market that is less concerned with the liquidity of the investment and more about the safety and return.
 
 % Notes seem to fall somewhere in the middle of the bills' liquidity hedge and the bonds' savings preference.
 % The combination of results suggests that notes are less sensitive to changes in expectations, suggesting that an increase in the yield curve spread pushes bill and bond rates down together, with note rates remaining relatively unchanged.
@@ -320,7 +320,7 @@ These properties make the translog function the perfect starting point in derivi
 	\label{DI}
 \end{equation*}
 can be derived directly from a translog aggregator function.
-Here, $M^d_t$ is the level of the Divisia monetary aggregate, $x^n_{t}$ is the nominal value of asset $n$, and 
+Here, $M^d_t$ is the level of the Divisia quantity index, $x^n_{t}$ is the nominal value of asset $n$, and 
 \begin{equation*}
 	s_{n,t}  = \frac{\eta^n_{t}x^n_{t}}{\boldsymbol \eta_t \mathbf{x'}_t}
 \end{equation*}
@@ -607,17 +607,17 @@ Since the true aggregate incorporates both the quantities of the underlying asse
 That is, I am essentially factoring-out the growth that comes purely from the issued principal values.
 This series is then used to constuct a quantity index for the monetary services (Figure \ref{fig:MS_Index}), separated from the quantity of the underlying principal value.
 %: Index Values of the Monetary Services
-\begin{figure}[p!]
+\begin{figure}[p]
 	\centering
-	\includegraphics[width=0.85\textwidth]{../Figures/MonetaryServices_Index.eps}
+	\includegraphics[width=0.8\textwidth]{../Figures/MonetaryServices_Index.eps}
 	\caption{Derived Monetary Services Quantity Index}
 	\label{fig:MS_Index}
 \end{figure}
 As can be seen, these monetary services have generally grown as principal levels have risen, though it is not uncommon for the monetary services of fiscal debt to decrease even in the face of deficit spending.
 The year-over-year growth rate of these monetary services is easier to analyze and shown in Figure \ref{fig:YoY_Growth}.
-\begin{figure}[p!]
+\begin{figure}[p]
 	\centering
-	\includegraphics[width=0.85\textwidth]{../Figures/YoYGrowth_MonServices.eps}
+	\includegraphics[width=0.8\textwidth]{../Figures/YoYGrowth_MonServices.eps}
 	\caption{Year-over-year Growth of Fiscally-Supplied Monetary Services}
 	\label{fig:YoY_Growth}
 \end{figure}
