@@ -57,7 +57,7 @@
 \defcitealias{Blanchard:2016}{Blanchard, 2016}
 
 % \title{Measuring the True Economic Value of Fiscal Debt}
-\title{A New Measurement of Fiscal Debt and What it Tells Us About Fiscal Capacity}
+\title{A New Measurement of Fiscal Debt and What it Tells Us About Treasury Market Depth}
 %\thanks{
 %	I'd like to thank Bill Barnett, David Beckworth, Markus Brunnermeier, Josh Hendrickson, Tom Holden, John Nana Francois, Peter Ireland, Eric Leeper, Ryan Mattson, and Ricardo Nunes for their helpful comments and advice on this and previous versions of this paper.
 %	I'd also like to thank the numerous seminar participants at the University of Kansas, Utah State University, Southern Utah University, and various conferences for their invaluable feedback.}}
@@ -69,16 +69,16 @@
 \thispagestyle{empty}
 
 \begin{abstract}
-\noindent In light of growing debates around fiscal capacity in the US, I develop a measurement of the true economic value of Treasury debt.
+\noindent In light of growing debates around the impact of federal borrowing in the US, I develop a measurement of the true economic value of Treasury debt.
 First, I show that the underlying securities that make up the debt should not be treated as perfect substitutes, as simple-sum aggregates implicitly assume.
 I then derive the user cost for long-term Treasury securities and construct a Fisher ideal quantity index that tracks the true debt aggregate.
-With this, I demonstrate how the economic value of these securities---above and beyond basic accounting---influences fiscal capacity in the US.
+With this, I demonstrate how the economic value of these securities---above and beyond basic accounting---influences the depth of the US Treasury market.
 
 %monetary services channel to the fiscal theory of the price level.
 \end{abstract}
 \vspace{2em}
 
-\noindent{Keywords}: Fiscal Capacity, Index Number Theory, Fiscal Debt, Aggregation
+\noindent{Keywords}: Treasury Debt, Aggregation, Market Depth, Fiscal Capacity, Index Number Theory
 \newpage
 \setcounter{page}{1}
 
@@ -86,12 +86,13 @@ With this, I demonstrate how the economic value of these securities---above and 
 \section{Introduction}
 
 % Introduce the Topic and its Imporance
-The fiscal response to the COVID crisis in the US and the ensuing rise of inflation and interest rates have brought the concept of ``fiscal capacity" back into the spotlight. 
+The fiscal response to the COVID crisis in the US and the ensuing rise of inflation and interest rates have brought the debate surrounding the borrowing ability of the US government back into the spotlight. 
 The standard metric considered in this debate---the debt-to-GDP ratio---often omits the well-documented fact that the value of fiscal debt in the US is much more than the sum of its outstanding stock of principal \citep[][to name just a few]{Krishnamurthy-VissingJorgensen:2012,Krishnamurthy-VissingJorgensen:2013,Nagel:2016}.\footnote{
 	\citet*{Caballero-Farhi-Gourinchas:2017} build on this idea to explain historically low borrowing costs in the face of historically high debt levels.
 }
 More recently, \citet*{Brunnermeier-Merkel-Sannikov:2022} applied these concepts to the fiscal capacity literature. 
-They show that demand increases the borrowing limits of the fiscal authority because the underlying securities provide safety or transaction services, which I will refer to more generally as monetary services.\footnote{
+They show that demand increases the borrowing limits of the fiscal authority because the underlying securities add to market depth, providing safety or transaction services.\footnote{
+	I will refer to these transactions services more generally as ``monetary services''
 	These monetary services generally include the aforementioned transactions services as well as other attributes such as liquidity, safety, use as collateral, etc.}\footnote{
 		Further, they show that the inclusion of these monetary services disrupt the traditional FTPL channel \citep[see][as a seminal example]{Leeper:1991} and, along with the empirical results of \citet{Jiang-etal:2019}, suggest that this channel is important in the valuation of Treasury debt. 
 	}
@@ -101,7 +102,7 @@ This paper introduces index number theory to the fiscal debt discussion, continu
 The contribution of this paper is three-fold.
 First, I show empirically that the underlying securities that constitute the debt should not be treated as perfect substitutes and therefore cannot be aggregated in the standard, simple-sum manner. 
 Next, I motivate the use of an index number to account for this imperfect subsitutability; deriving the user cost for fiscal debt securities and creating a Fisher ideal quantity index that tracks the true aggregate.
-Lastly, I show that the value of these monetary services directly increases the government's fiscal capacity.
+Lastly, I show that the value of these monetary services directly increases the Treasury market depth and the government's fiscal capacity.
 Together, these results reveal that our standard view of fiscal debt, and our policy/discussion surrounding it is flawed.
 
 % Results 1
@@ -142,7 +143,7 @@ Having this measure of fiscal monetary services provides a new data point in eva
 % Results 3
 Lastly, I follow the argument of \citet{Brunnermeier-Merkel-Sannikov:2022} to show that the full value of these fiscally-supplied monetary services increases fiscal capacity.
 This is important because the economic value of US fiscal debt has historically outpaced the simple accounting view of the outstanding principal.
-At first glance, this could lead many to think that this new metric means there is {\em less} fiscal capacity, but the monetary services add to the demand for the debt, increasing the government's ability to borrow.
+At first glance, this could lead many to think that this new metric means there is {\em less} fiscal capacity, but the monetary services add depth to the market and demand for the debt, increasing the government's ability to borrow.
 
 %% Limitations
 %There are several limitations to this study that will hopefully be addressed in future research.
@@ -587,13 +588,13 @@ The alignment of these economic experiences with the more dramatic swings in the
 % Using these growth rate spreads, I derive an index that tracks the stock of monetary services, shown in Figure \ref{fig:MS_Index}.
 
 
-\section{Fiscal Capacity: Accounting vs.\ Economic Value}
+\section{The Treasury Market: Accounting vs.\ Economic Value}
 \label{sec:FiscalCapacity}
 Discussions of fiscal debt often turn into discussions of fiscal capacity.
-Focusing on the simple-sum value of the underlying principal, however, considers only the purely accounting aspects of fiscal capacity.
+Focusing on the simple-sum value of the underlying principal, however, considers only the purely accounting aspects of Treasury debt.
 In this section I consider the differences between the accounting (simple-sum) approach and an approach that considers the economic value of the debt (index-number).
 
-\subsection{Fiscal Capacity Considerations}
+\subsection{Debt Dynamics, Explored}
 \label{subsec:Theory_Capacity}
 \citet*{Brunnermeier-Merkel-Sannikov:2022} have shown that government debt constraints need to be augmented for the service flows (transaction/monetary services) that the securities provide.
 Here I expand upon this idea with the specifics of the model above, providing a deeper look at how we can ascertain those services flows in particular.\footnote{
@@ -664,11 +665,12 @@ First, fiscal capacity intuitively diminishes as long-term rates rise relative t
 This term is reflecting the convenience yields that the government enjoys on its short-term debt.
 Second, the fourth term on the right side suggests long-term debt can improve fiscal capacity via its longer maturity and a higher expected one-period return over the short-term debt. 
 That is, while capacity shrinks with higher long-term interest rates, demand for the debt increases with higher expected holding-period returns. 
-Lastly, fiscal capacity increases with the value of the monetary/transaction services the debt provides.
+Lastly, the borrowing ability of the Treasury increases with the value of the monetary/transaction services the debt provides.
 Thus, the monetary services provided by government debt issuances is directly captured in the government's budget constraint in a similar fashion to that shown in \citet{Brunnermeier-Merkel-Sannikov:2022}.
-Fiscal capacity analysis that focuses only on the accounting view of fiscal debt and omits the economic value of the underlying securities will inevitably lead to a biased view of the fiscal situation.
+Analyses of market depth---and the fiscal capacity that comes with it--- that focus only on the accounting view of debt and omits the economic value of the underlying securities will inevitably lead to a biased view of the fiscal situation.
 
-Fisher's factor reversal can be used to calculate the non-parametric version of the price dual (\ref{eq:price_dual}) and is shown in Figure \ref{fig:FiscalServices_Value}.
+Fisher's factor reversal can be used to calculate the non-parametric version of the price dual (\ref{eq:price_dual}).
+The full economic value of the Treasury debt is shown in Figure \ref{fig:FiscalServices_Value}.
 The data does not go back far enough to know whether the higher values in the late 1970s are a one-off spike or a sustained trend. 
 The sudden decrease in this index in the 1989--1990 period comes from a sudden decrease in the price of obtaining these monetary services.
 While the reasoning for this dramatic shift is beyond the scope of this paper, this does generally align with some later estimates of the Great Moderation as well as the surge in the information technology realm.\footnote{
@@ -682,14 +684,14 @@ One could imagine that the decrease in general market volatility, coupled with a
 \label{fig:FiscalServices_Value}
 \end{figure}
 
-The value of the monetary services aggregate was relatively stable until the financial crisis of 2007-2009, when that value increased approximately 378 percent from January 2007 to January 2014. 
-This increase in the fiscal capacity would help explain the lack of inflationary pressure during that period of expansion despite increases in federal spending and monetary stimulus over that time.
+The value of the monetary services aggregate was relatively stable until the financial crisis of 2007-2009 and the Euro debt crisis that followed, when that value increased approximately 378 percent from January 2007 to January 2014. 
+This increase in the market depth would help explain the lack of inflationary pressure during that period of expansion despite increases in federal spending and monetary stimulus over that time.
 The stimulus passed during the 2020 pandemic, however, did not provide the same increase in total value, as the private sector moved towards pure liquidity (``dash for cash'') in the face of lockdowns.
 In that type of environment, even Treasury securities do not provided the needed liquidity and safety features.
 
 \section{Concluding Remarks}
 \label{sec:Conclusion}
-The three primary contributions of this paper center around how we view fiscal debt.
+The three primary contributions of this paper center around how we view fiscal debt and market depth.
 First, I show empirically and theoretically that these securities should not be treated as perfect substitutes and therefore cannot be aggregated in a simple-sum manner. 
 Next, I motivate the use of index number theory to account for this imperfect subsitutability; deriving the user cost for fiscal debt securities and creating a Fisher ideal quantity index.
 Lastly, I reveal that a failure to account for the monetary services provided by fiscal debt ultimately leads to a misunderstanding of a nation's fiscal capacity. 
