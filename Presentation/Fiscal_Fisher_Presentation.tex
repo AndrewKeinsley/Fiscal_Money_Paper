@@ -89,6 +89,13 @@
 %:	ADDING NEW ENVIRONMENTS
 \newcolumntype{d}[1]{D{.}{.}{#1}}
 
+\newcommand\mathcomment[2]{
+	\tikz[baseline]{\node[anchor=base,inner sep=0pt,outer sep=2pt] (myterm) {$#1$};
+	\node[overlay,anchor=south,yshift=1em] (mycomment) at (myterm.north) {#2};
+	\draw[overlay,->] (mycomment.south) -- (myterm.north);
+	}
+}
+
 %:TITLE MATERIAL
 \title[Measuring Treasury Debt and Depth]{Measuring Treasury Debt and Market Depth}
 \author[Keinsley]{Dr. Andrew Keinsley}
@@ -169,6 +176,151 @@
 	\end{columns}
 \end{frame}
 
+\begin{frame}
+\frametitle{The User Cost of Treasury Securities}
+\begin{columns}[t]
+	\begin{column}{0.49\textwidth}
+		\begin{wideitemize}
+			\item A proper index number
+			\begin{itemize}
+				\item Not the aggregate, itself
+				\item Tracks the aggregate nonparmetrically
+				\item Must be derived from optimization 
+			\end{itemize}
+			\item Standard single-period user cost
+				$$\eta_t = \frac{R_t-r_t}{1+R_t}$$
+			\begin{itemize}
+				\item Barnett (1978)
+				\item Opportunity cost of holding the asset
+			\end{itemize}
+		\end{wideitemize}	
+	\end{column}
+	\hfill
+	\begin{column}{0.49\textwidth}
+		\begin{wideitemize}
+			\item Partial equilibrium model: household
+			\begin{itemize}
+				\item Standard utility maximization
+				\item Short- and long-term bonds, and a benchmark asset
+			\end{itemize}
+			\item {\bf \color{WeberPurple}{Contribution}}
+			\begin{itemize}
+				\item Deriving the single-period user cost of a long-term asset
+			\end{itemize}
+		\end{wideitemize}
+	\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{The User Cost of Long-Term Treasury Securities}
+\begin{equation*}
+	\eta^L_t = \frac{\mathbb{E}_t \Big[ \frac{\mu_{t+1}}{\mu_{t}}\frac{1}{\pi_{t+1}} \Big\{ \mathcomment{\color{blue}{R^n_t  - (1-\delta)\gamma_{3,t+1}\Delta R^n_{t+1}}}{\it one-period return, benchmark} - \mathcomment{\color{red}{\left(r^{L,n}_t - (1-\alpha)\gamma_{4,t+1}\Delta r^{L,n}_{t+1}\right)}}{\it long-term bond}\Big\}\Big]}{\mathbb{E}_t \Big[ \frac{\mu_{t+1}}{\mu_{t}}\frac{1}{\pi_{t+1}} \Big\{ 1+ {\color{blue}{R^n_t - (1-\delta)\gamma_{3,t+1}\Delta R^n_{t+1}}}\Big\}\Big]}
+\label{eq:usercost_LT}
+\end{equation*}
+\vfill
+\begin{wideitemize}
+	\item $R^n_t, r^{L,n}_t$ are ``coupon" rates \tikz[remember picture] \coordinate (A);
+	\item $\gamma_{i,t+1}$ is the expected price \tikz[remember picture] \coordinate (B);
+	\item $\delta, \alpha \in (0,1]$ are the maturity rates
+	% \begin{itemize}
+	% 	\item $\delta, \alpha = 1$ reduces to the standard user cost
+	% \end{itemize}
+\end{wideitemize}
+\begin{tikzpicture}[overlay, remember picture]
+	\draw[thick,decorate,decoration={brace,amplitude=5pt, segment length=1cm, aspect=0.5}] 
+		([xshift=1em]A.east) -- ([xshift=1.2em]B.east) 
+		node[midway,right,xshift=0.5cm] {$\gamma_{3,t+1}\Delta R^{n}_{t+1}$ is the expected capital gain};
+\end{tikzpicture}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Data and Baseline Result}
+\begin{columns}[t]
+	\begin{column}{0.45\textwidth}
+		\begin{wideitemize}
+			\item Center for Research in Securities Pricing (CRSP)
+			\item CUSIP-level, monthly data on US Treasuries: 1977-2020
+			\item 1-month ahead forward rates used for expected values
+			\item Fisher-ideal index functional form 
+			\begin{itemize}
+				\item Securities separated by type
+				\item Then separated by quarters to maturity
+			\end{itemize}
+		\end{wideitemize}	
+	\end{column}
+	\hfill
+	\begin{column}{0.55\textwidth}
+		\begin{figure}[h]
+			\centering
+			\includegraphics[width=\textwidth]{../Figures/FisherIndex_v2.eps}
+			% \caption{Aggregate}
+			% \label{fig:MS_Index}
+		\end{figure}
+	\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{Extracting the Monetary Services of Treasury Securities}
+\begin{columns}[t]
+	\begin{column}{.45\textwidth}
+		\vspace{2em}
+		\begin{equation*}
+			% \mathcomment{
+				{\color{blue}\%\Delta(\text{Quantity}+\text{Monetary Services})}
+				% }{\it Fisher Ideal Index}
+		\end{equation*} \vfill
+		\begin{equation*}
+			-
+			% \mathcomment{
+				{\color{red}\%\Delta(\text{Quantity})}
+				% }{\it Simple Sum}
+		\end{equation*} \vfill
+		\begin{equation*}
+			= \%\Delta(\text{Monetary Services})
+		\end{equation*}
+	\end{column}
+	\begin{column}{.55\textwidth}
+		\begin{figure}[p]
+			\centering
+			\includegraphics[width=\textwidth]{../Figures/MonetaryServices_Index.eps}
+			% \caption{Derived Monetary Services Quantity Index}
+			% \label{fig:MS_Index}
+		\end{figure}
+	\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{It's all Relative}
+\begin{columns}[t]
+	\begin{column}{.45\textwidth}
+		\begin{wideitemize}
+			\item This index is a measure of the ``depth" of the market
+			\item More recent movements align with
+			\begin{itemize}
+				\item Budget surpluses of the 1990s
+				\item European debt crisis of the 2010s
+				\item COVID-19 ``dash for cash''
+			\end{itemize}
+		\end{wideitemize}
+	\end{column}
+	\begin{column}{.55\textwidth}
+		\begin{figure}[p]
+			\centering
+			\includegraphics[width=\textwidth]{../Figures/YoYGrowth_MonServices.eps}
+			% \caption{Year-over-year Growth of Fiscally-Supplied Monetary Services}
+			% \label{fig:YoY_Growth}
+		\end{figure}
+	\end{column}
+\end{columns}
+\end{frame}
+
+\appendix
+
+%:	APPENDIX
 \begin{frame}
 	% \frametitle{Empirical Results}
 	\begin{table}[p]

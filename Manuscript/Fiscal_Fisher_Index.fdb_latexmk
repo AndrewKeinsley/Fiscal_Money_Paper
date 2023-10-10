@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex Fiscal_Fisher_Index"] 1694100875 "Fiscal_Fisher_Index.aux" "Fiscal_Fisher_Index.bbl" "Fiscal_Fisher_Index" 1696522772
+["bibtex Fiscal_Fisher_Index"] 1694100875 "Fiscal_Fisher_Index.aux" "Fiscal_Fisher_Index.bbl" "Fiscal_Fisher_Index" 1696952667
   "/usr/local/texlive/2015/texmf-dist/bibtex/bst/economic/apecon.bst" 1389482635 29434 d38d6c49f27e942ee305023547d9dc04 ""
   "Fiscal_Fisher_Index.aux" 1694528926 11857 964c20d1117a62709dea3a2ef99624fe ""
   "Fiscal_Fisher_Index.bcf" 0 -1 0 ""
   "MonetaryServices_Debt.bib" 1692367680 27000 77d19858b873df9d4300056bcb559af1 ""
   (generated)
-  "Fiscal_Fisher_Index.bbl"
   "Fiscal_Fisher_Index.blg"
-["pdflatex"] 1694528925 "/Users/andrewkeinsley/Documents/Fiscal_Money_Paper/Manuscript/Fiscal_Fisher_Index.tex" "/Users/andrewkeinsley/Documents/Fiscal_Money_Paper/Manuscript/Fiscal_Fisher_Index.pdf" "Fiscal_Fisher_Index" 1696522772
+  "Fiscal_Fisher_Index.bbl"
+["pdflatex"] 1694528925 "/Users/andrewkeinsley/Documents/Fiscal_Money_Paper/Manuscript/Fiscal_Fisher_Index.tex" "/Users/andrewkeinsley/Documents/Fiscal_Money_Paper/Manuscript/Fiscal_Fisher_Index.pdf" "Fiscal_Fisher_Index" 1696952667
   "../Figures/BondNote_Spread.eps" 1623705598 17527 cb9111ec702ff6d9b84c43de508d1e11 ""
   "../Figures/FiscalCapacity_Index.eps" 1648497719 34036 1615199ddaab31486cf4632ab141fc1d ""
   "../Figures/FisherIndex_v2.eps" 1646405361 33593 c12a0273948bc70567b9543aa78962e0 ""
@@ -270,9 +270,9 @@
   "Fiscal_Fisher_Index.out" 1694528926 1441 d080713d301f5c06648dbd397a8f0f95 ""
   "Fiscal_Fisher_Index.tex" 1694528925 74706 59fb3a31ddb8d414bc79c0004b6f2e5a ""
   (generated)
-  "Fiscal_Fisher_Index.out"
   "/Users/andrewkeinsley/Documents/Fiscal_Money_Paper/Manuscript/Fiscal_Fisher_Index.pdf"
   "Fiscal_Fisher_Index.pdf"
   "Fiscal_Fisher_Index.log"
-  "/Users/andrewkeinsley/Documents/Fiscal_Money_Paper/Manuscript/Fiscal_Fisher_Index.log"
   "Fiscal_Fisher_Index.aux"
+  "Fiscal_Fisher_Index.out"
+  "/Users/andrewkeinsley/Documents/Fiscal_Money_Paper/Manuscript/Fiscal_Fisher_Index.log"
