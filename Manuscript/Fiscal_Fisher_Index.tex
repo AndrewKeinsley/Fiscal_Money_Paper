@@ -452,6 +452,21 @@ Real monetary services are approximated using a second-order translog function
 	\ln m_t = \theta_0 + \theta_s \ln b_t + \theta_L \ln b^L_t + \frac{1}{2}\omega_{s,s} \left(\ln b_t\right)^2 + \frac{1}{2}\omega_{L,L} \left(\ln b^L_t\right)^2 + \omega_{s,L}\ln b_t \ln b^L_t.
 	\label{eq:HH_MonServices}
 \end{equation}
+Inclusion of the asset of focus into the utility function is not new, and has been used in the literature to motivate the original user cost of money \citep{Barnett:1978}.
+Modeling demand in this way is important for two reasons.
+
+First, in Section \ref{subsec:MktSeg}, I delineate the distinctions among various Treasury securities. 
+However, this interpretation applies solely to that context. 
+For instance, bonds might be seen more as a savings tool than bills, but they are still typically viewed as more liquid than other debt securities available. 
+Bills, though largely influenced by their inherent liquidity, are also widely recognized as a safe asset. 
+To accurately portray Treasury securities without making sweeping generalizations about their financial market position, this modeling method is essential.
+
+Second, if liquidity/safety were explicitly modeled in a comprehensible/tractable manner, the outcome woud remain consistent. 
+Generally, it is evident that when transaction costs or cash-in-advance components are added to the budget constraint, there exists a representation with money/bonds in the utility function can yield the same first-order conditions. 
+The main aim of this study is to construct a nonparametric quantity index monitoring US Treasury debt. 
+As illustrated in Appendix \ref{app:usercost_derivation}, the user cost's derivation stems from the equivalency between marginal benefit and cost. 
+The nonparametric user cost emerges from the marginal cost side, whereas the parametrized modeling choices appear on the marginal benefit side. 
+This underscores the necessity for a well-defined index number, which should originate from some form of agent maximization, enabling its derivation even without an explicit understanding of the aggregation function.
 
 Solving the household's problem results in the following dynamic conditions:
 \begin{equation}
@@ -502,7 +517,7 @@ In this section, I construct the Fisher ideal quantity index described in Sectio
 Non-marketable debt is typically held by intergovernmental agencies, and is therefore not typically considered to be a significant burden.\footnote{
 	The inclusion of only publicly-held, marketable US Treasury debt would be the optimal choice here, but data restrictions keep me from assessing this.
 	For instance, the CRSP data doesn't include the amount of each T-bill issuance held publicly.
-	Another option could be to exclude the issuances held by the Federal Reserve, since that is the primary non-public holder of US Treasuries, but the SOMA data only goes back to 2003.
+0	Another option could be to exclude the issuances held by the Federal Reserve, since that is the primary non-public holder of US Treasuries, but the SOMA data only goes back to 2003.
 	Future research could apply this methodology to the shortened timeframe.}
 The Treasury began its ``regular and predictable'' debt issuance campaign in the 1970s and data regarding the spot and forward interest rates goes back to January 1977.
 Therefore the variables constructed here will cover the February 1977 to December 2020 period.

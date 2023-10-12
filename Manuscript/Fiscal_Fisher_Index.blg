@@ -5,45 +5,45 @@ The style file: apecon.bst
 Database file #1: MonetaryServices_Debt.bib
 Warning--string name "july" is undefined
 --line 405 of file MonetaryServices_Debt.bib
-You've used 20 entries,
+You've used 21 entries,
             2744 wiz_defined-function locations,
-            729 strings with 7847 characters,
-and the built_in function-call counts, 10298 in all, are:
-= -- 814
-> -- 353
-< -- 20
-+ -- 137
-- -- 117
-* -- 807
-:= -- 1636
-add.period$ -- 20
-call.type$ -- 20
-change.case$ -- 140
-chr.to.int$ -- 20
-cite$ -- 20
-duplicate$ -- 792
-empty$ -- 823
-format.name$ -- 173
-if$ -- 2015
+            733 strings with 7902 characters,
+and the built_in function-call counts, 10761 in all, are:
+= -- 852
+> -- 363
+< -- 21
++ -- 141
+- -- 120
+* -- 839
+:= -- 1711
+add.period$ -- 21
+call.type$ -- 21
+change.case$ -- 146
+chr.to.int$ -- 21
+cite$ -- 21
+duplicate$ -- 828
+empty$ -- 865
+format.name$ -- 177
+if$ -- 2108
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 157
-newline$ -- 64
-num.names$ -- 81
-pop$ -- 284
+missing$ -- 164
+newline$ -- 67
+num.names$ -- 85
+pop$ -- 294
 preamble$ -- 1
-purify$ -- 119
+purify$ -- 124
 quote$ -- 0
-skip$ -- 266
+skip$ -- 279
 stack$ -- 0
-substring$ -- 521
-swap$ -- 414
+substring$ -- 553
+swap$ -- 431
 text.length$ -- 6
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 177
+type$ -- 186
 warning$ -- 0
-while$ -- 75
+while$ -- 79
 width$ -- 0
-write$ -- 224
+write$ -- 235
 (There was 1 warning)
