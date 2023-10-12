@@ -95,6 +95,12 @@
 	\draw[overlay,->] (mycomment.south) -- (myterm.north);
 	}
 }
+\newcommand\mathcommentbelow[2]{
+	\tikz[baseline]{\node[anchor=base,inner sep=0pt,outer sep=2pt] (myterm) {$#1$};
+	\node[overlay,anchor=north,yshift=-1em, text width=3cm,align=center] (mycomment) at (myterm.south) {#2};
+	\draw[overlay,->] (mycomment.north) -- (myterm.south);
+}
+}
 
 %:TITLE MATERIAL
 \title[Measuring Treasury Debt and Depth]{Measuring Treasury Debt and Market Depth}
@@ -168,9 +174,12 @@
 					\item Match securities that mature within one day of each other
 					\item Regress YTM spreads against a variety of factors
 				\end{itemize}
-				\item Bills are a liquidity hedge
-				\item Bonds are a savings vehicle
-				\item They should not be linearly aggregated 
+				\item {\bf \color{WeberPurple}{Contribution}}
+				\begin{itemize}
+					\item Bills are a liquidity hedge
+					\item Bonds are a savings vehicle
+					\item They should not be linearly aggregated 
+				\end{itemize}
 			\end{wideitemize}
 		\end{column}
 	\end{columns}
@@ -318,6 +327,70 @@
 \end{columns}
 \end{frame}
 
+\begin{frame}
+\frametitle{The Value of Treasury Securities}
+\begin{columns}[t]
+	\begin{column}{.45\textwidth}
+		\begin{wideitemize}
+			\item Traditional accounting of fiscal capacity relies on the simple sum of USTs
+			\item The analysis here shows that this is incorrect
+			\item USTs provide a monetary service to the economy
+		\end{wideitemize}
+	\end{column}
+	\begin{column}{.55\textwidth}
+		\begin{wideitemize}
+			\item Brunnermeier, Merkel and Sannikov (2022)-like analysis
+			\item {\bf \color{WeberPurple}{Contribution}}
+			\begin{itemize}
+				\item The value of USTs directly contributes to fiscal sustainability
+				\item Also see the tradeoffs faced when considering a portfolio of USTs with varying maturities
+			\end{itemize}
+		\end{wideitemize}
+	\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{Fiscal Capacity and the Value of USTs}
+\begin{multline*}
+	\frac{B_{t-1} + B^L_{t-1}}{p_t}(1+r_{t-1})= \mathcomment{\color{blue}{s_t}}{\color{blue}{Primary surplus}}  - \mathcomment{\color{red}{(r_{t-1}^L - r_{t-1})\frac{B^L_{t-1}}{p_t}}}{\color{red}{Spread Component}} + \beta\mathbb{E}_t\left[\frac{\mu_{1,t+1}}{\mu_{1,t}} \frac{B_{t} +B^L_{t}}{p_{t+1}}(1+r_{t})\right] \\ 
+		+ \mathcommentbelow{\color{brown}{\beta\mathbb{E}_t\left[\frac{\mu_{1,t+1}}{\mu_{1,t}} \frac{B^L_{t}}{p_{t+1}}(1+r^L_{t} - (1-\alpha)\gamma_{4,t+1}\Delta r^{L,n}_{t+1} - r_t)\right]}}{\color{brown}{Relative Holding-Period Return}} 
+		+  \mathcommentbelow{\color{WeberPurple}{\gamma_{2,t}\frac{M_t}{p_t}}}{\color{WeberPurple}{Value of Monetary Services}}
+	\label{eq:fiscalcapacity}
+\end{multline*}
+\vfill
+\begin{wideitemize}
+	\item $M_t$ is stock of monetary services
+	\item $\gamma_{2,t}$ is the price dual of those monetary services
+	\item Thus, the value of these monetary services directly adds to fiscal capacity
+\end{wideitemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{The Value of these Monetary Services}
+\begin{columns}
+	\begin{column}{.45\textwidth}
+		\begin{wideitemize}
+			\item Price dual via Fisher's factor reversal
+			\item Further exploration of this is needed
+			\begin{itemize}
+				\item Fiscal sustainability
+				\item Inflation
+				\item Monetary policy
+			\end{itemize}
+		\end{wideitemize}
+	\end{column}
+	\begin{column}{.55\textwidth}
+		\begin{figure}[p]
+			\centering
+			\includegraphics[width=\textwidth]{../Figures/FiscalCapacity_Index.eps}
+			% \caption{Value of Fiscal Monetary Services}
+			% \label{fig:FiscalServices_Value}
+		\end{figure}
+	\end{column}
+\end{columns}
+\end{frame}
+
 \appendix
 
 %:	APPENDIX
@@ -344,7 +417,8 @@
 				% Year Dummy 					& 0.0027^{***}								& -0.0079^{***}						& -0.0079 			\\ [-0.5em]
 				% 							& (0.001) 									& (0.001)							& (0.001)	 		\\ 
 				10y-2y Spread 				& 0.0234^{***}								& -0.0124^{***}						& -0.0484 					\\ [-0.5em]
-											& (0.003) 									& (0.002)							& (0.033)	 						\\ \midrule
+											& (0.003) 									& (0.002)							& (0.033)	 						\\ 
+				\vdots						& \vdots 									& \vdots 							& \vdots 							\\\midrule
 				% Constant					& 0.0076 									& -0.0554^{**}						& -0.3244^{**} 						\\ [-0.5em]
 				% 							& (0.010)									& (0.030) 							& (0.154)  							\\\midrule
 				Observations				& \multicolumn{1}{c}{2250}					& \multicolumn{1}{c}{7430}			& \multicolumn{1}{c}{78} 			\\

@@ -483,6 +483,15 @@ INPUT ../Figures/YoYGrowth_MonServices.eps
 INPUT ../Figures/YoYGrowth_MonServices-eps-converted-to.pdf
 INPUT ../Figures/YoYGrowth_MonServices-eps-converted-to.pdf
 INPUT ../Figures/YoYGrowth_MonServices-eps-converted-to.pdf
+INPUT /Users/andrewkeinsley/Documents/Fiscal_Money_Paper/Presentation/../Figures/FiscalCapacity_Index.eps
+INPUT ../Figures/FiscalCapacity_Index.eps
+INPUT ../Figures/FiscalCapacity_Index.eps
+INPUT ../Figures/FiscalCapacity_Index-eps-converted-to.pdf
+INPUT ../Figures/FiscalCapacity_Index-eps-converted-to.pdf
+INPUT ../Figures/FiscalCapacity_Index.eps
+INPUT ../Figures/FiscalCapacity_Index-eps-converted-to.pdf
+INPUT ../Figures/FiscalCapacity_Index-eps-converted-to.pdf
+INPUT ../Figures/FiscalCapacity_Index-eps-converted-to.pdf
 OUTPUT /Users/andrewkeinsley/Documents/Fiscal_Money_Paper/Presentation/Fiscal_Fisher_Presentation.nav
 OUTPUT /Users/andrewkeinsley/Documents/Fiscal_Money_Paper/Presentation/Fiscal_Fisher_Presentation.toc
 OUTPUT /Users/andrewkeinsley/Documents/Fiscal_Money_Paper/Presentation/Fiscal_Fisher_Presentation.snm
@@ -491,6 +500,7 @@ INPUT /Users/andrewkeinsley/Documents/Fiscal_Money_Paper/Presentation/Fiscal_Fis
 INPUT /Users/andrewkeinsley/Documents/Fiscal_Money_Paper/Presentation/Fiscal_Fisher_Presentation.out
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
+INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb
@@ -499,5 +509,6 @@ INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
+INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb
