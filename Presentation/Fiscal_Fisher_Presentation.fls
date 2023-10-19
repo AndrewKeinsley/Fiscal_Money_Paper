@@ -385,6 +385,8 @@ INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/eurosym/eurosym.sty
 INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/eurosym/eurosym.sty
 INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/framed/framed.sty
 INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/framed/framed.sty
+INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/appendixnumberbeamer/appendixnumberbeamer.sty
+INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/appendixnumberbeamer/appendixnumberbeamer.sty
 INPUT /Users/andrewkeinsley/Documents/Fiscal_Money_Paper/Presentation/Fiscal_Fisher_Presentation.aux
 INPUT /Users/andrewkeinsley/Documents/Fiscal_Money_Paper/Presentation/Fiscal_Fisher_Presentation.aux
 OUTPUT /Users/andrewkeinsley/Documents/Fiscal_Money_Paper/Presentation/Fiscal_Fisher_Presentation.aux
@@ -492,6 +494,8 @@ INPUT ../Figures/FiscalCapacity_Index.eps
 INPUT ../Figures/FiscalCapacity_Index-eps-converted-to.pdf
 INPUT ../Figures/FiscalCapacity_Index-eps-converted-to.pdf
 INPUT ../Figures/FiscalCapacity_Index-eps-converted-to.pdf
+INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/cm/cmss17.tfm
+INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/cm/cmssi17.tfm
 OUTPUT /Users/andrewkeinsley/Documents/Fiscal_Money_Paper/Presentation/Fiscal_Fisher_Presentation.nav
 OUTPUT /Users/andrewkeinsley/Documents/Fiscal_Money_Paper/Presentation/Fiscal_Fisher_Presentation.toc
 OUTPUT /Users/andrewkeinsley/Documents/Fiscal_Money_Paper/Presentation/Fiscal_Fisher_Presentation.snm
@@ -504,9 +508,11 @@ INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pf
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb
+INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb
+INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi17.pfb
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb
