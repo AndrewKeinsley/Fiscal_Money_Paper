@@ -1,6 +1,9 @@
 \beamer@slide {slide:UST_Market}{3}
+\beamer@slide {slide:UserCost}{4}
 \beamer@slide {eq:usercost_LT}{5}
 \beamer@slide {slide:BaselineResult}{6}
 \beamer@slide {slide:Model}{15}
 \beamer@slide {tab:Relative_Liquidity}{16}
-\beamer@slide {slide:InitialResult}{17}
+\beamer@slide {slide:Utility}{17}
+\beamer@slide {eq:HH_Utility}{17}
+\beamer@slide {slide:InitialResult}{18}

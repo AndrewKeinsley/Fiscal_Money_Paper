@@ -191,6 +191,7 @@
 
 \begin{frame}
 \frametitle{The User Cost of Treasury Securities}
+\label{slide:UserCost}
 \begin{columns}[t]
 	\begin{column}{0.49\textwidth}
 		\begin{wideitemize}
@@ -223,6 +224,8 @@
 		\end{wideitemize}
 	\end{column}
 \end{columns}
+	\vfill
+	\hfill \hyperlink{slide:Utility}{\beamerbutton{Details}}
 \end{frame}
 
 \begin{frame}
@@ -419,7 +422,7 @@
 				\item Applications to sovereign debt crises
 				\item Expansion of the measure to include risk
 				\item Refining the basket of securities
-				\item Monetary-Fiscal interation and inflation
+				\item Monetary-Fiscal interaction and inflation
 			\end{itemize}
 		\end{wideitemize}
 	\end{column}
@@ -522,6 +525,47 @@
 	\hfill \hyperlink{slide:UST_Market}{\beamerbutton{Back}}
 \end{frame}
 
+
+\begin{frame}
+\frametitle{Bonds in the Utility Function}
+\label{slide:Utility}
+\begin{columns}[t]
+	\begin{column}{0.49\textwidth}
+		\begin{wideitemize}
+			\item Analysis of USTs is relative to USTs only
+			\begin{itemize}
+				\item Bonds are still liquid overall
+				\item Bills are still safe overall
+				\item Modeling this way avoids larger assumptions
+			\end{itemize}
+			\item Simple frictions to capture liquidity, etc.\ can be represented in a money-in-the-utility setting
+			\item Use of $\text{MB} = \text{MC}$
+			\begin{itemize}
+				\item Left side: parametarized assumptions
+				\item Right side: equivalent, nonparametric form
+			\end{itemize}
+		\end{wideitemize}
+	\end{column}
+	\begin{column}{0.49\textwidth}
+		\begin{equation*}
+			\max\mathbb{E}_t\! \sum^\infty_{t=0} \beta^t\left\{u(c_t) + v\left(m_t\right) + x(1-l_t)\right\}
+			\label{eq:HH_Utility}
+		\end{equation*}
+		\begin{wideitemize}
+			\item $m_t$: monetary services $\sim$ second-order translog function
+			\begin{enumerate}
+				\item an exact aggregator function
+				\item second-order Taylor approximation of unknown aggregator
+				\item second-order approximation to a CES function 
+			\end{enumerate}
+			\hfill (Boisvert, 1982)
+		\end{wideitemize}
+		\vfill
+		\hfill \hyperlink{slide:UserCost}{\beamerbutton{Back}}
+	\end{column}
+\end{columns}
+\end{frame}
+	
 \begin{frame}
 \frametitle{Initial, Monthly Results}
 \label{slide:InitialResult}
