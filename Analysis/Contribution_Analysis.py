@@ -25,7 +25,7 @@ UC_t0 = UC_t1.shift(1)
 QT_t0 = QT_t1.shift(1)
 
 ## Additional Time Series Data
-start = datetime.datetime(2018,1,1)
+start = datetime.datetime(2019,1,1)
 end = datetime.datetime(2020,12,31)
 
 # PRICE INDICES #####
@@ -90,8 +90,9 @@ CONTR_TYPE = CONTR_TYPE.set_index('Date')
 
 ## Plotting the stacked area chart
 fig, ax = plt.subplots()
-ax.stackplot(CONTR_TYPE.index, CONTR_TYPE['Bills'], CONTR_TYPE['Notes'], CONTR_TYPE['Bonds'], CONTR_TYPE['iNotes'], CONTR_TYPE['iBonds'], labels=['Bills', 'Notes', 'Bonds', 'iNotes', 'iBonds'])
-ax.legend(loc='lower left')
+CONTR_TYPE.plot(ax=ax)
+# ax.stackplot(CONTR_TYPE.index, CONTR_TYPE['Bills'], CONTR_TYPE['Notes'], CONTR_TYPE['Bonds'], CONTR_TYPE['iNotes'], CONTR_TYPE['iBonds'], labels=['Bills', 'Notes', 'Bonds', 'iNotes', 'iBonds'])
+ax.legend(loc=0)
 plt.xlim((start, end)) 
 plt.xticks(rotation=45)
 plt.ylim((CONTR_TYPE.loc[start:end].min().min(), CONTR_TYPE.loc[start:end].max().max()))
