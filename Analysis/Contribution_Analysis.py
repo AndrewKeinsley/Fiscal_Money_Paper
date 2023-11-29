@@ -25,8 +25,8 @@ UC_t0 = UC_t1.shift(1)
 QT_t0 = QT_t1.shift(1)
 
 ## Additional Time Series Data
-start = datetime.datetime(2019,1,1)
-end = datetime.datetime(2020,12,31)
+start = datetime.datetime(2016,1,1)
+end = datetime.datetime(2019,12,31)
 
 # PRICE INDICES #####
 
@@ -67,7 +67,8 @@ QT_growth = QT_t1.div(QT_t0, axis=0)-1
 ### To calculate the percent contribution, divide each row by the sum of the row
 CONTR = (Weight_Laspeyres.multiply(PI_1, axis=0) + Weight_Paashe.multiply(PI_2, axis=0))*QT_growth
 
-CONTR_RATIO = CONTR.div(CONTR.sum(axis=1), axis=0)*100      # In percent
+# CONTR_RATIO = CONTR.div(CONTR.sum(axis=1), axis=0)*100      # In percent
+CONTR_RATIO = CONTR*100      # In levels
 
 ### Checking that the sum of the contributions equals 100
 check_CONTR_SUM = CONTR_RATIO.sum(axis=1)
@@ -91,6 +92,7 @@ CONTR_TYPE = CONTR_TYPE.set_index('Date')
 ## Plotting the stacked area chart
 fig, ax = plt.subplots()
 CONTR_TYPE.plot(ax=ax)
+ax.axhline(0, color='black', linewidth=0.5)  # Add a horizontal line at y=0
 # ax.stackplot(CONTR_TYPE.index, CONTR_TYPE['Bills'], CONTR_TYPE['Notes'], CONTR_TYPE['Bonds'], CONTR_TYPE['iNotes'], CONTR_TYPE['iBonds'], labels=['Bills', 'Notes', 'Bonds', 'iNotes', 'iBonds'])
 ax.legend(loc=0)
 plt.xlim((start, end)) 
