@@ -27,8 +27,10 @@ UC_t0 = UC_t1.shift(1)
 QT_t0 = QT_t1.shift(1)
 
 ## Additional Time Series Data
-start = datetime.datetime(2019,1,1)
-end = datetime.datetime(2020,12,31)
+start = datetime.datetime(2009,1,1)
+end = datetime.datetime(2011,12,31)
+## Recession data from FRED 
+rec_data = (web.DataReader(['USREC'], 'fred', start, end))
 
 # PRICE INDICES #####
 
@@ -126,6 +128,19 @@ width_in_days = timedelta(days=days_width)
 # Plot
 fig, ax = plt.subplots()
 
+## Plotting the recession dates
+# Determine recession periods
+recs_start = rec_data[rec_data.USREC.diff() == 1].index
+recs_end = rec_data[rec_data.USREC.diff() == -1].index
+
+# If a recession is ongoing at the end of the series, add the last date to recs_end
+if len(recs_start) > len(recs_end):
+    recs_end = recs_end.append(pd.Index([rec_data.index[-1]]))
+
+# Plotting the recession dates
+for rec_start, rec_end in zip(recs_start, recs_end):
+    ax.axvspan(rec_start, rec_end, color='0.85', alpha=0.5)
+
 ## Looping through the columns and ploting them as stacked bars
 for i, column in enumerate(CONTR_MS_TYPE.columns):
     color = colors[i]
@@ -142,12 +157,12 @@ ax.plot(CONTR_MS_TYPE.index, CONTR_MS_TYPE.sum(axis=1), color='black', linewidth
 ## Formatting
 ax.set_ylabel('Percentage Points')
 plt.xlim((start, end))
+### Automatically adjusting the y-axis limits
 plt.ylim((cumulative_negative.loc[start:end].min()-0.2, cumulative_positive.loc[start:end].max()+0.2)) 
-# plt.ylim((CONTR_MS_TYPE.loc[start:end].min().min(), CONTR_MS_TYPE.loc[start:end].max().max()))
-# ax.set_title('Stacked Bar Chart with Positive and Negative Values')
-# Add minor ticks to the x-axis
-ax.xaxis.set_minor_locator(mtick.AutoMinorLocator())
+### Setting the x-axis ticks to include the minor ticks
+ax.set_xticks(CONTR_MS_TYPE.loc[start:end].index, minor=True)
 plt.xticks(rotation=45)
-plt.legend()
-
+plt.legend(loc=0, frameon=False, ncol=2)
+filename = 'Contribution_MS_'+str(start.year)+'-'+str(end.year)
+plt.savefig(filename+'.jpg', format='jpg', dpi=300, bbox_inches='tight')
 plt.show()
