@@ -1,7 +1,9 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib.ticker as mtick
 import datetime
+from datetime import timedelta
 # import statsmodels.api as sm
 import pandas_datareader.data as web
 
@@ -25,8 +27,8 @@ UC_t0 = UC_t1.shift(1)
 QT_t0 = QT_t1.shift(1)
 
 ## Additional Time Series Data
-start = datetime.datetime(2016,1,1)
-end = datetime.datetime(2019,12,31)
+start = datetime.datetime(2019,1,1)
+end = datetime.datetime(2020,12,31)
 
 # PRICE INDICES #####
 
@@ -60,44 +62,92 @@ PI_2 = Laspeyres/(Laspeyres+Fisher)
 # QUANTITY GROWTH RATES #####
 QT_growth = QT_t1.div(QT_t0, axis=0)-1
 
-# CONTRIBUTION ANALYSIS #####
+# CONTRIBUTION ANALYSIS: FISHER INDEX #####
 
 ## Contribution to the growth of the Fisher Quantity Index
 ### The sum is the total growth of the Fisher Quantity Index, not the percent contribution
 ### To calculate the percent contribution, divide each row by the sum of the row
 CONTR = (Weight_Laspeyres.multiply(PI_1, axis=0) + Weight_Paashe.multiply(PI_2, axis=0))*QT_growth
 
-# CONTR_RATIO = CONTR.div(CONTR.sum(axis=1), axis=0)*100      # In percent
-CONTR_RATIO = CONTR*100      # In levels
+# CONTR_RATIO = CONTR.div(CONTR.sum(axis=1), axis=0)*100      # In percent of total
+CONTR_RATIO = CONTR*100      # In levels of growth
 
-### Checking that the sum of the contributions equals 100
+### Checking that the sum of the contributions equals the total
 check_CONTR_SUM = CONTR_RATIO.sum(axis=1)
 
-## Constructing a dataframe with the contributions based on type
-
-
+## Constructing a dataframe with the contributions based on type of security
 CONTR_TYPE = pd.DataFrame({'Date':data_raw['Date'],'Bills': CONTR_RATIO.filter(like='Bill', axis=1).sum(axis=1)})
 
-CONTR_TYPE['Notes'] = CONTR_RATIO.filter(regex='^Note[^i]', axis=1).sum(axis=1)
-CONTR_TYPE['Bonds'] = CONTR_RATIO.filter(regex='^Bond[^i]', axis=1).sum(axis=1)
-CONTR_TYPE['iNotes'] = CONTR_RATIO.filter(like='iNote', axis=1).sum(axis=1)
-CONTR_TYPE['iBonds'] = CONTR_RATIO.filter(like='iBond', axis=1).sum(axis=1)
+CONTR_TYPE['Notes'], CONTR_TYPE['Bonds'], CONTR_TYPE['iNotes'], CONTR_TYPE['iBonds'] = [CONTR_RATIO.filter(regex=regex, axis=1).sum(axis=1) for regex in ['^Note[^i]', '^Bond[^i]', 'iNote', 'iBond']]
 
 check_CONTRTYPE_SUM = CONTR_TYPE.sum(axis=1)
 ### Resetting the index to the date column
 CONTR_TYPE = CONTR_TYPE.set_index('Date')
 
+
+# CONTRIBUTION ANALYSIS: SIMPLE SUM ###
+
+## Contribution to the growth of the simple sum quantity index
+DIFF_SS = QT_t1 - QT_t0
+CONTR_SS = DIFF_SS.div(QT_t0.sum(axis=1),axis=0)*100
+
+## Constructing a dataframe with the contributions based on type of security
+CONTR_SS_TYPE = pd.DataFrame({'Date':data_raw['Date'],'Bills': CONTR_SS.filter(like='Bill', axis=1).sum(axis=1)})
+
+CONTR_SS_TYPE['Notes'], CONTR_SS_TYPE['Bonds'], CONTR_SS_TYPE['iNotes'], CONTR_SS_TYPE['iBonds'] = [CONTR_SS.filter(regex=regex, axis=1).sum(axis=1) for regex in ['^Note[^i]', '^Bond[^i]', 'iNote', 'iBond']]
+
+check_CONTRTYPE_SS = CONTR_SS_TYPE.sum(axis=1)
+## Resetting the index to the date column
+CONTR_SS_TYPE = CONTR_SS_TYPE.set_index('Date')
+
+# ISOLATING THE CONTRIBUTION TO MONETARY SERVICES #####
+CONTR_MS_TYPE = CONTR_TYPE-CONTR_SS_TYPE
+
 # PLOTS #####
 
-## Plotting the stacked area chart
-fig, ax = plt.subplots()
-CONTR_TYPE.plot(ax=ax)
-ax.axhline(0, color='black', linewidth=0.5)  # Add a horizontal line at y=0
-# ax.stackplot(CONTR_TYPE.index, CONTR_TYPE['Bills'], CONTR_TYPE['Notes'], CONTR_TYPE['Bonds'], CONTR_TYPE['iNotes'], CONTR_TYPE['iBonds'], labels=['Bills', 'Notes', 'Bonds', 'iNotes', 'iBonds'])
-ax.legend(loc=0)
-plt.xlim((start, end)) 
-plt.xticks(rotation=45)
-plt.ylim((CONTR_TYPE.loc[start:end].min().min(), CONTR_TYPE.loc[start:end].max().max()))
-CONTR_TYPE.loc[start:end]
-plt.show()
+## Plotting the individual time series
 
+## Contribution to the growth of the Monetary Services Quantity Index
+# Separate positive and negative values
+df_positive = CONTR_MS_TYPE.clip(lower=0)
+df_negative = CONTR_MS_TYPE.clip(upper=0)
+
+# Initialize cumulative sum for positive and negative parts
+cumulative_positive = np.zeros(len(CONTR_MS_TYPE))
+cumulative_negative = np.zeros(len(CONTR_MS_TYPE))
+
+# Define colors for each series
+colors = ['blue', 'orange', 'green', 'red', 'purple']
+
+# Determine bar width in terms of days
+days_width = 20
+width_in_days = timedelta(days=days_width)
+
+# Plot
+fig, ax = plt.subplots()
+
+## Looping through the columns and ploting them as stacked bars
+for i, column in enumerate(CONTR_MS_TYPE.columns):
+    color = colors[i]
+    ax.bar(CONTR_MS_TYPE.index, df_positive[column], bottom=cumulative_positive,  width=width_in_days, color=color, label=column)
+    ax.bar(CONTR_MS_TYPE.index, df_negative[column], bottom=cumulative_negative,  width=width_in_days, color=color)
+    
+    # Update the cumulative sums
+    cumulative_positive += df_positive[column].fillna(0)
+    cumulative_negative += df_negative[column].fillna(0)
+## Add a horizontal line at y=0
+ax.axhline(0, color='black', linewidth=0.5)  
+## Add a line for the total: Not great for longer sample periods
+ax.plot(CONTR_MS_TYPE.index, CONTR_MS_TYPE.sum(axis=1), color='black', linewidth=1, label='Total')
+## Formatting
+ax.set_ylabel('Percentage Points')
+plt.xlim((start, end))
+plt.ylim((cumulative_negative.loc[start:end].min()-0.2, cumulative_positive.loc[start:end].max()+0.2)) 
+# plt.ylim((CONTR_MS_TYPE.loc[start:end].min().min(), CONTR_MS_TYPE.loc[start:end].max().max()))
+# ax.set_title('Stacked Bar Chart with Positive and Negative Values')
+# Add minor ticks to the x-axis
+ax.xaxis.set_minor_locator(mtick.AutoMinorLocator())
+plt.xticks(rotation=45)
+plt.legend()
+
+plt.show()
