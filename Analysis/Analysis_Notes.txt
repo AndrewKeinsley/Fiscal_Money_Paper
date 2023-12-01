@@ -1,0 +1,43 @@
+Analysis Notes:
+
+1. 79-81 Sample
+    a. Most of the added value comes from Bonds in the inter-recessionary period
+    b. Notes are typically negative contributors 1981 - could be a substitution?
+    c. Bills are all over the place, no real change here
+
+2. 87-91 Sample
+    a. HUGE contributions form bonds every quarter: check to see if that was issuance month
+    b. Slight negative in follow-up month could be some correction in the markets
+    c. First big jump: June 1988: ?
+    d. Biggest contribution: November 1989: Fall of the Berlin Wall (>6%)
+    e. Last big jump: June 1991: Comecon is dissolved
+        - Soviet-led Council for Mutual Economic Assistance
+        - Beginning of the collapse of the USSR, which officially is dissolved in Dec 91
+
+3. 07-09 Sample
+    a. Decrease begins in September and reaches ~ -3% in November
+    b. Menand and Younger (2023) recount that these are the months when primary dealers
+        were forced to operate under bank holding companies (BHCs), which severely reduced
+        their ability to intermediate in the repo market. 
+    c. Assuming that Bills are primarily a liquidity hedge, a massive reduction in the 
+        Bills contribution makes sense in these months
+
+4. 09-11 Sample
+    a. European debt crisis period 
+    b. The most consistent contributor was Notes from 01:09-04:11
+        - Bonds had a multiple large jumps corresponding (probably) to new issusances
+        - Near-zero/negative contributions in refunding months
+    c. Largest jump: January 2010
+        - Revealed that Greece was purposefully misreporting its debt/economic statistics
+    d. Other large unanimous jump: July 2011
+        - Private creditors agree to take 21% haircut on Greek debt, European leaders urge 
+            a larger haircut (50%), which is aggreed to
+    
+5. 84-86 Sample
+    a. April 1986: Bond prices tumble, which would greatly reduce their value as safety
+        - >20bps jump in yields in one day (4/17)
+        - Negative contribution was PURELY Bonds (-3%)
+    b. Whole period generally seeing negative contributions from Bills and positive ones
+        from Bonds on issuance month.
+    c. NYT article suggests a weak dollar and a coming record auction of Bonds in May
+    d. Worry about Japanese demand for USTs

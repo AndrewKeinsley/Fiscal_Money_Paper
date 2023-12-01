@@ -27,8 +27,8 @@ UC_t0 = UC_t1.shift(1)
 QT_t0 = QT_t1.shift(1)
 
 ## Additional Time Series Data
-start = datetime.datetime(2009,1,1)
-end = datetime.datetime(2011,12,31)
+start = datetime.datetime(1984,1,1)
+end = datetime.datetime(1986,12,31)
 ## Recession data from FRED 
 rec_data = (web.DataReader(['USREC'], 'fred', start, end))
 
