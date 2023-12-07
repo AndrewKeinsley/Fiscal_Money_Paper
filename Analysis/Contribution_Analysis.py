@@ -86,6 +86,11 @@ check_CONTRTYPE_SUM = CONTR_TYPE.sum(axis=1)
 ### Resetting the index to the date column
 CONTR_TYPE = CONTR_TYPE.set_index('Date')
 
+## Constructing a dataframe with the contributions of shorter term and longer term bonds
+CONTR_BOND = pd.DataFrame({'Date':data_raw['Date'],'Short Term': CONTR_RATIO[[f'Bond{i}' for i in range(1, 41)]].sum(axis=1)})
+CONTR_BOND['Medium Term'] = CONTR_RATIO[[f'Bond{i}' for i in range(41, 81)]].sum(axis=1)
+CONTR_BOND['Long Term'] = CONTR_RATIO[[f'Bond{i}' for i in range(81, 121)]].sum(axis=1)
+CONTR_BOND = CONTR_BOND.set_index('Date')
 
 # CONTRIBUTION ANALYSIS: SIMPLE SUM ###
 
@@ -102,8 +107,15 @@ check_CONTRTYPE_SS = CONTR_SS_TYPE.sum(axis=1)
 ## Resetting the index to the date column
 CONTR_SS_TYPE = CONTR_SS_TYPE.set_index('Date')
 
+## Constructing a dataframe with the contributions of shorter term and longer term bonds
+CONTR_SS_BOND = pd.DataFrame({'Date':data_raw['Date'],'Short Term': CONTR_SS[[f'Bond{i}' for i in range(1, 41)]].sum(axis=1)})
+CONTR_SS_BOND['Medium Term'] = CONTR_SS[[f'Bond{i}' for i in range(41, 81)]].sum(axis=1)
+CONTR_SS_BOND['Long Term'] = CONTR_SS[[f'Bond{i}' for i in range(81, 121)]].sum(axis=1)
+CONTR_SS_BOND = CONTR_SS_BOND.set_index('Date')
+
 # ISOLATING THE CONTRIBUTION TO MONETARY SERVICES #####
 CONTR_MS_TYPE = CONTR_TYPE-CONTR_SS_TYPE
+CONTR_MS_BOND = CONTR_BOND-CONTR_SS_BOND
 
 # CONSTRUCTING LEVEL INDICES ACROSS TYPES OF SECURITIES #####
 INDEX_MS_TYPE = CONTR_MS_TYPE/100+1
@@ -111,6 +123,11 @@ INDEX_MS_TYPE = INDEX_MS_TYPE.cumprod()
 
 index_start = '2000-01-31'
 INDEX_MS_TYPE = INDEX_MS_TYPE/INDEX_MS_TYPE.loc[index_start]*100
+
+INDEX_MS_BOND = CONTR_MS_BOND/100+1
+INDEX_MS_BOND = INDEX_MS_BOND.cumprod()
+
+INDEX_MS_BOND = INDEX_MS_BOND/INDEX_MS_BOND.loc[index_start]*100
 
 # Set 'iNotes' and 'iBonds' to NaN before '1997-02-28' and '1998-05-31', respectively
 INDEX_MS_TYPE.loc[INDEX_MS_TYPE.index < '1997-02-28', ['iNotes']] = np.nan
@@ -229,5 +246,21 @@ ax.set_ylabel('Index = ' + index_start)
 ax.set_xlabel(None)
 plt.legend(loc=0, frameon=False, ncol=2)
 filename = 'Index_MS_Type'
+plt.savefig(filename+'.jpg', format='jpg', dpi=300, bbox_inches='tight')
+plt.show()
+
+## INDEX LEVEL PLOTS #####
+fig, ax = plt.subplots()
+### Recession dates
+for rec_start, rec_end in zip(recs_start, recs_end):
+    ax.axvspan(rec_start, rec_end, color='0.85', alpha=0.5)
+for i, column in enumerate(INDEX_MS_BOND.columns):
+    ax.plot(INDEX_MS_BOND.index, INDEX_MS_BOND[column], label=column, color=colors[i])
+ax.axhline(100, color='black', linewidth=0.5)
+plt.xlim(datetime.datetime(1977,2,28), datetime.datetime(2020,12,31))
+ax.set_ylabel('Index = ' + index_start)
+ax.set_xlabel(None)
+plt.legend(loc=0, frameon=False, ncol=2)
+filename = 'Index_MS_Bond'
 plt.savefig(filename+'.jpg', format='jpg', dpi=300, bbox_inches='tight')
 plt.show()
