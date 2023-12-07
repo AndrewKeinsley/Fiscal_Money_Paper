@@ -105,39 +105,54 @@ CONTR_SS_TYPE = CONTR_SS_TYPE.set_index('Date')
 # ISOLATING THE CONTRIBUTION TO MONETARY SERVICES #####
 CONTR_MS_TYPE = CONTR_TYPE-CONTR_SS_TYPE
 
+# CONSTRUCTING LEVEL INDICES ACROSS TYPES OF SECURITIES #####
+INDEX_MS_TYPE = CONTR_MS_TYPE/100+1
+INDEX_MS_TYPE = INDEX_MS_TYPE.cumprod()
+
+index_start = '2000-01-31'
+INDEX_MS_TYPE = INDEX_MS_TYPE/INDEX_MS_TYPE.loc[index_start]*100
+
+# Set 'iNotes' and 'iBonds' to NaN before '1997-02-28' and '1998-05-31', respectively
+INDEX_MS_TYPE.loc[INDEX_MS_TYPE.index < '1997-02-28', ['iNotes']] = np.nan
+INDEX_MS_TYPE.loc[INDEX_MS_TYPE.index < '1998-05-31', ['iBonds']] = np.nan
+
+GROWTH_MS_TYPE = INDEX_MS_TYPE.pct_change(12)*100
+
+
+
 # PLOTS #####
 
 ## Plotting the individual time series
 
 ## Contribution to the growth of the Monetary Services Quantity Index
-# Separate positive and negative values
+## Separate positive and negative values
 df_positive = CONTR_MS_TYPE.clip(lower=0)
 df_negative = CONTR_MS_TYPE.clip(upper=0)
 
-# Initialize cumulative sum for positive and negative parts
+## Initialize cumulative sum for positive and negative parts
 cumulative_positive = np.zeros(len(CONTR_MS_TYPE))
 cumulative_negative = np.zeros(len(CONTR_MS_TYPE))
 
-# Define colors for each series
+## Define colors for each series
 colors = ['blue', 'orange', 'green', 'red', 'purple']
 
-# Determine bar width in terms of days
+## Determine bar width in terms of days
 days_width = 20
 width_in_days = timedelta(days=days_width)
 
-# Plot
+## CONTRIBUTION PLOT #####
 fig, ax = plt.subplots()
 
 ## Plotting the recession dates
-# Determine recession periods
+### Determine recession periods
 recs_start = rec_data[rec_data.USREC.diff() == 1].index
 recs_end = rec_data[rec_data.USREC.diff() == -1].index
 
-# If a recession is ongoing at the end of the series, add the last date to recs_end
+### If a recession is ongoing at the end of the series, add the last date to recs_end
 if len(recs_start) > len(recs_end):
     recs_end = recs_end.append(pd.Index([rec_data.index[-1]]))
 
-# Plotting the recession dates
+### Plotting the recession dates
 for rec_start, rec_end in zip(recs_start, recs_end):
     ax.axvspan(rec_start, rec_end, color='0.85', alpha=0.5)
 
@@ -164,5 +179,48 @@ ax.set_xticks(CONTR_MS_TYPE.loc[start:end].index, minor=True)
 plt.xticks(rotation=45)
 plt.legend(loc=0, frameon=False, ncol=2)
 filename = 'Contribution_MS_'+str(start.year)+'-'+str(end.year)
+# plt.savefig(filename+'.jpg', format='jpg', dpi=300, bbox_inches='tight')
+plt.show()
+
+## GROWTH RATE PLOTS #####
+
+fig, ax = plt.subplots()
+
+for i, column in enumerate(GROWTH_MS_TYPE.columns):
+    ax.plot(GROWTH_MS_TYPE.index, GROWTH_MS_TYPE[column], label=column, color=colors[i])
+ax.axhline(0, color='black', linewidth=0.5)
+plt.xlim(datetime.datetime(1978,2,28), datetime.datetime(2020,12,31))
+ax.set_ylabel('Percent')
+ax.set_xlabel(None)
+plt.legend(loc=0, frameon=False, ncol=2)
+filename = 'GrowthRate_MS_Type'
+plt.savefig(filename+'.jpg', format='jpg', dpi=300, bbox_inches='tight')
+plt.show()
+
+### Separate plots for each type of security
+
+for i, column in enumerate(GROWTH_MS_TYPE.columns):
+    fig, ax = plt.subplots()
+    ax.plot(GROWTH_MS_TYPE.index, GROWTH_MS_TYPE[column], label=column, color=colors[i])
+    ax.axhline(0, color='black', linewidth=0.5)
+    plt.xlim(datetime.datetime(1978,2,28), datetime.datetime(2020,12,31))
+    ax.set_ylabel('Percent')
+    ax.set_xlabel(None)
+    plt.legend(loc=0, frameon=False, ncol=2)
+    filename = 'GrowthRate_MS_'+column
+    plt.savefig(filename+'.jpg', format='jpg', dpi=300, bbox_inches='tight')
+    plt.show()
+
+## INDEX LEVEL PLOTS #####
+fig, ax = plt.subplots()
+
+for i, column in enumerate(INDEX_MS_TYPE.columns):
+    ax.plot(INDEX_MS_TYPE.index, INDEX_MS_TYPE[column], label=column, color=colors[i])
+ax.axhline(100, color='black', linewidth=0.5)
+plt.xlim(datetime.datetime(1977,2,28), datetime.datetime(2020,12,31))
+ax.set_ylabel('Index = ' + index_start)
+ax.set_xlabel(None)
+plt.legend(loc=0, frameon=False, ncol=2)
+filename = 'Index_MS_Type'
 plt.savefig(filename+'.jpg', format='jpg', dpi=300, bbox_inches='tight')
 plt.show()
