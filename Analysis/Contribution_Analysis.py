@@ -27,8 +27,8 @@ UC_t0 = UC_t1.shift(1)
 QT_t0 = QT_t1.shift(1)
 
 ## Additional Time Series Data
-start = datetime.datetime(1984,1,1)
-end = datetime.datetime(1986,12,31)
+start = datetime.datetime(1977,1,1)
+end = datetime.datetime(2020,12,31)
 ## Recession data from FRED 
 rec_data = (web.DataReader(['USREC'], 'fred', start, end))
 
@@ -185,7 +185,9 @@ plt.show()
 ## GROWTH RATE PLOTS #####
 
 fig, ax = plt.subplots()
-
+### Recession dates
+for rec_start, rec_end in zip(recs_start, recs_end):
+    ax.axvspan(rec_start, rec_end, color='0.85', alpha=0.5)
 for i, column in enumerate(GROWTH_MS_TYPE.columns):
     ax.plot(GROWTH_MS_TYPE.index, GROWTH_MS_TYPE[column], label=column, color=colors[i])
 ax.axhline(0, color='black', linewidth=0.5)
@@ -201,6 +203,9 @@ plt.show()
 
 for i, column in enumerate(GROWTH_MS_TYPE.columns):
     fig, ax = plt.subplots()
+    ### Recession dates
+    for rec_start, rec_end in zip(recs_start, recs_end):
+        ax.axvspan(rec_start, rec_end, color='0.85', alpha=0.5)
     ax.plot(GROWTH_MS_TYPE.index, GROWTH_MS_TYPE[column], label=column, color=colors[i])
     ax.axhline(0, color='black', linewidth=0.5)
     plt.xlim(datetime.datetime(1978,2,28), datetime.datetime(2020,12,31))
@@ -213,7 +218,9 @@ for i, column in enumerate(GROWTH_MS_TYPE.columns):
 
 ## INDEX LEVEL PLOTS #####
 fig, ax = plt.subplots()
-
+### Recession dates
+for rec_start, rec_end in zip(recs_start, recs_end):
+    ax.axvspan(rec_start, rec_end, color='0.85', alpha=0.5)
 for i, column in enumerate(INDEX_MS_TYPE.columns):
     ax.plot(INDEX_MS_TYPE.index, INDEX_MS_TYPE[column], label=column, color=colors[i])
 ax.axhline(100, color='black', linewidth=0.5)
