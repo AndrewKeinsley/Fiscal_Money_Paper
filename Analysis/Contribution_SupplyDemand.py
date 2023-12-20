@@ -149,20 +149,6 @@ Q_Agg = np.log(Q_Agg)
 results = {}
 residuals = {}
 
-# # Loop over each column
-# for column in Q_Agg.columns:
-#     # Combine the current column from Q_Agg and P_Agg
-#     data = pd.concat([Q_Agg[[column]], P_Agg[[column]], Z.shift(1)], axis=1)
-#     data = data.dropna()
-#     # Create the VAR model
-#     model = VAR(data)
-    
-#     # Fit the model with twelve lags
-#     results[column] = model.fit(maxlags=1)
-    
-#     # Store the residuals
-#     residuals[column] = results[column].resid
-
 # Loop over each column
 for column in Q_Agg.columns:
     # Create the lagged variables
