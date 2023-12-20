@@ -135,16 +135,18 @@ for category, r in categories.items():
 Q_Agg = np.log(Q_Agg)
     
 
-# VAR MODEL ###################################################################
-# The VAR model is estimated using the statsmodels package. The model is
-# estimated using the following variables:
+# VARMAX MODEL ################################################################
+# The VARMAX model is estimated using the statsmodels package. The model is
+# estimated using the following variables as exogenous variables:
 #   - Liquidity: AAA-GS10
 #   - Safety: BAA-AAA
 #   - Stock Market Returns: SPASTT01USM657N
 #   - Federal Deficit-to-PCE: MTSDS133FMS/PCE*100
 #   - Stock Market Volatility Index: var(WILL5000INDFC)
 #   - Dollar Index: DTWEXM and DTWEXAFEGS
-    
+# The model, initially, will also include 12 lags of the endogenous variables
+
+
 # Initialize a dictionary to store the results
 results = {}
 residuals = {}
@@ -164,3 +166,14 @@ for column in Q_Agg.columns:
     
     # Store the residuals
     residuals[column] = results[column].resid
+
+#### TO-DO ####################################################################
+# The model seems to work, but it takes a while to run. 
+# Is there a way to speed it up?
+# Need the rolling window of 120 months as well. Should be easy enough to set
+# up in the loop, but it'll take a while to run.
+# Also, to save time, build in the residutal extraction and creation of the 
+# indicator function.
+#
+# Lastly, will need to incorporate the TIPS data at some point. This may need 
+# to be done separately since the data doesn't start until the 1990s. 
