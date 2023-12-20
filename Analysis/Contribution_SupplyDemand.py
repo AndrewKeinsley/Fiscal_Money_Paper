@@ -8,7 +8,7 @@ from datetime import timedelta
 # import statsmodels.api as sm
 import pandas_datareader.data as web
 from statsmodels.tsa.seasonal import seasonal_decompose
-from statsmodels.tsa.api import VAR
+from statsmodels.tsa.api import VARMAX
 from statsmodels.regression.linear_model import OLS
 from statsmodels.tools.tools import add_constant
 
@@ -151,21 +151,16 @@ residuals = {}
 
 # Loop over each column
 for column in Q_Agg.columns:
-    # Create the lagged variables
-    Q_lags = pd.concat([Q_Agg[[column]].shift(i) for i in range(1, 13)], axis=1)
-    P_lags = pd.concat([P_Agg[[column]].shift(i) for i in range(1, 13)], axis=1)
-    Z_lag = Z.shift(1)
-
-    # Combine the lagged variables
-    X = pd.concat([Q_lags, P_lags, Z_lag], axis=1).dropna()
-    X = add_constant(X)  # Add a constant term
-
-    # Create the dependent variable
-    y = pd.concat([Q_Agg[[column]], P_Agg[[column]]], axis=1).loc[X.index]
-
-    # Create and fit the OLS model
-    model = OLS(y, X)
+    x = Z.shift(-1)
+    x = x.dropna()
+    # Combine the current column from Q_Agg and P_Agg
+    data = pd.concat([Q_Agg[[column]].loc[x.index], P_Agg[[column]].loc[x.index]], axis=1)
+    
+    # Create the VAR model
+    model = VARMAX(data, exog = x, order=(12, 0), trend = 'ct')
+    
+    # Fit the model with twelve lags
     results[column] = model.fit()
-
+    
     # Store the residuals
     residuals[column] = results[column].resid
