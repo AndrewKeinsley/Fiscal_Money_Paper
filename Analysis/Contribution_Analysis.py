@@ -13,6 +13,8 @@ import pandas_datareader.data as web
 ## Treasury Data (t = 1)
 UC_t1 = pd.read_excel('UserCosts.xlsx')
 QT_t1 = pd.read_excel('Quantities.xlsx')
+UC_t1.to_pickle('UC_t1.pkl')
+QT_t1.to_pickle('QT_t1.pkl')
 
 data_raw = QT_t1
 
@@ -74,6 +76,7 @@ CONTR = (Weight_Laspeyres.multiply(PI_1, axis=0) + Weight_Paashe.multiply(PI_2, 
 
 # CONTR_RATIO = CONTR.div(CONTR.sum(axis=1), axis=0)*100      # In percent of total
 CONTR_RATIO = CONTR*100      # In levels of growth
+CONTR_RATIO.to_pickle('CONTR_RATIO.pkl')
 
 ### Checking that the sum of the contributions equals the total
 check_CONTR_SUM = CONTR_RATIO.sum(axis=1)
