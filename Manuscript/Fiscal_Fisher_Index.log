@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  19 OCT 2023 09:49
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  3 JAN 2024 07:58
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1021,8 +1021,13 @@ File: se-pdfdoc.def 2011/12/02 v1.10 stringenc: PDFDocEncoding
 {/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.128 T
-       he first step in establishing a new measurement of fiscal debt is to ... [1] [2] [3]
+l.126 
+       [1] [2] [3]
+Overfull \hbox (5.18059pt too wide) in paragraph at lines 220--227
+[]\OT1/cmr/m/n/10.95 Preliminary signs of \OT1/cmr/m/it/10.95 im-per-fect \OT1/cmr/m/n/10.95 sub-sti-tutabil-ity would in-clude a yield-to-maturity (YTM)
+ []
+
+[4]
 Package epstopdf Info: Source file: <../Figures/BondNote_Spread.eps>
 (epstopdf)                    date: 2021-06-14 15:19:58
 (epstopdf)                    size: 17527 bytes
@@ -1030,100 +1035,96 @@ Package epstopdf Info: Source file: <../Figures/BondNote_Spread.eps>
 (epstopdf)                    date: 2022-03-02 13:33:58
 (epstopdf)                    size: 6949 bytes
 (epstopdf)             Command: <repstopdf --outfile=../Figures/BondNote_Spread-eps-converted-to.pdf ../Figures/BondNote_Spread.eps>
-(epstopdf)             \includegraphics on input line 230.
+(epstopdf)             \includegraphics on input line 235.
 Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: pdflatex (file ../Figures/BondNote_Spread-eps-converted-to.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<../Figures/BondNote_Spread-eps-converted-to.pdf, id=167, 492.84125pt x 396.48125pt>
+<../Figures/BondNote_Spread-eps-converted-to.pdf, id=176, 492.84125pt x 396.48125pt>
 File: ../Figures/BondNote_Spread-eps-converted-to.pdf Graphic file (type pdf)
  <use ../Figures/BondNote_Spread-eps-converted-to.pdf>
-Package pdftex.def Info: ../Figures/BondNote_Spread-eps-converted-to.pdf used on input line 230.
+Package pdftex.def Info: ../Figures/BondNote_Spread-eps-converted-to.pdf used on input line 235.
 (pdftex.def)             Requested size: 292.77629pt x 235.54324pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[4]
-Overfull \hbox (9.00012pt too wide) detected at line 281
+ [5 <../Figures/BondNote_Spread-eps-converted-to.pdf>]
+Overfull \hbox (9.00012pt too wide) detected at line 286
 $\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 4163[]$ 
  []
 
 
-Overfull \hbox (9.00012pt too wide) detected at line 281
+Overfull \hbox (9.00012pt too wide) detected at line 286
 $\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 1424[]$ 
  []
 
 
-Overfull \hbox (13.25018pt too wide) detected at line 283
+Overfull \hbox (13.25018pt too wide) detected at line 288
 $\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 0210[]$ 
  []
 
 
-Overfull \hbox (13.25018pt too wide) detected at line 283
+Overfull \hbox (13.25018pt too wide) detected at line 288
 $\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 0170[]$ 
  []
 
 
-Overfull \hbox (13.25018pt too wide) detected at line 285
+Overfull \hbox (13.25018pt too wide) detected at line 290
 $\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 0152[]$ 
  []
 
 
-Overfull \hbox (13.25018pt too wide) detected at line 285
+Overfull \hbox (13.25018pt too wide) detected at line 290
 $\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 1028[]$ 
  []
 
 
-Overfull \hbox (13.25018pt too wide) detected at line 287
+Overfull \hbox (13.25018pt too wide) detected at line 292
 $\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 0049[]$ 
  []
 
 
-Overfull \hbox (13.25018pt too wide) detected at line 291
+Overfull \hbox (13.25018pt too wide) detected at line 296
 $\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 0234[]$ 
  []
 
 
-Overfull \hbox (13.25018pt too wide) detected at line 291
+Overfull \hbox (13.25018pt too wide) detected at line 296
 $\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 0124[]$ 
  []
 
 
-Overfull \hbox (9.00012pt too wide) detected at line 293
+Overfull \hbox (9.00012pt too wide) detected at line 298
 $\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 0554[]$ 
  []
 
 
-Overfull \hbox (9.00012pt too wide) detected at line 293
+Overfull \hbox (9.00012pt too wide) detected at line 298
 $\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 3244[]$ 
  []
 
 
-Overfull \hbox (0.65033pt too wide) in paragraph at lines 279--304
+Overfull \hbox (0.65033pt too wide) in paragraph at lines 284--309
  [] 
  []
 
-[5 <../Figures/BondNote_Spread-eps-converted-to.pdf>] [6] [7] [8] [9]
-LaTeX Font Info:    Calculating math sizes for size <7.66495> on input line 396.
+[6] [7] [8] [9]
+LaTeX Font Info:    Calculating math sizes for size <7.66495> on input line 401.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <3.83247> not available
-(Font)              size <5> substituted on input line 396.
+(Font)              size <5> substituted on input line 401.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <3.83247> not available
-(Font)              size <5> substituted on input line 396.
+(Font)              size <5> substituted on input line 401.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <3.83247> not available
-(Font)              size <5> substituted on input line 396.
+(Font)              size <5> substituted on input line 401.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <3.83247> not available
-(Font)              size <5> substituted on input line 396.
+(Font)              size <5> substituted on input line 401.
 
-[10] [11] [12] [13] [14] [15] [16]
+[10] [11] [12] [13] [14] [15] [16] [17]
 Package epstopdf Info: Source file: <../Figures/FisherIndex_v2.eps>
 (epstopdf)                    date: 2022-03-04 07:49:21
 (epstopdf)                    size: 33593 bytes
@@ -1131,36 +1132,39 @@ Package epstopdf Info: Source file: <../Figures/FisherIndex_v2.eps>
 (epstopdf)                    date: 2022-03-04 07:50:36
 (epstopdf)                    size: 13457 bytes
 (epstopdf)             Command: <repstopdf --outfile=../Figures/FisherIndex_v2-eps-converted-to.pdf ../Figures/FisherIndex_v2.eps>
-(epstopdf)             \includegraphics on input line 590.
+(epstopdf)             \includegraphics on input line 595.
 Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: pdflatex (file ../Figures/FisherIndex_v2-eps-converted-to.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<../Figures/FisherIndex_v2-eps-converted-to.pdf, id=326, 504.88625pt x 372.39125pt>
+<../Figures/FisherIndex_v2-eps-converted-to.pdf, id=334, 504.88625pt x 372.39125pt>
 File: ../Figures/FisherIndex_v2-eps-converted-to.pdf Graphic file (type pdf)
  <use ../Figures/FisherIndex_v2-eps-converted-to.pdf>
-Package pdftex.def Info: ../Figures/FisherIndex_v2-eps-converted-to.pdf used on input line 590.
+Package pdftex.def Info: ../Figures/FisherIndex_v2-eps-converted-to.pdf used on input line 595.
 (pdftex.def)             Requested size: 355.51817pt x 262.22334pt.
 
 
-LaTeX Warning: File `../Figures/MonetaryServices_Index.eps' not found on input line 601.
+LaTeX Warning: File `../Figures/MonetaryServices_Index.eps' not found on input line 606.
 
 Package epstopdf Info: Source file: <../Figures/MonetaryServices_Index.eps>
 (epstopdf)             Output file: <../Figures/MonetaryServices_Index-eps-converted-to.pdf>
 (epstopdf)                    date: 2022-04-06 09:25:59
 (epstopdf)                    size: 9640 bytes
 (epstopdf)             Command: <repstopdf --outfile=../Figures/MonetaryServices_Index-eps-converted-to.pdf ../Figures/MonetaryServices_Index.eps>
-(epstopdf)             \includegraphics on input line 601.
+(epstopdf)             \includegraphics on input line 606.
 Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: pdflatex (file ../Figures/MonetaryServices_Index-eps-converted-to.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<../Figures/MonetaryServices_Index-eps-converted-to.pdf, id=328, 495.8525pt x 372.39125pt>
+<../Figures/MonetaryServices_Index-eps-converted-to.pdf, id=336, 495.8525pt x 372.39125pt>
 File: ../Figures/MonetaryServices_Index-eps-converted-to.pdf Graphic file (type pdf)
  <use ../Figures/MonetaryServices_Index-eps-converted-to.pdf>
-Package pdftex.def Info: ../Figures/MonetaryServices_Index-eps-converted-to.pdf used on input line 601.
+Package pdftex.def Info: ../Figures/MonetaryServices_Index-eps-converted-to.pdf used on input line 606.
 (pdftex.def)             Requested size: 334.60422pt x 251.29074pt.
- [17] [18 <../Figures/FisherIndex_v2-eps-converted-to.pdf>]
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
 Package epstopdf Info: Source file: <../Figures/YoYGrowth_MonServices.eps>
 (epstopdf)                    date: 2022-03-04 09:25:06
 (epstopdf)                    size: 41949 bytes
@@ -1168,17 +1172,17 @@ Package epstopdf Info: Source file: <../Figures/YoYGrowth_MonServices.eps>
 (epstopdf)                    date: 2022-03-04 09:28:47
 (epstopdf)                    size: 9446 bytes
 (epstopdf)             Command: <repstopdf --outfile=../Figures/YoYGrowth_MonServices-eps-converted-to.pdf ../Figures/YoYGrowth_MonServices.eps>
-(epstopdf)             \includegraphics on input line 610.
+(epstopdf)             \includegraphics on input line 615.
 Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: pdflatex (file ../Figures/YoYGrowth_MonServices-eps-converted-to.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<../Figures/YoYGrowth_MonServices-eps-converted-to.pdf, id=348, 486.81876pt x 367.3725pt>
+<../Figures/YoYGrowth_MonServices-eps-converted-to.pdf, id=338, 486.81876pt x 367.3725pt>
 File: ../Figures/YoYGrowth_MonServices-eps-converted-to.pdf Graphic file (type pdf)
  <use ../Figures/YoYGrowth_MonServices-eps-converted-to.pdf>
-Package pdftex.def Info: ../Figures/YoYGrowth_MonServices-eps-converted-to.pdf used on input line 610.
+Package pdftex.def Info: ../Figures/YoYGrowth_MonServices-eps-converted-to.pdf used on input line 615.
 (pdftex.def)             Requested size: 334.60422pt x 252.50629pt.
- [19] [20 <../Figures/MonetaryServices_Index-eps-converted-to.pdf> <../Figures/YoYGrowth_MonServices-eps-converted-to.pdf>] [21] [22]
+ [18] [19 <../Figures/FisherIndex_v2-eps-converted-to.pdf>] [20 <../Figures/MonetaryServices_Index-eps-converted-to.pdf> <../Figures/YoYGrowth_MonServices-eps-converted-to.pdf>] [21] [22] [23]
 Package epstopdf Info: Source file: <../Figures/FiscalCapacity_Index.eps>
 (epstopdf)                    date: 2022-03-28 14:01:59
 (epstopdf)                    size: 34036 bytes
@@ -1186,18 +1190,22 @@ Package epstopdf Info: Source file: <../Figures/FiscalCapacity_Index.eps>
 (epstopdf)                    date: 2022-03-30 07:20:08
 (epstopdf)                    size: 9830 bytes
 (epstopdf)             Command: <repstopdf --outfile=../Figures/FiscalCapacity_Index-eps-converted-to.pdf ../Figures/FiscalCapacity_Index.eps>
-(epstopdf)             \includegraphics on input line 723.
+(epstopdf)             \includegraphics on input line 728.
 Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: pdflatex (file ../Figures/FiscalCapacity_Index-eps-converted-to.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<../Figures/FiscalCapacity_Index-eps-converted-to.pdf, id=401, 495.8525pt x 372.39125pt>
+<../Figures/FiscalCapacity_Index-eps-converted-to.pdf, id=410, 495.8525pt x 372.39125pt>
 File: ../Figures/FiscalCapacity_Index-eps-converted-to.pdf Graphic file (type pdf)
  <use ../Figures/FiscalCapacity_Index-eps-converted-to.pdf>
-Package pdftex.def Info: ../Figures/FiscalCapacity_Index-eps-converted-to.pdf used on input line 723.
+Package pdftex.def Info: ../Figures/FiscalCapacity_Index-eps-converted-to.pdf used on input line 728.
 (pdftex.def)             Requested size: 355.51817pt x 267.00209pt.
- [23] [24 <../Figures/FiscalCapacity_Index-eps-converted-to.pdf>] [25] [26] (/Users/andrewkeinsley/Documents/Fiscal_Money_Paper/Manuscript/Fiscal_Fisher_Index.bbl [27] [28]) [29] [30] [31] [32] [33]
-Overfull \hbox (7.96846pt too wide) detected at line 927
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[24] [25 <../Figures/FiscalCapacity_Index-eps-converted-to.pdf>] [26] (/Users/andrewkeinsley/Documents/Fiscal_Money_Paper/Manuscript/Fiscal_Fisher_Index.bbl [27] [28]) [29] [30] [31] [32] [33]
+Overfull \hbox (7.96846pt too wide) detected at line 932
 [][] [] \OT1/cmr/m/n/10.95 = []
  []
 
@@ -1209,22 +1217,22 @@ Package epstopdf Info: Source file: <../Figures/GrowthDiff_v2.eps>
 (epstopdf)                    date: 2022-03-04 07:50:36
 (epstopdf)                    size: 14336 bytes
 (epstopdf)             Command: <repstopdf --outfile=../Figures/GrowthDiff_v2-eps-converted-to.pdf ../Figures/GrowthDiff_v2.eps>
-(epstopdf)             \includegraphics on input line 970.
+(epstopdf)             \includegraphics on input line 975.
 Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: pdflatex (file ../Figures/GrowthDiff_v2-eps-converted-to.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<../Figures/GrowthDiff_v2-eps-converted-to.pdf, id=526, 484.81125pt x 372.39125pt>
+<../Figures/GrowthDiff_v2-eps-converted-to.pdf, id=529, 484.81125pt x 372.39125pt>
 File: ../Figures/GrowthDiff_v2-eps-converted-to.pdf Graphic file (type pdf)
  <use ../Figures/GrowthDiff_v2-eps-converted-to.pdf>
-Package pdftex.def Info: ../Figures/GrowthDiff_v2-eps-converted-to.pdf used on input line 970.
+Package pdftex.def Info: ../Figures/GrowthDiff_v2-eps-converted-to.pdf used on input line 975.
 (pdftex.def)             Requested size: 355.51817pt x 273.09343pt.
  [36 <../Figures/GrowthDiff_v2-eps-converted-to.pdf>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 975.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 975.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 980.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 980.
  (/Users/andrewkeinsley/Documents/Fiscal_Money_Paper/Manuscript/Fiscal_Fisher_Index.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 975.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 975.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 980.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 980.
 Package rerunfilecheck Info: File `Fiscal_Fisher_Index.out' has not changed.
 (rerunfilecheck)             Checksum: D080713D301F5C06648DBD397A8F0F95;1441.
 
@@ -1235,21 +1243,21 @@ LaTeX Font Warning: Size substitutions with differences
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 975.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 980.
  ) 
 Here is how much of TeX's memory you used:
- 37224 strings out of 493089
- 820663 string characters out of 6134842
- 931071 words of memory out of 5000000
- 40003 multiletter control sequences out of 15000+600000
+ 37229 strings out of 493089
+ 820780 string characters out of 6134842
+ 931108 words of memory out of 5000000
+ 40007 multiletter control sequences out of 15000+600000
  23422 words of font info for 92 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,13n,77p,10513b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on /Users/andrewkeinsley/Documents/Fiscal_Money_Paper/Manuscript/Fiscal_Fisher_Index.pdf (37 pages, 367474 bytes).
+Output written on /Users/andrewkeinsley/Documents/Fiscal_Money_Paper/Manuscript/Fiscal_Fisher_Index.pdf (37 pages, 368054 bytes).
 PDF statistics:
- 641 PDF objects out of 1000 (max. 8388607)
- 563 compressed objects within 6 object streams
- 155 named destinations out of 1000 (max. 500000)
+ 644 PDF objects out of 1000 (max. 8388607)
+ 566 compressed objects within 6 object streams
+ 156 named destinations out of 1000 (max. 500000)
  203 words of extra memory for PDF output out of 10000 (max. 10000000)
 

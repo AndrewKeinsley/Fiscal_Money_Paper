@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex Fiscal_Fisher_Index"] 1697123311 "Fiscal_Fisher_Index.aux" "Fiscal_Fisher_Index.bbl" "Fiscal_Fisher_Index" 1697746065
+["bibtex Fiscal_Fisher_Index"] 1704293084 "Fiscal_Fisher_Index.aux" "Fiscal_Fisher_Index.bbl" "Fiscal_Fisher_Index" 1704293999
   "/usr/local/texlive/2015/texmf-dist/bibtex/bst/economic/apecon.bst" 1389482635 29434 d38d6c49f27e942ee305023547d9dc04 ""
-  "Fiscal_Fisher_Index.aux" 1697730542 11931 1958f7ac372107ca7d543ba1317bae09 ""
+  "Fiscal_Fisher_Index.aux" 1704293881 12029 e956009689f94086495f86fa4e13a407 ""
   "Fiscal_Fisher_Index.bcf" 0 -1 0 ""
-  "MonetaryServices_Debt.bib" 1692367680 27000 77d19858b873df9d4300056bcb559af1 ""
+  "MonetaryServices_Debt.bib" 1704292650 28130 eaedc04e29b91839755282734cf8af0d ""
   (generated)
   "Fiscal_Fisher_Index.blg"
   "Fiscal_Fisher_Index.bbl"
-["pdflatex"] 1697730540 "/Users/andrewkeinsley/Documents/Fiscal_Money_Paper/Manuscript/Fiscal_Fisher_Index.tex" "/Users/andrewkeinsley/Documents/Fiscal_Money_Paper/Manuscript/Fiscal_Fisher_Index.pdf" "Fiscal_Fisher_Index" 1697746065
+["pdflatex"] 1704293879 "/Users/andrewkeinsley/Documents/Fiscal_Money_Paper/Manuscript/Fiscal_Fisher_Index.tex" "/Users/andrewkeinsley/Documents/Fiscal_Money_Paper/Manuscript/Fiscal_Fisher_Index.pdf" "Fiscal_Fisher_Index" 1704293999
   "../Figures/BondNote_Spread.eps" 1623705598 17527 cb9111ec702ff6d9b84c43de508d1e11 ""
   "../Figures/FiscalCapacity_Index.eps" 1648497719 34036 1615199ddaab31486cf4632ab141fc1d ""
   "../Figures/FisherIndex_v2.eps" 1646405361 33593 c12a0273948bc70567b9543aa78962e0 ""
@@ -15,8 +15,8 @@
   "../Figures/MonetaryServices_Index-eps-converted-to.pdf" 1649258759 9640 66464d229ffb7cd8dddf41add12d175f ""
   "../Figures/MonetaryServices_Index.eps" 0 -1 0 ""
   "../Figures/YoYGrowth_MonServices.eps" 1646411106 41949 9af4ed753a76883de41a8250e729aaef ""
-  "/Users/andrewkeinsley/Documents/Fiscal_Money_Paper/Manuscript/Fiscal_Fisher_Index.aux" 1697730542 11931 1958f7ac372107ca7d543ba1317bae09 ""
-  "/Users/andrewkeinsley/Documents/Fiscal_Money_Paper/Manuscript/Fiscal_Fisher_Index.tex" 1697730540 76504 a425d8d34d061518a2a36a06efd2832e ""
+  "/Users/andrewkeinsley/Documents/Fiscal_Money_Paper/Manuscript/Fiscal_Fisher_Index.aux" 1704293881 12029 e956009689f94086495f86fa4e13a407 ""
+  "/Users/andrewkeinsley/Documents/Fiscal_Money_Paper/Manuscript/Fiscal_Fisher_Index.tex" 1704293999 77446 83a77054501ecaebd60160edf7b36665 ""
   "/usr/local/texlive/2015/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/local/texlive/2015/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm" 1246382020 1124 14ccf5552bc7f77ca02a8a402bea8bfb ""
   "/usr/local/texlive/2015/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy8.tfm" 1246382020 1120 200be8b775682cdf80acad4be5ef57e4 ""
@@ -260,14 +260,14 @@
   "/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1432479641 1764542 91654ba72bdb667e84ea24f076ae16d8 ""
   "/usr/local/texlive/2015/texmf-var/web2c/pdftex/pdflatex.fmt" 1432479681 3849859 39a7d258195bde2394e244961601fbc5 ""
   "/usr/local/texlive/2015/texmf.cnf" 1432479636 577 0d611272082f3cdb8e80e09a3c69cf07 ""
-  "Fiscal_Fisher_Index.aux" 1697730542 11931 1958f7ac372107ca7d543ba1317bae09 ""
-  "Fiscal_Fisher_Index.bbl" 1697123311 4911 c5aa80db66767a14269b8f3c9c47313c "bibtex Fiscal_Fisher_Index"
-  "Fiscal_Fisher_Index.out" 1697730542 1441 d080713d301f5c06648dbd397a8f0f95 ""
-  "Fiscal_Fisher_Index.tex" 1697730540 76504 a425d8d34d061518a2a36a06efd2832e ""
+  "Fiscal_Fisher_Index.aux" 1704293881 12029 e956009689f94086495f86fa4e13a407 ""
+  "Fiscal_Fisher_Index.bbl" 1704293084 5144 64a500c996fcd20cb96cd373b6a27204 "bibtex Fiscal_Fisher_Index"
+  "Fiscal_Fisher_Index.out" 1704293881 1441 d080713d301f5c06648dbd397a8f0f95 ""
+  "Fiscal_Fisher_Index.tex" 1704293999 77446 83a77054501ecaebd60160edf7b36665 ""
   (generated)
-  "/Users/andrewkeinsley/Documents/Fiscal_Money_Paper/Manuscript/Fiscal_Fisher_Index.pdf"
-  "Fiscal_Fisher_Index.aux"
   "Fiscal_Fisher_Index.log"
   "Fiscal_Fisher_Index.pdf"
-  "Fiscal_Fisher_Index.out"
   "/Users/andrewkeinsley/Documents/Fiscal_Money_Paper/Manuscript/Fiscal_Fisher_Index.log"
+  "Fiscal_Fisher_Index.aux"
+  "Fiscal_Fisher_Index.out"
+  "/Users/andrewkeinsley/Documents/Fiscal_Money_Paper/Manuscript/Fiscal_Fisher_Index.pdf"

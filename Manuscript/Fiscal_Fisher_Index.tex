@@ -81,7 +81,7 @@
 % This is especially prevelent during the European debt crisis and the COVID-related ``dash for cash,'' where the respective paths of market depth diverged despite rising deficits. 
 
 \noindent This paper introduces index number theory to our analysis of US Treasuries, the depth of their market, and fiscal capacity; more generally.
-Using the user cost of Treauries derived herein, I construct an index that tracks the true quantity of US Treasury debt and the monetary service flows provided by Treasuries. 
+Using the user cost of Treasuries derived herein, I construct an index that tracks the true quantity of US Treasury debt and the monetary service flows provided by Treasuries. 
 The importance of this view can be seen in the differing Treasury market reactions to the European debt crisis and COVID-19's ``dash for cash'' scenario.
 Despite large amounts of deficit spending in both situations, this measure reveals that market depth rose dramatically in light of the former crisis and fell during the latter. 
 % Treasuries are more than just their principal value.
@@ -119,10 +119,10 @@ This paper introduces index number theory to the fiscal debt discussion, continu
 
 % Purpose of this paper...
 The contribution of this paper is three-fold.
-First, I show empirically that the various types of Treasuries that constitute the debt should not be treated as perfect substitutes and therefore cannot be aggregated in the standard, simple-sum manner. 
+First, expanding on the existing literature, I provide empirical evidence suggesting that the various types of Treasuries that constitute the debt should not be treated as perfect substitutes and therefore should not be aggregated in the standard, simple-sum manner. 
 Next, I motivate the use of an index number to account for this imperfect subsitutability; deriving the user cost for long-term Treasuries and creating a Fisher ideal quantity index that tracks the true aggregate.
 Lastly, I show that the value of these monetary services directly increases Treasury market depth and fiscal capacity, more generally.
-Together, these results reveal that our standard view of fiscal debt, and our policy/discussion surrounding it, is flawed.
+Together, these results reveal that aspects of our standard view of fiscal debt can be misleading, which is problematic for the policy/discussion surrounding it.
 
 % Results 1
 The first step in establishing a new measurement of fiscal debt is to extend the work of \citet{Amihud-Mendelson:1991}, showing that the differing types of nominal Treasury securities (bills, notes, and bonds) are not perfect subsitutes as the simple-sum framework implicitly assumes. 
@@ -132,7 +132,7 @@ Regressing Treasuries' relative yields to maturity (YTM) against their relative 
 	That is, matched notes and bills with less than six months to maturity.
 }
 Bonds, on the other hand, primarily act as a savings vehicle rather than a liquidity hedge. 
-These results provide evidence for the use of a more theoretically true aggregation approach.
+These results provide evidence for the use of a more theoretically rigorous aggregation approach.
 
 
 % Results 2
@@ -213,12 +213,17 @@ In this section I briefly touch on the monetary aggregation literature, motivate
 
 \subsection{Bond Market Segmentation}
 \label{subsec:MktSeg}
-Fiscal debt is ubiquitously measured as the sum of outstanding principal values, but simple-sum aggregates come with an assumption that the underlying assets are perfect substitutes. 
-Signs of {\em imperfect} substitutability would include a yield-to-maturity (YTM) spread between assets that are identical in everything but name.
-Figure \ref{fig:YTM_Spread} shows the median yields to maturity of Treasury notes and Treasury bonds with roughly the same time to maturity for the 1970--2020 period.
+Fiscal debt is ubiquitously measured as the sum of outstanding principal values, but simple-sum aggregates come with an underlying assumption that the underlying assets are perfect substitutes. 
+As \citet[pg 431]{Serletis-Robb:1986} explain: ``Simple-sum aggregation (the usual procedure) is justified [\dots] only if the compoent assets are perfect substitutes (implying linear indifference surfaces) one for one.
+If this is condition of perfect substituability is violated, it is inappropriate to form a quantity index by giving an equal weight to each asset component.''
+
+Preliminary signs of {\em imperfect} substitutability would include a yield-to-maturity (YTM) spread between assets that are virtually identical in everything but name.
+On the secondary market, simple equilibrium conditions would suggest that, even in the face of differing coupon payments, the prices of two securirties with the same issuing entity and remaining time to maturity would be bid up or down to equalize their yields.
+So generally speaking, the only difference between these securities on the secondary market is the label attached to their initial maturity.
+% So we should expect that a note and bond would be perfect substitutes and thus carry the same YTM.
+However, using monthly CRSP data at the CUSIP level, Figure \ref{fig:YTM_Spread} shows a persistent gap in the median yields to maturity of Treasury notes and bonds with roughly the same time to maturity for the 1970--2020 period.
 That is, the time series compare the YTM of a Treasury note that matures within $t$ periods with a Treasury bond that also matures with $t$ periods.
-Technically speaking, the only difference between these securities on the secondary market is the label attached to their initial maturity.
-So we should expect that a note and bond would be perfect substitutes and thus carry the same YTM.
+As can be seen, these YTMs are not equal, and the spread between them is not constant.
 
 % Figure \ref{fig:BidAsk_Ratios} presents a comparison of the bid-ask ratios of notes and bonds, suggesting that bonds are more liquid than notes market.
 % These snapshots show that, even when identical on paper, the UST market is quite segmented, and the assets therein cannot be perfect substitutes.\footnote{
@@ -247,7 +252,7 @@ So we should expect that a note and bond would be perfect substitutes and thus c
 % \end{figure}
 
 \citet{Amihud-Mendelson:1991} find that the YTM spread between notes and bills is driven by relative liquidity.
-Using monthly data on Treasury securities identified at the CUSIP level, I extend their work to empirically test this claim across the three common types of nominal securities.
+Again using monthly data on Treasury securities identified at the CUSIP level, I extend their work to empirically test this claim across the three common types of nominal securities.
 The data are first separated by their type label: bills, notes, and bonds.
 Then, for every month in the Oct 1996--Dec 2020 subsample period, each ``senior'' security (bond/note) is matched to a ``junior'' security (note/bill) that matures within one day of said ``senior'' security, allowing for exact matches if they exist.\footnote{
 	The October 1996 cutoff for this analysis comes from the source data in the CRSP database. 
