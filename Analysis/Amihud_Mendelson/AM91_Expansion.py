@@ -36,7 +36,7 @@ df = df.dropna()
 #       "The ask price was determined by the FRBNY based on what they expect a typical bid-ask spread to be. The rule used
 #           to make this derivation was not public domain"
 #       This is a source of problems with the regression analyses, so I'm only running the post-1996 regressions.
-df = df[~(df['mcaldt']<'1996-10-01')]
+df = df[~(df['mcaldt']<'1970-10-01')] #1996
 
 # Dropping negative values from the numeric columns
 numvals = df.select_dtypes(include=['float64'])
@@ -112,11 +112,12 @@ notes_matched['tcouprt_Spread'] = notes_matched['tcouprt_Note'] - notes_matched[
 notes_matched['d2mat_Spread'] = notes_matched['tmatdt_Note']-notes_matched['tmatdt_Bill']
 notes_matched['d2mat_Spread'] = notes_matched['d2mat_Spread'] // np.timedelta64(1, "D")
 notes_matched['year'] = notes_matched['mcaldt'].dt.year
+notes_matched['duration_Spread'] = notes_matched['tmduratn_Note'] - notes_matched['tmduratn_Bill']
 
 ##### REGRESSION ANALYSIS (NOTES-BILLS) #####
 
 Y = notes_matched['tmyld_Spread']
-X = notes_matched[['bidask_ratio_Spread','tcouprt_Spread','m2mat_Note','T10Y2YM_Bill']]
+X = notes_matched[['bidask_ratio_Spread','tcouprt_Spread','m2mat_Note','T10Y2YM_Bill','duration_Spread']]
 # X = notes_matched[['bidask_ratio_Spread','tcouprt_Spread','T10Y2YM_Bill']]
 
 X = sm.add_constant(X,prepend=True)
@@ -140,12 +141,13 @@ bonds_matched['tcouprt_Spread'] = bonds_matched['tcouprt_Bond'] - bonds_matched[
 bonds_matched['d2mat_Spread'] = bonds_matched['tmatdt_Bond']-bonds_matched['tmatdt_Note']
 bonds_matched['d2mat_Spread'] = bonds_matched['d2mat_Spread'] // np.timedelta64(1, "D")
 bonds_matched['year'] = bonds_matched['mcaldt'].dt.year
+bonds_matched['duration_Spread'] = bonds_matched['tmduratn_Bond'] - bonds_matched['tmduratn_Note']
 
 ##### REGRESSION ANALYSIS (BONDS-NOTES) #####
 
 Y = bonds_matched['tmyld_Spread']
-X = bonds_matched[['bidask_ratio_Spread','tcouprt_Spread','y2mat_Bond','T10Y2YM_Note']]
-# X = bonds_matched[['bidask_ratio_Spread','tcouprt_Spread','T10Y2YM_Note']]
+X = bonds_matched[['bidask_ratio_Spread','tcouprt_Spread','T10Y2YM_Note','duration_Spread']]
+# X = bonds_matched[['bidask_ratio_Spread','tcouprt_Spread','y2mat_Bond','T10Y2YM_Note']]
 
 X = sm.add_constant(X,prepend=True)
 
@@ -166,11 +168,12 @@ bb_matched['tcouprt_Spread'] = bb_matched['tcouprt_Bond'] - bb_matched['tcouprt_
 bb_matched['d2mat_Spread'] = bb_matched['tmatdt_Bond']-bb_matched['tmatdt_Bill']
 bb_matched['d2mat_Spread'] = bb_matched['d2mat_Spread'] // np.timedelta64(1, "D")
 bb_matched['year'] = bb_matched['mcaldt'].dt.year
+bb_matched['duration_Spread'] = bb_matched['tmduratn_Bond'] - bb_matched['tmduratn_Bill']
 
-##### REGRESSION ANALYSIS (BONDS-NOTES) #####
+##### REGRESSION ANALYSIS (BONDS-BILLS) #####
 
 Y = bb_matched['tmyld_Spread']
-X = bb_matched[['bidask_ratio_Spread','tcouprt_Spread','m2mat_Bond','T10Y2YM_Bond']]
+X = bb_matched[['bidask_ratio_Spread','tcouprt_Spread','m2mat_Bond','T10Y2YM_Bond','duration_Spread']]
 # X = bonds_matched[['bidask_ratio_Spread','tcouprt_Spread','T10Y2YM_Note']]
 
 X = sm.add_constant(X,prepend=True)

@@ -213,13 +213,12 @@ In this section I briefly touch on the monetary aggregation literature, motivate
 
 \subsection{Bond Market Segmentation}
 \label{subsec:MktSeg}
-Fiscal debt is ubiquitously measured as the sum of outstanding principal values, but simple-sum aggregates come with an underlying assumption that the underlying assets are perfect substitutes. 
-As \citet[pg 431]{Serletis-Robb:1986} explain: ``Simple-sum aggregation (the usual procedure) is justified [\dots] only if the compoent assets are perfect substitutes (implying linear indifference surfaces) one for one.
+Fiscal debt is ubiquitously measured as the sum of outstanding principal values, but as \citet[pg 431]{Serletis-Robb:1986} explain: ``Simple-sum aggregation (the usual procedure) is justified [\dots]\ only if the compoent assets are perfect substitutes (implying linear indifference surfaces) one for one.
 If this is condition of perfect substituability is violated, it is inappropriate to form a quantity index by giving an equal weight to each asset component.''
 
 Preliminary signs of {\em imperfect} substitutability would include a yield-to-maturity (YTM) spread between assets that are virtually identical in everything but name.
 On the secondary market, simple equilibrium conditions would suggest that, even in the face of differing coupon payments, the prices of two securirties with the same issuing entity and remaining time to maturity would be bid up or down to equalize their yields.
-So generally speaking, the only difference between these securities on the secondary market is the label attached to their initial maturity.
+So generally speaking, the only difference between these securities on the secondary market should be the label attached to their initial maturity.
 % So we should expect that a note and bond would be perfect substitutes and thus carry the same YTM.
 However, using monthly CRSP data at the CUSIP level, Figure \ref{fig:YTM_Spread} shows a persistent gap in the median yields to maturity of Treasury notes and bonds with roughly the same time to maturity for the 1970--2020 period.
 That is, the time series compare the YTM of a Treasury note that matures within $t$ periods with a Treasury bond that also matures with $t$ periods.
@@ -251,10 +250,40 @@ As can be seen, these YTMs are not equal, and the spread between them is not con
 % \label{fig:BidAsk_Ratios}
 % \end{figure}
 
+Considering the same data at a more granular level, I can match Treasury securities by their days to maturity and compare their relative YTMs.
+That is, for every month in the 1970--2020 period, each ``senior'' security (bond/note) is matched to a ``junior'' security (note/bill) that matures within one day of said ``senior'' security, allowing for exact matches if they exist.
+Those securities incorporating Treasury Bills are limited to those with less that six-months to maturity, ensuring that both securities have no other payments remaining until the maturity date.
+The summary statistics of these matches are presented in Table \ref{tab:Summary_Stats}.
+As can be seen, while the mean and median YTM spreads are within a matter of basis points, they can vary dramatically and they are not always normally distributed.
+
+\begin{table}
+	\centering
+	\setlength{\tabcolsep}{15pt}
+    \renewcommand{\arraystretch}{1.2}
+	\caption{Summary Statistics: Matched Yield-to-Maturity Spreads} \vspace{1em}
+	\label{tab:Summary_Stats}
+	\begin{threeparttable}
+		\begin{tabular}{l c c c} \toprule
+			YTM Spread (pps)	& Notes--Bills 	& Bonds--Notes 	& Bonds--Bills	\\ \midrule
+			Count							& 3717			& 7052			& 152			\\
+			Mean							& 0.0722		& -0.1747		& -0.0497		\\ 
+			St. Dev.						& 0.2384		& 0.7133		& 0.7451		\\
+			Median							& 0.0449		& -0.0264		& 0.0393		\\ 
+			Minimum							& -2.0294		& -7.4735		& -2.7997		\\ 
+			Maximum							& 3.1618		& 3.8906		& 4.0462		\\ \bottomrule
+		\end{tabular}
+		\begin{tablenotes}
+			\item \footnotesize{In each month of the sample period, each nominal asset is matched with a corresponding asset of a different type that matures within one day of the first asset.
+			Spreads are calculated as described in the column headers.}
+		\end{tablenotes}	
+	\end{threeparttable}
+\end{table}
+
+
 \citet{Amihud-Mendelson:1991} find that the YTM spread between notes and bills is driven by relative liquidity.
 Again using monthly data on Treasury securities identified at the CUSIP level, I extend their work to empirically test this claim across the three common types of nominal securities.
 The data are first separated by their type label: bills, notes, and bonds.
-Then, for every month in the Oct 1996--Dec 2020 subsample period, each ``senior'' security (bond/note) is matched to a ``junior'' security (note/bill) that matures within one day of said ``senior'' security, allowing for exact matches if they exist.\footnote{
+The same procedure used to create Table \ref{tab:Summary_Stats} is then used for the Oct 1996--Dec 2020 subsample period.\footnote{
 	The October 1996 cutoff for this analysis comes from the source data in the CRSP database. 
 	Prior to October 16, 1996, CRSP data on bid and ask prices were sourced from the FRBNY; while sourced from GovPX and its aquiring institutions since then.
 	According to the CRSP documentation: ``The FRBNY described its listed bid price as `...the most widely quoted price from the range of quotations received'. 
@@ -272,7 +301,10 @@ I also control for the spread in their respective coupon rates, a general time t
 	The 10yr--2yr spread is used because it is a spread between two notes, attempting to get at the general expectations of the future economy without crossing the asset types in the process. 
 	Standard errors are heteroskedasitcally robust (HC1).
 }
-Table \ref{tab:Relative_Liquidity} presents the results for the notes--bills, bonds--notes, and bonds--bills analyses.
+Table \ref{tab:Relative_Liquidity} presents the results for the notes--bills, bonds--notes, and bonds--bills analyses.\footnote{
+	A referee during this paper's initial submission suggested that the spread between respective assets' durations may be an omitted variable.
+	I find this analysis to be robust to such a concern in Appendix \ref{app:Robust_Duration}.
+}
 
 \begin{table}[p]
 	\centering
@@ -297,12 +329,12 @@ Table \ref{tab:Relative_Liquidity} presents the results for the notes--bills, bo
 										& (0.003) 									& (0.002)							& (0.033)	 						\\ 
 			Constant					& 0.0076 									& -0.0554^{**}						& -0.3244^{**} 						\\ [-0.5em]
 										& (0.010)									& (0.030) 							& (0.154)  							\\\midrule
-			Observations				& \multicolumn{1}{c}{2250}					& \multicolumn{1}{c}{7430}			& \multicolumn{1}{c}{78} 			\\
+			Observations				& \multicolumn{1}{c}{2250}					& \multicolumn{1}{c}{4313}			& \multicolumn{1}{c}{78} 			\\
 			R-Squared					& 0.207										& 0.505								& 0.399			 					\\
 			F-statistic 				& 99.48										& 207.2								& 20.19			 					\\ \bottomrule 
 		\end{tabular}
 		\begin{tablenotes}
-			\item[a] \footnotesize{The dependent variable is the yield-to-maturity spread between securities matched by thier respective days to maturity. Standard errors are heteroskedasticity robust (HC1). Designations ***, **, and * represent results that are statistivally significant at the one, five, and ten percent levels, respecitivly.}
+			\item[a] \footnotesize{The dependent variable is the yield-to-maturity spread between securities matched by thier respective days to maturity. Standard errors are heteroskedasticity robust (HC1). Designations ***, **, and * represent results that are statistically significant at the one, five, and ten percent levels, respecitivly.}
 			\item[b] \footnotesize{Analyses considering Treasury bills are limited to those securities with six months to maturity or less. This ensures that both securities have no other payments remaining until the maturity date.}
 		\end{tablenotes}
 	\end{threeparttable}
@@ -759,6 +791,64 @@ This paper shows how to view fiscal debt beyond simple accounting and why consid
 \newpage
 \appendix
 \numberwithin{equation}{section}
+\section{Motivation: Robustness Checks} 
+\label{app:Robust_Duration}
+In this appendix I provide some robustness checks to the results found in Table \ref{tab:Relative_Liquidity}.
+The first considers the inclusion of the underlying assets' relative duration.
+As the Notes--Bills and Bonds--Bills analyses consider assets under six months to maturity, the relative duration of the underlying assets is effectively zero throughout, making the lack of statistical signficance unsurprising.
+Thus, the Bills-centric analyses are robust to the inclusion or exclusion of the underlying assets' durations.
+
+Including the relative duration of the underlying assets in the Bonds--Notes analysis, however, does matter in a number of ways.
+Since both Bonds and Notes have a number of cash flows remaining, their relative durations can vary substantially.
+However, the duration spread in this anslysis is highly correlated with the years-to-maturity variable considered in Table \ref{tab:Relative_Liquidity}, with a correlation coefficient of -0.90. 
+Multicollinearity concerns, therefore, require that this robustness check exclude the years-to-maturity variable.
+As can be seen in Table \ref{tab:Motivation_Robust} below, the relative duration of the underlying assets is statistically significant, though the coefficients on the remaining variables remain largely unchanged.
+Therefore, I consider this analysis to be robust to the inclusion of the underlying assets' relative duration as well.
+
+The benchmark analysis is considered as such for two primary reasons.
+First, given the robustness of the remaining coefficients, the benchmark analysis results in an F-statistic of 207.2 and an R-Squared of 0.505, while the robustness check results in an F-statistic of 63.27 and an R-Squared of 0.085.
+This suggests that the years-to-maturity variable simply has more explanatory power than the duration spread.
+An explanation of this difference of explanatory power can be drawn from the types of variables they are.
+While the duration variable is continuous in that it is measured in days, the years-to-maturity variable is effectively a categorical variable.
+It must be, therefore, that the general number of years to maturity provides more information relative to noise than the difference in their durations. 
+The second reason to favor the benchmark analysis of Table \ref{tab:Relative_Liquidity} concerns the fact that duration is a function of the asset's yield-to-maturity, which opens the door to endogeneity issues.
+Given the general shape of the yield curve, this may still be inherent to the years-to-maturity variable, but its categorical nature is likely to mitigate the problem.
+
+\begin{table}[h]
+	\centering
+	\setlength{\tabcolsep}{15pt}
+    \renewcommand{\arraystretch}{1.5}
+	\caption{Robustness Checks: Duration$^a$} \vspace{1em}
+	\label{tab:Motivation_Robust}
+	\begin{threeparttable}
+		\begin{tabular}{l d{2.4} d{2.4} d{2.4}} \toprule
+										& \multicolumn{1}{c}{Notes--Bills$^{b}$}  	& \multicolumn{1}{c}{Bonds--Notes} 	& \multicolumn{1}{c}{Bonds--Bills$^{b}$}	\\ \midrule
+			Relative Bid-Ask Spread 	& 0.4118^{**}								& 0.0271							& -0.1420^{***}		 					\\ [-0.5em]
+										& (0.173)									& (0.041)							& (0.052)	 						\\
+			Coupon Rate Spread 			& 0.0211^{***}								& 0.0187^{***}						& 0.0076 							\\ [-0.5em]
+										& (0.001)									& (0.004)							& (0.013)	 						\\
+			Months to Maturity 			& -0.0150^{***} 							& 									& -0.1029^{***}								 	\\ [-0.5em]
+										& (0.002)									&									& (0.017)									\\
+			% Years to Maturity 			& 											& -0.0049^{***}						& 			 					\\ [-0.5em]
+			% 							& 											& (0.001)							& 		 						\\
+			10y-2y Spread 				& 0.0233^{***}								& -0.0107^{***}						& 0.0488 					\\ [-0.5em]
+										& (0.003) 									& (0.002)							& (0.036)	 						\\ 
+			Duration Spread 			& 0.0022									& 0.0002^{***}						& -0.0011 			\\ [-0.5em]
+										& (0.002) 									& (0.000)							& (0.029)	 		\\ 
+			Constant					& 0.0071 									& -0.0602^{**}						& -0.3245^{**} 						\\ [-0.5em]
+										& (0.010)									& (0.025) 							& (0.155)  							\\\midrule
+			Observations				& \multicolumn{1}{c}{2250}					& \multicolumn{1}{c}{4313}			& \multicolumn{1}{c}{78} 			\\
+			R-Squared					& 0.208										& 0.085								& 0.399			 					\\
+			F-statistic 				& 80.20										& 63.27								& 16.26			 					\\ \bottomrule 
+		\end{tabular}
+		\begin{tablenotes}
+			\item[a] \footnotesize{The dependent variable is the yield-to-maturity spread between securities matched by thier respective days to maturity. Standard errors are heteroskedasticity robust (HC1). Designations ***, **, and * represent results that are statistically significant at the one, five, and ten percent levels, respecitivly.}
+			\item[b] \footnotesize{Analyses considering Treasury bills are limited to those securities with six months to maturity or less. This ensures that both securities have no other payments remaining until the maturity date.}
+		\end{tablenotes}
+	\end{threeparttable}
+\end{table}
+
+
 \section{Representative Household Solution}
 \label{app:HH_Solution}
 
