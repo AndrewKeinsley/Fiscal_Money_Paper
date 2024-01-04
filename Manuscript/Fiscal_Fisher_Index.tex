@@ -388,14 +388,16 @@ The preferred quantity index of \citet{Barnett:1980}, \citet{Barnett-Serletis:20
 	\ln{M^d_t} = \ln{M^d_{t-1}} + \sum_{n=1}^{N}\frac{1}{2}(s_{n,t}+s_{n,t-1})\left(\ln{x^n_{t}} - \ln{x^n_{t-1}}\right).
 	\label{DI}
 \end{equation*}
-Here, $M^d_t$ is the level of the Divisia quantity index, $x^n_{t}$ is the nominal value of asset $n$, 
+Here, $M^d_t$ is the level of the Divisia quantity index at time $t$, $x^n_{t}$ is the nominal value of asset $n$, the weight on the marginal change in financial asset $n$ is expressed as
 \begin{equation*}
-	s_{n,t}  = \frac{\eta^n_{t}x^n_{t}}{\boldsymbol \eta_t' \mathbf{x}_t}
+	s_{n,t}  = \frac{\eta^n_{t}x^n_{t}}{\boldsymbol \eta_t' \mathbf{x}_t},
 \end{equation*}
-corresponds to the weight on the marginal change in financial asset $n$, and $\mathbf{x}_t$ and $\boldsymbol \eta_t$ are $N \times 1$ vectors of nominal quantities and user costs, respectively.
+where $\mathbf{x}_t$ and $\boldsymbol \eta_t$ are $N \times 1$ vectors of nominal quantities and user costs, respectively.
 % This type of quantity index is ubiquitous in the monetary aggregation literature.\footnote{See \citet{Barnett:1980}, \citet{Barnett-Serletis:2000}, and \citet{Belongia-Ireland:2014} for a preview of the monetary aggregation literature.}
 
-One drawback of the T\"{o}rnqvist-Theil Divisia index is that it does not handle assets coming into and out of the market ($x^n_{t} = 0$ for some $n,t$) very well.
+While highly efficient in terms of its a precision and ease of calculation, one drawback of the T\"{o}rnqvist-Theil Divisia index is that it does not handle assets coming into and out of existence ($x^n_{t} = 0$ for some $n,t$) very well.\footnote{
+	Another important strength of the Divisia functional form is that it simply looks like a weighted average, especially in its continuous form, which makes it easier to interpret in application or policy discussions.
+}
 Given the frequent changes in Treasury policy and the potential categorizations I will use, zero values are likely to be commonplace in this analysis.
 When calculating general monetary aggregates, this problem does not arise often and is managed by imputing a reservation price and switching to a Fisher ideal index 
 \begin{equation}
@@ -405,7 +407,7 @@ When calculating general monetary aggregates, this problem does not arise often 
 for those time periods.
 \citet{Diewert:1976} shows that this quantity index is also superlative, with \citet{Diewert:1978} and \citet{Dumagan:2002} showing that the two indexes will appriximate each other numerically and mathematically, respectively.
 % Additionally, \citet{Diewert:1976} shows that the ideal index is derived from a quadratic mean of order 2 quantity index, which corresponds to the assumed translog aggregator function and is even recommended as the preferred index to use \citep[][Section 5]{Diewert:1976}.
-Therefore, a Fisher ideal index is used in the remaining analysis.
+Under these considerations, I find that a Fisher ideal index is optimal for the remaining analysis.
 
 
 
@@ -420,20 +422,19 @@ A complete guide to index number theory and its application to monetary aggregat
 
 A proper quantity index requires a price that is derived from an optimizing agent.
 Thus, motivating the measurement of marketable government debt requires a partial equilibrium model that derives both the period-by-period user cost of holding government debt as well as the budgetary constraints the fiscal authority encounters.
-This model incorporates both short- and long-term debt issued by the government, as well as an alternative long-term asset that acts as a pure savings vehicle and can be used as the benchmark asset. 
+This model incorporates both short- and long-term debt issued by the government, as well as an alternative long-term asset that acts as a pure savings vehicle and can be used as the benchmark security. 
 In this model, I refer to the alternative asset as ``capital,'' though it could also be motivated in some other manner. 
 
 \subsection{Long-Term Asset Dynamics}
 The long-term government bonds and capital both evolve in a similar fashion.
 As described by \citet{Krause-Moyen:2016}, each period new nominal long-term government bonds $B^{L,n}_t$ are issued, which are added to the stock of outstanding long-term debt $B^L_t$.
-A portion $\alpha \in (0,1)$ of the previous period's stock of long-term bonds mature, while the remaining $(1-\alpha)$ remain in the stock of outstanding long-term debt. 
-The maturity of these bonds is therefore $\sfrac{1}{\alpha}$.
-Together, the stock of outstanding long-term debt evolves such that 
+A portion $\alpha \in (0,1)$ of the previous period's stock of long-term bonds mature, making the maturity of these bonds $\sfrac{1}{\alpha}$ periods.
+Thus, the stock of outstanding long-term debt evolves such that 
 \begin{equation}
 	B^L_t = (1-\alpha)B^L_{t-1} + B^{L,n}_t.
 	\label{eq:LoM_DebtLevel}
 \end{equation}
-The average nominal interest rate paid on the stock of outstanding long-term debt $r^L_t$ evolves such that
+The average nominal interest rate paid on the stock of outstanding long-term debt $r^L_t$ progresses such that
 \begin{equation}
 	r^L_t B^L_t = (1-\alpha)r^L_{t-1}B^L_{t-1} + r^{L,n}_tB^{L,n}_t,
 	\label{eq:LoM_DebtReturn}
@@ -483,24 +484,29 @@ Real monetary services are approximated using a second-order translog function
 % \end{equation}
 % where $\lambda \in [0,1]$ dictates the weight of each government debt security and $\sigma$ dictates the elasticity of substitution between the two assets.
 \begin{equation}
-	\ln m_t = \theta_0 + \theta_s \ln b_t + \theta_L \ln b^L_t + \frac{1}{2}\omega_{s,s} \left(\ln b_t\right)^2 + \frac{1}{2}\omega_{L,L} \left(\ln b^L_t\right)^2 + \omega_{s,L}\ln b_t \ln b^L_t.
+	\ln m_t = \theta_0 + \theta_s \ln b_t + \theta_L \ln b^L_t + \frac{1}{2}\omega_{s,s} \left(\ln b_t\right)^2 + \frac{1}{2}\omega_{L,L} \left(\ln b^L_t\right)^2 + \omega_{s,L}\ln b_t \ln b^L_t,
 	\label{eq:HH_MonServices}
 \end{equation}
+where $\theta_s + \theta_L = 1$ are the linear weights on the short- and long-term bonds, respectively, $\omega_{j,k}$ is the partial elasticity of substitution between assets $j$ and $k$, $\omega_{j,k}=\omega_{k,j}$ for all $j,k$, and $\sum_{k} \omega_{j,k} = 0$ for $j,k={s,L}$.
+The use of a translog function stems from the mathematical derivation of the quanitity index itself, which requires a twice-continuously-differentiable linear homogenous aggregator as a starting point.
+Appendix \ref{app:Translog} explains in more detail why the translog function is preferred in this baseline situation, and why a constant-elasticity-of-substitution (CES) function can be considered in later analyses without loss of generality.
+
+\paragraph{Bonds in the Utility Function}
 Inclusion of the asset of focus into the utility function is not new, and has been used in the literature to motivate the original user cost of money \citep{Barnett:1978}.
 Modeling demand in this way is important for two reasons.
 
 First, in Section \ref{subsec:MktSeg}, I delineate the distinctions among various Treasury securities. 
 However, this interpretation applies solely to that context. 
-For instance, bonds might be seen more as a savings tool than bills, but they are still typically viewed as more liquid than other debt securities available. 
-Bills, though largely influenced by their inherent liquidity, are also widely recognized as a safe asset. 
+For instance, bonds might be seen more as a savings tool than bills, but they are still typically viewed as more liquid than other (non-Treasury) debt securities available. 
+Bills, though largely influenced by their inherent liquidity, are also widely recognized as a safe asset, so their inherent qualities aren't necessarily separable. 
 To accurately portray Treasury securities without making sweeping generalizations about their financial market position, this modeling method is essential.
 
-Second, if liquidity/safety were explicitly modeled in a comprehensible/tractable manner, the outcome woud remain consistent. 
-Generally, it is evident that when transaction costs or cash-in-advance components are added to the budget constraint, there exists a representation with money/bonds in the utility function can yield the same first-order conditions. 
+Second, if liquidity/safety were explicitly modeled in a comprehensible/tractable manner, the outcome would remain consistent. 
+Generally, it is evident that when transaction costs or cash-in-advance components are added to the budget constraint, there exists a representation with money/bonds in the utility function which can yield the same first-order conditions. 
 The main aim of this study is to construct a nonparametric quantity index monitoring US Treasury debt. 
-As illustrated in Appendix \ref{app:usercost_derivation}, the user cost's derivation stems from the equivalency between marginal benefit and cost. 
+As illustrated in Appendix \ref{app:usercost_derivation}, this entire exercise hinges the equivalency between marginal benefit and cost. 
 The nonparametric user cost emerges from the marginal cost side, whereas the parametrized modeling choices appear on the marginal benefit side. 
-This underscores the necessity for a well-defined index number, which should originate from some form of agent maximization, enabling its derivation even without an explicit understanding of the aggregation function.
+This underscores the need for agent optimization in the creation of a well-defined index number, enabling its derivation even without an explicit understanding of the aggregation function.
 
 Solving the household's problem results in the following dynamic conditions:
 \begin{equation}
@@ -551,7 +557,7 @@ In this section, I construct the Fisher ideal quantity index described in Sectio
 Non-marketable debt is typically held by intergovernmental agencies, and is therefore not typically considered to be a significant burden.\footnote{
 	The inclusion of only publicly-held, marketable US Treasury debt would be the optimal choice here, but data restrictions keep me from assessing this.
 	For instance, the CRSP data doesn't include the amount of each T-bill issuance held publicly.
-0	Another option could be to exclude the issuances held by the Federal Reserve, since that is the primary non-public holder of US Treasuries, but the SOMA data only goes back to 2003.
+	Another option could be to exclude the issuances held by the Federal Reserve, since that is the primary non-public holder of US Treasuries, but the SOMA data only goes back to 2003.
 	Future research could apply this methodology to the shortened timeframe.}
 The Treasury began its ``regular and predictable'' debt issuance campaign in the 1970s and data regarding the spot and forward interest rates goes back to January 1977.
 Therefore the variables constructed here will cover the February 1977 to December 2020 period.
