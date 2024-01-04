@@ -215,12 +215,12 @@ In this section I briefly touch on the monetary aggregation literature, motivate
 \label{subsec:MktSeg}
 Fiscal debt is ubiquitously measured as the sum of outstanding principal values, but as \citet[pg 431]{Serletis-Robb:1986} explain: ``Simple-sum aggregation (the usual procedure) is justified [\dots]\ only if the compoent assets are perfect substitutes (implying linear indifference surfaces) one for one.
 If this is condition of perfect substituability is violated, it is inappropriate to form a quantity index by giving an equal weight to each asset component.''
-
-Preliminary signs of {\em imperfect} substitutability would include a yield-to-maturity (YTM) spread between assets that are virtually identical in everything but name.
+Preliminary signs of {\em imperfect} substitutability in the Treasury market would include a yield-to-maturity (YTM) spread between assets that are virtually identical in everything but name.
 On the secondary market, simple equilibrium conditions would suggest that, even in the face of differing coupon payments, the prices of two securirties with the same issuing entity and remaining time to maturity would be bid up or down to equalize their yields.
 So generally speaking, the only difference between these securities on the secondary market should be the label attached to their initial maturity.
 % So we should expect that a note and bond would be perfect substitutes and thus carry the same YTM.
-However, using monthly CRSP data at the CUSIP level, Figure \ref{fig:YTM_Spread} shows a persistent gap in the median yields to maturity of Treasury notes and bonds with roughly the same time to maturity for the 1970--2020 period.
+
+Using monthly CRSP data at the CUSIP level, Figure \ref{fig:YTM_Spread} shows a persistent gap in the median yields to maturity of Treasury notes and bonds with roughly the same time to maturity for the 1970--2020 period.
 That is, the time series compare the YTM of a Treasury note that matures within $t$ periods with a Treasury bond that also matures with $t$ periods.
 As can be seen, these YTMs are not equal, and the spread between them is not constant.
 
@@ -250,9 +250,9 @@ As can be seen, these YTMs are not equal, and the spread between them is not con
 % \label{fig:BidAsk_Ratios}
 % \end{figure}
 
-Considering the same data at a more granular level, I can match Treasury securities by their days to maturity and compare their relative YTMs.
+Considering the same data at a more granular level, I match Treasury securities by their days to maturity and compare their relative YTMs.
 That is, for every month in the 1970--2020 period, each ``senior'' security (bond/note) is matched to a ``junior'' security (note/bill) that matures within one day of said ``senior'' security, allowing for exact matches if they exist.
-Those securities incorporating Treasury Bills are limited to those with less that six-months to maturity, ensuring that both securities have no other payments remaining until the maturity date.
+Potential matches incorporating Treasury bills are limited to those with less that six-months to maturity, ensuring that both securities have no other payments remaining until the maturity date.
 The summary statistics of these matches are presented in Table \ref{tab:Summary_Stats}.
 As can be seen, while the mean and median YTM spreads are within a matter of basis points, they can vary dramatically and they are not always normally distributed.
 
@@ -376,27 +376,24 @@ These results also confirm that, when aggregating, none of these assets should b
 \subsection{Finding the Proper Quantity Index}
 \label{subsec:Hurdles}
 Given that these Treasury securities are not perfect substitutes, the next step is selecting the best quantity index for proper aggregation.
-\citet{Christensen-Jorgenson-Lau:1971} show that the homogenous tanslog function 
-$$ \ln f(x_t) = \alpha_0 + \sum_{n=1}^N \alpha_n \ln x^n_t + \frac{1}{2}\sum_{j,k=1}^N \gamma_{j,k} \ln x^j_t \ln x^k_t, $$
-can provide a second-order approximation to an unknown, arbitrary twice-continuously-differentiable linear homogenous aggregator.
-Here, $\sum_{n=1}^{N} \alpha_n = 1$, $\gamma_{j,k} = \gamma_{k,j}$, and $\sum_{k=1}^{N} \gamma_{j,k} = 0$ for $j \in [1,N]$.
-\citet{Boisvert:1982} explains that the translog function is is more flexible than the Cobb-Douglas or constant elasticity of substitution (CES) functional forms by allowing the partial elastiticies of substituion between the assets to vary.
-He also goes on to explain that this functional form can be viewed as a) an exact aggregator function, b) a second-order Taylor approximation to a general, but unknown aggregator function, or c) a second-order approximation to a CES function.
-These properties make the translog function the perfect starting point in deriving the best quantity index.
-
-\citet[][Section 2]{Diewert:1976} shows that the T\"{o}rnqvist-Theil Divisia quantity index 
+% While the true aggregation function cannot be known, \citet{Christensen-Jorgenson-Lau:1971} show that the homogenous tanslog function 
+% $$ \ln f(x_t) = \alpha_0 + \sum_{n=1}^N \alpha_n \ln x^n_t + \frac{1}{2}\sum_{j,k=1}^N \gamma_{j,k} \ln x^j_t \ln x^k_t, $$
+% can provide a second-order approximation to an unknown, arbitrary twice-continuously-differentiable linear homogenous aggregator.
+% Here, $\sum_{n=1}^{N} \alpha_n = 1$, $\gamma_{j,k} = \gamma_{k,j}$, and $\sum_{k=1}^{N} \gamma_{j,k} = 0$ for $j \in [1,N]$.
+% Additionally, \citet{Boisvert:1982} explains that the translog function is is more flexible than the Cobb-Douglas or constant elasticity of substitution (CES) functional forms by allowing the partial elastiticies of substituion between the assets to vary.
+% He also goes on to explain that this functional form can be viewed as a) an exact aggregator function, b) a second-order Taylor approximation to a general, but unknown aggregator function, or c) a second-order approximation to a CES function.
+% These properties make the translog function the perfect starting point in deriving the best quantity index, without making overly stringent assumptions.
+The preferred quantity index of \citet{Barnett:1980}, \citet{Barnett-Serletis:2000}, \citet{Belongia-Ireland:2014}, and others when aggregating monetary assets is the T\"{o}rnqvist-Theil Divisia quantity index 
 \begin{equation*}
-	\ln{M^d_t} = \ln{M^d_{t-1}} + \sum_{n=1}^{N}\frac{1}{2}(s_{n,t}+s_{n,t-1})\left(\ln{x^n_{t}} - \ln{x^n_{t-1}}\right),
+	\ln{M^d_t} = \ln{M^d_{t-1}} + \sum_{n=1}^{N}\frac{1}{2}(s_{n,t}+s_{n,t-1})\left(\ln{x^n_{t}} - \ln{x^n_{t-1}}\right).
 	\label{DI}
 \end{equation*}
-can be derived directly from a translog aggregator function.
-Here, $M^d_t$ is the level of the Divisia quantity index, $x^n_{t}$ is the nominal value of asset $n$, and 
+Here, $M^d_t$ is the level of the Divisia quantity index, $x^n_{t}$ is the nominal value of asset $n$, 
 \begin{equation*}
-	s_{n,t}  = \frac{\eta^n_{t}x^n_{t}}{\boldsymbol \eta_t \mathbf{x'}_t}
+	s_{n,t}  = \frac{\eta^n_{t}x^n_{t}}{\boldsymbol \eta_t' \mathbf{x}_t}
 \end{equation*}
-corresponds to the weight on the marginal change in financial asset $n$.
-Here, $\mathbf{x}_t$ and $\boldsymbol \eta_t$ are $N \times 1$ vectors of nominal quantities and user costs, respectively.
-This type of quantity index is ubiquitous in the monetary aggregation literature.
+corresponds to the weight on the marginal change in financial asset $n$, and $\mathbf{x}_t$ and $\boldsymbol \eta_t$ are $N \times 1$ vectors of nominal quantities and user costs, respectively.
+% This type of quantity index is ubiquitous in the monetary aggregation literature.\footnote{See \citet{Barnett:1980}, \citet{Barnett-Serletis:2000}, and \citet{Belongia-Ireland:2014} for a preview of the monetary aggregation literature.}
 
 One drawback of the T\"{o}rnqvist-Theil Divisia index is that it does not handle assets coming into and out of the market ($x^n_{t} = 0$ for some $n,t$) very well.
 Given the frequent changes in Treasury policy and the potential categorizations I will use, zero values are likely to be commonplace in this analysis.
@@ -407,7 +404,7 @@ When calculating general monetary aggregates, this problem does not arise often 
 \end{equation}
 for those time periods.
 \citet{Diewert:1976} shows that this quantity index is also superlative, with \citet{Diewert:1978} and \citet{Dumagan:2002} showing that the two indexes will appriximate each other numerically and mathematically, respectively.
-Additionally, \citet{Diewert:1976} shows that the ideal index is derived from a quadratic mean of order 2 quantity index, which corresponds to the assumed translog aggregator function and is even recommended as the preferred index to use \citep[][Section 5]{Diewert:1976}.
+% Additionally, \citet{Diewert:1976} shows that the ideal index is derived from a quadratic mean of order 2 quantity index, which corresponds to the assumed translog aggregator function and is even recommended as the preferred index to use \citep[][Section 5]{Diewert:1976}.
 Therefore, a Fisher ideal index is used in the remaining analysis.
 
 
@@ -848,6 +845,18 @@ Given the general shape of the yield curve, this may still be inherent to the ye
 	\end{threeparttable}
 \end{table}
 
+
+\section{Translog Functions and Index Number Theory}
+\label{app:Translog}
+
+While the true aggregation function cannot be known, \citet{Christensen-Jorgenson-Lau:1971} show that the homogenous tanslog function 
+$$ \ln f(x_t) = \alpha_0 + \sum_{n=1}^N \alpha_n \ln x^n_t + \frac{1}{2}\sum_{j,k=1}^N \gamma_{j,k} \ln x^j_t \ln x^k_t, $$
+can provide a second-order approximation to an unknown, arbitrary twice-continuously-differentiable linear homogenous aggregator.
+Here, $\sum_{n=1}^{N} \alpha_n = 1$, $\gamma_{j,k} = \gamma_{k,j}$, and $\sum_{k=1}^{N} \gamma_{j,k} = 0$ for $j \in [1,N]$.
+Additionally, \citet{Boisvert:1982} explains that the translog function is is more flexible than the Cobb-Douglas or constant elasticity of substitution (CES) functional forms by allowing the partial elastiticies of substituion between the assets to vary.
+He also goes on to explain that this functional form can be viewed as a) an exact aggregator function, b) a second-order Taylor approximation to a general, but unknown aggregator function, or c) a second-order approximation to a CES function.
+These properties make the translog function the perfect starting point in deriving user cost and quantity index, without making overly stringent assumptions.
+Additionally, \citet{Diewert:1976} shows that ideal indexes are derived from quadratic mean of order 2 quantity indexes, which corresponds to the assumed translog aggregator function in Section \ref{sec:Theory} and is even recommended as the preferred index to use \citep[][Section 5]{Diewert:1976}.
 
 \section{Representative Household Solution}
 \label{app:HH_Solution}
