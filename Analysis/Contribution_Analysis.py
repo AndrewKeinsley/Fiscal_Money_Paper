@@ -3,6 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.ticker as mtick
 from matplotlib.lines import Line2D
+import matplotlib.patches as mpatches
 import datetime
 from datetime import timedelta
 # import statsmodels.api as sm
@@ -30,8 +31,8 @@ UC_t0 = UC_t1.shift(1)
 QT_t0 = QT_t1.shift(1)
 
 ## Additional Time Series Data
-start = datetime.datetime(1977,1,1)
-end = datetime.datetime(2020,12,31)
+start = datetime.datetime(2009,1,1)
+end = datetime.datetime(2011,12,31)
 ## Recession data from FRED 
 rec_data = (web.DataReader(['USREC'], 'fred', start, end))
 
@@ -155,7 +156,8 @@ cumulative_positive = np.zeros(len(CONTR_MS_TYPE))
 cumulative_negative = np.zeros(len(CONTR_MS_TYPE))
 
 ## Define colors for each series
-colors = ['blue', 'orange', 'green', 'red', 'purple']
+colors = ['silver', 'black', 'grey', 'silver', 'silver']
+# colors = ['blue', 'orange', 'green', 'red', 'purple']
 styles = ['-','-.','-','-','--']
 markers = [None, None, 'o', 'D', None]
 
@@ -172,55 +174,61 @@ if len(recs_start) > len(recs_end):
     recs_end = recs_end.append(pd.Index([rec_data.index[-1]]))
 
 
-## CONTRIBUTION PLOT #####
-# fig, ax = plt.subplots()
+# CONTRIBUTION PLOT #####
+fig, ax = plt.subplots()
 
-# ### Plotting the recession dates
-# for rec_start, rec_end in zip(recs_start, recs_end):
-#     ax.axvspan(rec_start, rec_end, color='0.85', alpha=0.5)
+### Plotting the recession dates
+for rec_start, rec_end in zip(recs_start, recs_end):
+    ax.axvspan(rec_start, rec_end, color='lightgrey', alpha=0.5)
 
-## Looping through the columns and ploting them as stacked bars
-# for i, column in enumerate(CONTR_MS_TYPE.columns):
-#     color = colors[i]
-#     ax.bar(CONTR_MS_TYPE.index, df_positive[column], bottom=cumulative_positive,  width=width_in_days, color=color, label=column)
-#     ax.bar(CONTR_MS_TYPE.index, df_negative[column], bottom=cumulative_negative,  width=width_in_days, color=color)
+# Looping through the columns and ploting them as stacked bars
+for i, column in enumerate(CONTR_MS_TYPE.columns):
+    color = colors[i]
+    ax.bar(CONTR_MS_TYPE.index, df_positive[column], bottom=cumulative_positive,  width=width_in_days, color=color, label=column)
+    ax.bar(CONTR_MS_TYPE.index, df_negative[column], bottom=cumulative_negative,  width=width_in_days, color=color)
     
-#     # Update the cumulative sums
-#     cumulative_positive += df_positive[column].fillna(0)
-#     cumulative_negative += df_negative[column].fillna(0)
-# ## Add a horizontal line at y=0
-# ax.axhline(0, color='black', linewidth=0.5)  
-# ## Add a line for the total: Not great for longer sample periods
+    # Update the cumulative sums
+    cumulative_positive += df_positive[column].fillna(0)
+    cumulative_negative += df_negative[column].fillna(0)
+## Add a horizontal line at y=0
+ax.axhline(0, color='black', linewidth=0.5)  
+## Add a line for the total: Not great for longer sample periods
 # ax.plot(CONTR_MS_TYPE.index, CONTR_MS_TYPE.sum(axis=1), color='black', linewidth=1, label='Total')
-# ## Formatting
-# ax.set_ylabel('Percentage Points')
-# plt.xlim((start, end))
-# ### Automatically adjusting the y-axis limits
-# plt.ylim((cumulative_negative.loc[start:end].min()-0.2, cumulative_positive.loc[start:end].max()+0.2)) 
-# ### Setting the x-axis ticks to include the minor ticks
-# ax.set_xticks(CONTR_MS_TYPE.loc[start:end].index, minor=True)
-# plt.xticks(rotation=45)
+## Formatting
+ax.set_ylabel('Percentage Points')
+plt.xlim((start, end))
+### Automatically adjusting the y-axis limits
+plt.ylim((cumulative_negative.loc[start:end].min()-0.2, cumulative_positive.loc[start:end].max()+0.2)) 
+### Setting the x-axis ticks to include the minor ticks
+ax.set_xticks(CONTR_MS_TYPE.loc[start:end].index, minor=True)
+plt.xticks(rotation=45)
+### Custom Legend 
+#### Create the legend handles
+bonds_patch = mpatches.Patch(color='grey', label='Bond Contribution')
+notes_patch = mpatches.Patch(color='black', label='Note Contribution')
+others_patch = mpatches.Patch(color='silver', label='Others')
+plt.legend(handles=[bonds_patch, notes_patch, others_patch], loc=0, frameon=False)
 # plt.legend(loc=0, frameon=False, ncol=2)
-# filename = 'Contribution_MS_'+str(start.year)+'-'+str(end.year)
-# # plt.savefig(filename+'.jpg', format='jpg', dpi=300, bbox_inches='tight')
-# plt.show()
+filename = 'Contribution_MS_'+str(start.year)+'-'+str(end.year)
+plt.savefig(filename+'.jpg', format='jpg', dpi=300, bbox_inches='tight')
+plt.show()
 
 ## GROWTH RATE PLOTS #####
 
-fig, ax = plt.subplots()
-### Recession dates
-for rec_start, rec_end in zip(recs_start, recs_end):
-    ax.axvspan(rec_start, rec_end, color='0.85', alpha=0.5)
-for i, column in enumerate(GROWTH_MS_TYPE.columns):
-    ax.plot(GROWTH_MS_TYPE.index, GROWTH_MS_TYPE[column], label=column, color=colors[i])
-ax.axhline(0, color='black', linewidth=0.5)
-plt.xlim(datetime.datetime(1978,2,28), datetime.datetime(2020,12,31))
-ax.set_ylabel('Percent')
-ax.set_xlabel(None)
-plt.legend(loc=0, frameon=False, ncol=2)
-filename = 'GrowthRate_MS_Type'
-plt.savefig(filename+'.jpg', format='jpg', dpi=300, bbox_inches='tight')
-plt.show()
+# fig, ax = plt.subplots()
+# ### Recession dates
+# for rec_start, rec_end in zip(recs_start, recs_end):
+#     ax.axvspan(rec_start, rec_end, color='0.85', alpha=0.5)
+# for i, column in enumerate(GROWTH_MS_TYPE.columns):
+#     ax.plot(GROWTH_MS_TYPE.index, GROWTH_MS_TYPE[column], label=column, color=colors[i])
+# ax.axhline(0, color='black', linewidth=0.5)
+# plt.xlim(datetime.datetime(1978,2,28), datetime.datetime(2020,12,31))
+# ax.set_ylabel('Percent')
+# ax.set_xlabel(None)
+# plt.legend(loc=0, frameon=False, ncol=2)
+# filename = 'GrowthRate_MS_Type'
+# plt.savefig(filename+'.jpg', format='jpg', dpi=300, bbox_inches='tight')
+# plt.show()
 
 ### Separate plots for each type of security
 
@@ -239,42 +247,42 @@ plt.show()
 #     plt.savefig(filename+'.jpg', format='jpg', dpi=300, bbox_inches='tight')
 #     plt.show()
 
-## INDEX LEVEL PLOTS #####
-fig, ax = plt.subplots()
-### Recession dates
-for rec_start, rec_end in zip(recs_start, recs_end):
-    ax.axvspan(rec_start, rec_end, color='0.85', alpha=0.5)
-for i, column in enumerate(INDEX_MS_TYPE.columns):
-    ax.plot(INDEX_MS_TYPE.index, INDEX_MS_TYPE[column], label=column, color=colors[i], linestyle=styles[i], marker=None)
-    ax.plot(INDEX_MS_TYPE.index[10::24], INDEX_MS_TYPE[column][10::24], color=colors[i], linestyle='', marker=markers[i])
-ax.axhline(100, color='black', linewidth=0.5)
-plt.xlim(datetime.datetime(1977,2,28), datetime.datetime(2020,12,31))
-ax.set_ylabel('Index = ' + index_start)
-ax.set_xlabel(None)
-# Create a custom legend
-custom_lines = [Line2D([0], [0], color=colors[i], linestyle=styles[i], marker=markers[i]) for i in range(len(INDEX_MS_TYPE.columns))]
-ax.legend(custom_lines, INDEX_MS_TYPE.columns, loc=0, frameon=False, ncol=2)
-# plt.legend(loc=0, frameon=False, ncol=2)
-filename = 'Index_MS_Type'
-plt.savefig(filename+'.jpg', format='jpg', dpi=300, bbox_inches='tight')
-plt.show()
+# ## INDEX LEVEL PLOTS #####
+# fig, ax = plt.subplots()
+# ### Recession dates
+# for rec_start, rec_end in zip(recs_start, recs_end):
+#     ax.axvspan(rec_start, rec_end, color='0.85', alpha=0.5)
+# for i, column in enumerate(INDEX_MS_TYPE.columns):
+#     ax.plot(INDEX_MS_TYPE.index, INDEX_MS_TYPE[column], label=column, color=colors[i], linestyle=styles[i], marker=None)
+#     ax.plot(INDEX_MS_TYPE.index[10::24], INDEX_MS_TYPE[column][10::24], color=colors[i], linestyle='', marker=markers[i])
+# ax.axhline(100, color='black', linewidth=0.5)
+# plt.xlim(datetime.datetime(1977,2,28), datetime.datetime(2020,12,31))
+# ax.set_ylabel('Index = ' + index_start)
+# ax.set_xlabel(None)
+# # Create a custom legend
+# custom_lines = [Line2D([0], [0], color=colors[i], linestyle=styles[i], marker=markers[i]) for i in range(len(INDEX_MS_TYPE.columns))]
+# ax.legend(custom_lines, INDEX_MS_TYPE.columns, loc=0, frameon=False, ncol=2)
+# # plt.legend(loc=0, frameon=False, ncol=2)
+# filename = 'Index_MS_Type'
+# plt.savefig(filename+'.jpg', format='jpg', dpi=300, bbox_inches='tight')
+# plt.show()
 
-## INDEX LEVEL PLOTS #####
-fig, ax = plt.subplots()
-### Recession dates
-for rec_start, rec_end in zip(recs_start, recs_end):
-    ax.axvspan(rec_start, rec_end, color='0.85', alpha=0.5)
-for i, column in enumerate(INDEX_MS_BOND.columns):
-    ax.plot(INDEX_MS_BOND.index, INDEX_MS_BOND[column], label=column, color=colors[i], linestyle=styles[i], marker=None)
-    ax.plot(INDEX_MS_BOND.index[10::24], INDEX_MS_BOND[column][10::24], color=colors[i], linestyle='', marker=markers[i])
-ax.axhline(100, color='black', linewidth=0.5)
-plt.xlim(datetime.datetime(1977,2,28), datetime.datetime(2020,12,31))
-ax.set_ylabel('Index = ' + index_start)
-ax.set_xlabel(None)
-# Create a custom legend
-custom_lines = [Line2D([0], [0], color=colors[i], linestyle=styles[i], marker=markers[i]) for i in range(len(INDEX_MS_BOND.columns))]
-ax.legend(custom_lines, INDEX_MS_BOND.columns, loc=0, frameon=False, ncol=2)
-ax.set_title('Monetary Services of Bonds by Time to Maturity')
-filename = 'Index_MS_Bond'
-plt.savefig(filename+'.jpg', format='jpg', dpi=300, bbox_inches='tight')
-plt.show()
+# ## INDEX LEVEL PLOTS #####
+# fig, ax = plt.subplots()
+# ### Recession dates
+# for rec_start, rec_end in zip(recs_start, recs_end):
+#     ax.axvspan(rec_start, rec_end, color='0.85', alpha=0.5)
+# for i, column in enumerate(INDEX_MS_BOND.columns):
+#     ax.plot(INDEX_MS_BOND.index, INDEX_MS_BOND[column], label=column, color=colors[i], linestyle=styles[i], marker=None)
+#     ax.plot(INDEX_MS_BOND.index[10::24], INDEX_MS_BOND[column][10::24], color=colors[i], linestyle='', marker=markers[i])
+# ax.axhline(100, color='black', linewidth=0.5)
+# plt.xlim(datetime.datetime(1977,2,28), datetime.datetime(2020,12,31))
+# ax.set_ylabel('Index = ' + index_start)
+# ax.set_xlabel(None)
+# # Create a custom legend
+# custom_lines = [Line2D([0], [0], color=colors[i], linestyle=styles[i], marker=markers[i]) for i in range(len(INDEX_MS_BOND.columns))]
+# ax.legend(custom_lines, INDEX_MS_BOND.columns, loc=0, frameon=False, ncol=2)
+# ax.set_title('Monetary Services of Bonds by Time to Maturity')
+# filename = 'Index_MS_Bond'
+# plt.savefig(filename+'.jpg', format='jpg', dpi=300, bbox_inches='tight')
+# plt.show()

@@ -6,13 +6,16 @@ Analysis Notes:
     c. Bills are all over the place, no real change here
 
 2. 87-91 Sample
-    a. HUGE contributions form bonds every quarter: check to see if that was issuance month
+    a. HUGE contributions from bonds every quarter: check to see if that was issuance month
     b. Slight negative in follow-up month could be some correction in the markets
     c. First big jump: June 1988: ?
     d. Biggest contribution: November 1989: Fall of the Berlin Wall (>6%)
     e. Last big jump: June 1991: Comecon is dissolved
         - Soviet-led Council for Mutual Economic Assistance
         - Beginning of the collapse of the USSR, which officially is dissolved in Dec 91
+    f. November 1988: eliminated the rate ceiling altogether on Bonds  
+        - This is a little earlier than the first jumps. 
+        - When did the bill pass?
 
 3. 07-09 Sample
     a. Decrease begins in September and reaches ~ -3% in November
@@ -32,6 +35,8 @@ Analysis Notes:
     d. Other large unanimous jump: July 2011
         - Private creditors agree to take 21% haircut on Greek debt, European leaders urge 
             a larger haircut (50%), which is aggreed to
+    e. Oct 2010
+        - First month without Ireland in the bond market
     
 5. 84-86 Sample
     a. April 1986: Bond prices tumble, which would greatly reduce their value as safety
