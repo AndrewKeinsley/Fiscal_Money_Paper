@@ -612,11 +612,10 @@ This is similar to the strategy used by the Federal Reserve in their calculation
 
 \section{Results}
 \label{sec:Results}
-
-% \subsection{The Measure}
-% \label{subsec:Results_Measure}
-
-The Fisher ideal quantity index of US fiscal debt---and its corresponding simple-sum aggregate---is presented in Figure \ref{fig:MS_Index}.
+In this section I present the measurement derived above in various forms as well as attempt to provide evidence of its validity by analyzing the more dramatic shifts in the measurement and the historical context behind them.
+\subsection{The Measure}
+\label{subsec:Results_Measure}
+The Fisher ideal quantity index of US fiscal debt---and its simple-sum counterpart---is presented in Figure \ref{fig:MS_Index}.
 This value is constructed from the month-over-month growth rates calculated via the logarithm of (\ref{eq:FisherIdeal}).\footnote{
 	This indirect approach to the aggregates' levels is necessary as there is no initial value from which to begin the calculation of (\ref{eq:FisherIdeal}).
 	These month-over-month growth rates can be found in Appendix \ref{app:initial_results}.
@@ -634,7 +633,10 @@ When the yield curve is flat, the differences in the user costs are minimal, sug
 Using the respective growth rates of both measures, I estimate the growth rate of the fiscally-supplied monetary services.
 Since the true aggregate incorporates both the quantities of the underlying assets and the monetary services they provide, the difference in their growth rates reveals the growth of the monetary services alone.
 That is, I am essentially factoring-out the growth that comes purely from the issued principal values.
-This series is then used to constuct a quantity index for the monetary services (Figure \ref{fig:MS_Index}), separated from the quantity of the underlying principal value.
+This series is then used to constuct a quantity index for the monetary services, separated from the quantity of the underlying principal value.\footnote{
+	These month-over-month growth rates are rather noisy and can be difficult to interpret.
+	The values are therefore relegated to Figure \ref{fig:Growth_Spread} in Appendix \ref{app:initial_results}.
+}
 %: Index Values of the Monetary Services
 \begin{figure}[p]
 	\centering
@@ -642,22 +644,69 @@ This series is then used to constuct a quantity index for the monetary services 
 	\caption{Derived Monetary Services Quantity Index}
 	\label{fig:MS_Index}
 \end{figure}
+The quantity index is shown in Figure \ref{fig:MS_Index}, while the year-over-year growth rate of the index is shown in Figure \ref{fig:YoY_Growth}.
 As can be seen, these monetary services have generally grown as principal levels have risen, though it is not uncommon for the monetary services of fiscal debt to decrease even in the face of deficit spending.
-
-The year-over-year growth rate of these monetary services is easier to analyze and shown in Figure \ref{fig:YoY_Growth}.
+% The year-over-year growth rate of these monetary services is easier to analyze and shown in Figure \ref{fig:YoY_Growth}.
 \begin{figure}[p]
 	\centering
 	\includegraphics[width=0.8\textwidth]{../Figures/YoYGrowth_MonServices.eps}
 	\caption{Year-over-year Growth of Fiscally-Supplied Monetary Services}
 	\label{fig:YoY_Growth}
 \end{figure}
-Eras with large financial market turbulance led to increased demand for the safety and liquidity of Treasury debt.
-For instance, there are surges in the growth of these fiscally-supplied monetary services in the mid-late 1980s around the peak of the Savings and Loan Crisis and the 1987 stock market crash.
-One of the largest and most sustained periods of growth align with the passage of the American Recovery and Reinvestment Act of 2009 and the Euro-zone debt crisis in the early 2010s.
-Sustained decreases can be seen during the bugdet surplus years of the late 1990s and in the late 2010s as the Treasury attempted to lengthen the maturity structure of its outstanding debt.
-The latter results from a move from highly-liquid bills to less-liquid notes and bonds.
-Most notably, and despite substantial deficit spending, the ``dash for cash'' in 2020 is seen as a sharp decrease in these monetary services as businesses and households moved to pure liquidity to smooth spending during the COVID-19 shutdowns.
-The alignment of these economic experiences with the more dramatic swings in the Fisher ideal quantity index suggest that this measure is capturing what is intended.
+
+\subsection{Event Analysis}
+\label{subsec:Results_Events}
+Just as with other financial assets, the monetary services of US Treasuries can ebb and flow with economic environment. 
+In this section, I highlight some of the more notable events in the sample period and how they relate to the growth of these monetary services.
+To do so, I decompose the month-over-month growth rates of the monetary services index by the type of Treasury security to analyze their respective contributions.
+
+\subsubsection{1987--1991}
+This section examines the late 1980s and early 1990s, a period marked by significant economic fluctuations globally. 
+Key events during this time include the Savings and Loan Crisis, the collapse of the Berlin Wall, the Iraqi invasion of Kuwait, the onset of the first Gulf War, and the conclusion of the Cold War. 
+These events likely spurred a heightened demand for market safety. 
+Additionally, in November 1988, a pivotal change occurred when Congress removed the fixed 4.25\% interest rate cap on Treasury bonds, enabling their rates to vary and facilitating their issuance as required.
+
+The impact of these developments on the role of bonds in the market is evident. 
+Figure \ref{fig:Contribution_1987-1991} distinctly showcases the contribution of bonds, separate from other securities. 
+Beginning in June 1988, bonds significantly influenced the growth rate of fiscal monetary services. 
+A notable spike in their influence is observed in November 1989, coinciding with the fall of the Berlin Wall, with an increase exceeding six percentage points. 
+This upward trend in bond services persisted until June 1991, aligning with the dissolution of the Soviet-led Council for Mutual Economic Assistance (Comecon), a precursor to the Soviet Union's disintegration in December 1991. 
+Given all that happened during this period, the dramatic rise in the monetary services of bonds---and Treasuries, more generally, as seen in Figure \ref{fig:YoY_Growth}---is understandable.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\textwidth]{../Figures/Contribution_MS_1987-1991.jpg}
+	\caption{Contribution of Bonds to Month-over-Month Monetary Services Growth, 1987--1991}
+	\label{fig:Contribution_1987-1991}
+\end{figure}
+
+\subsubsection{2007--2009}
+This section delves into the Great Recession, spanning from December 2007 to June 2009, with a specific focus on the final quarter of 2008. 
+This period was characterized by heightened market volatility and uncertainty, as reflected in the notable decline in monetary services provided by U.S.\ Treasuries seen in Figures \ref{fig:MS_Index} and \ref{fig:YoY_Growth}. 
+This decline raises the question: what led to this abrupt reduction in monetary services?
+
+\citet[pg 302]{Menand-Younger:2023} provide insights into the repurchase agreement (repo) market's dynamics during this period. 
+They note that in early 2008, major stand-alone broker-dealers experienced significant changes. 
+Bear Sterns and Merrill Lynch were aquired by commercial banks J.P.\ Morgan Chase and Bank of America, respectively, Lehman Brothers collapsed, and Goldman Sachs and Morgan Stanley reorganized as bank holding companies. 
+These developments resulted in a dramatic reduction in market intermediation capacity, as evidenced by the decrease in gross traded volumes despite market expansion.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.8\textwidth]{../Figures/Contribution_MS_2007-2009.jpg}
+	\caption{Contribution of Bills to Month-Over-Month Monetary Services Growth, 2007--2009}
+	\label{fig:Contribution_2007-2009}
+\end{figure}
+
+This shift resulted in a new, more stringent regulatory environment for the majority of the market, which drastically reduced liquidity in the repo market and Treasury market, more generally. 
+Figure \ref{fig:Contribution_2007-2009} corroborates this, indicating that typically highly-liquid bills primarily drove the dramatic downturn in the monetary services of fiscal debt between September, 2008, and January, 2009.
+
+
+
+% Eras with large financial market turbulance led to increased demand for the safety and liquidity of Treasury debt.
+% For instance, there are surges in the growth of these fiscally-supplied monetary services in the mid-late 1980s around the peak of the Savings and Loan Crisis and the 1987 stock market crash.
+% One of the largest and most sustained periods of growth align with the passage of the American Recovery and Reinvestment Act of 2009 and the Euro-zone debt crisis in the early 2010s.
+% Sustained decreases can be seen during the bugdet surplus years of the late 1990s and in the late 2010s as the Treasury attempted to lengthen the maturity structure of its outstanding debt.
+% The latter results from a move from highly-liquid bills to less-liquid notes and bonds.
+% Most notably, and despite substantial deficit spending, the ``dash for cash'' in 2020 is seen as a sharp decrease in these monetary services as businesses and households moved to pure liquidity to smooth spending during the COVID-19 shutdowns.
+% The alignment of these economic experiences with the more dramatic swings in the Fisher ideal quantity index suggest that this measure is capturing what is intended.
 
 
 % The spread in Figure \ref{fig:Growth_Spread}, therefore, represents the growth of fiscally-provided monetary services.
